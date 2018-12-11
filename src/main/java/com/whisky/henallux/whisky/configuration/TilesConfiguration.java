@@ -23,6 +23,7 @@ public class TilesConfiguration {
     {
         final TilesViewResolver resolver = new TilesViewResolver();
         resolver.setViewClass(TilesView.class);
+        resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
     }
 }
