@@ -184,7 +184,7 @@ a.item_add {
 /*--banner--*/
 
 .banner{
-	background: url(../images/1.jpg) no-repeat ;
+	background: url(../images/banner.jpg) no-repeat ;
 	background-size: cover;
 	width:100%;
 	min-height: 560px;
