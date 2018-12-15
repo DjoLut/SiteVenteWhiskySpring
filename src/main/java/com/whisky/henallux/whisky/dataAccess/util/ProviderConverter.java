@@ -42,7 +42,7 @@ public class ProviderConverter {
         return user;
     }
 
-    public WhiskyEntity WhiskyToWhiskyEntity(Whisky whisky){
+    public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky){
         WhiskyEntity whiskyEntity = new WhiskyEntity();
         whiskyEntity.setAge(whisky.getAge());
         whiskyEntity.setAlcoholContent(whisky.getAlcoholContent());
@@ -62,7 +62,7 @@ public class ProviderConverter {
         return whiskyEntity;
     }
 
-    public Whisky WhiskyEntityToWhisky(WhiskyEntity whiskyEntity){
+    public Whisky whiskyEntityToWhisky(WhiskyEntity whiskyEntity){
         Whisky whisky = new Whisky();
         whisky.setBrand(whiskyEntity.getBrand());
         whisky.setAge(whiskyEntity.getAge());
