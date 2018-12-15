@@ -26,9 +26,9 @@ public class WhiskyDAO {
             list.add(whiskyEntity.getWhiskyName());
         return list;
     }
-    public ArrayList<Whisky> getWhiskies(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAll()); }
+    /*public ArrayList<Whisky> getWhiskies(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAll()); }
     public ArrayList<Whisky> getWhiskiesByPrice(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByOrOrderByPrice()); }
-    public ArrayList<Whisky> getWhiskiesByCategorie(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByOrOrderByCategorieOrderByWhiskyname()); }
+    public ArrayList<Whisky> getWhiskiesByCategorie(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByOrOrderByCategorie()); }
     public ArrayList<Whisky> getWhiskiesInPromotion(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByPromotionIsNotNull()); }
     public ArrayList<Whisky> getWhiskiesInStock(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByStockQuantityIsNotNull()); }
     public ArrayList<Whisky> getWhiskiesBetween(double nombre1, double nombre2){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByPriceBetween(nombre1,nombre2));}
@@ -42,5 +42,5 @@ public class WhiskyDAO {
         for(WhiskyEntity whiskyEntity : whiskyEntities)
             whiskies.add(providerConverter.whiskyEntityToWhisky(whiskyEntity));
         return whiskies;
-    }
+    }*/
 }

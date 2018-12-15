@@ -7,10 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface WhiskyRepository extends JpaRepository<WhiskyEntity, Integer> {
-    public List<WhiskyEntity> findAllByOrOrderByPrice();
-    public List<WhiskyEntity> findAllByOrOrderByCategorieOrderByWhiskyname();
+    /*public List<WhiskyEntity> findAllByOrOrderByPrice();
+    public List<WhiskyEntity> findAllByOrOrderByCategorie();
     public List<WhiskyEntity> findAllByPromotionIsNotNull();
     public List<WhiskyEntity> findAllByStockQuantityIsNotNull();
-    public List<WhiskyEntity> findAllByPriceBetween(double nombre1, double nombre2);
+    public List<WhiskyEntity> findAllByPriceBetween(double nombre1, double nombre2);*/
 
 }

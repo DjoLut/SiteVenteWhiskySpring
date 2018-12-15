@@ -39,6 +39,14 @@ public class UserDAO {
         return users;
     }
 
+    public boolean userExist(String username, String pwd){
+        if(userRepository.exists(username)){
+            UserEntity userEntity = userRepository.findOne(username);
+            if(userEntity.getPwd().equals(pwd));
+            return true;
+        }
+        return false;
+    }
 
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
     public void save(User user)

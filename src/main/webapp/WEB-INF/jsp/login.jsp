@@ -15,15 +15,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="account-pass">
 		<div class="col-md-8 account-top">
 			<form:form id="form" method="POST" action="/whisky/login/send" modelAttribute="user">
-				
-			<div> 	
-				<form:label path="email">Email</form:label>
-				<form:input path="email" type="text"/>
-			</div>
-			<div> 
-				<form:label path="pass">Password</form:label>
-				<form:input path="pass" type="password" />
-			</div>				
+				<form:label path="username">login</form:label>
+				<form:input path="username" type="text"/>
+				<form:label path="pwd">Password</form:label>
+				<form:input path="pwd" type="password" />
 				<form:button>Login</form:button>
 			</form:form>
 		</div>
