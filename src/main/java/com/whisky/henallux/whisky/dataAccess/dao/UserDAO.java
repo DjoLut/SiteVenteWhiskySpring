@@ -2,6 +2,8 @@ package com.whisky.henallux.whisky.dataAccess.dao;
 
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.UserRepository;
+import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
+import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +16,13 @@ import java.util.List;
 public class UserDAO {
 
     private UserRepository userRepository;
+    private ProviderConverter providerConverter;
 
     @Autowired
-    public UserDAO(UserRepository userRepository) {this.userRepository = userRepository;}
+    public UserDAO(UserRepository userRepository, ProviderConverter providerConverter) {
+        this.userRepository = userRepository;
+        this.providerConverter = providerConverter;
+    }
 
     //METHODE QUI CONNECTE UN USER DEJA ENREGISTRER DANS LA BD
 
@@ -35,9 +41,15 @@ public class UserDAO {
 
 
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
-    /*public User save(User user)
+    public void save(User user)
     {
-        ;
+        if(userRepository.findOne(user.getUsername())!=null);
+            userRepository.save(providerConverter.userModelToUserEntity(user));
+    }
+
+    //METHODE QUI ENREGISTRE LE NOUVEAU MDP D'UN USER DANS LA BD
+    /*public void saveNewPwd(User user){
+        userRepository
     }*/
 
 }

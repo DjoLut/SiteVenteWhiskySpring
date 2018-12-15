@@ -3,7 +3,9 @@ import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
 import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.model.Whisky;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProviderConverter {
 
     //METHODE POUR CONVERTIR UN OBJET DE TYPE USERENTITY EN OBJET DE TYPE USER
