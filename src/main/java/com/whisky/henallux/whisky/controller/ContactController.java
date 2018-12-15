@@ -12,4 +12,9 @@ public class ContactController {
     public String home () {
         return "integrated:contact";
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String post(){
+        return "";
+    }
 }
