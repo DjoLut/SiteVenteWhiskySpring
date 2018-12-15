@@ -1,0 +1,7 @@
+package com.whisky.henallux.whisky.dataAccess.repository;
+
+import com.whisky.henallux.whisky.dataAccess.entity.CategorieEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategorieRepository extends JpaRepository<CategorieEntity,String> {
+}
