@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						$('.cart-header').fadeOut('slow', function(c){
 							$('.cart-header').remove();
 						});
-						});	  
+						});
 					});
 			   </script>
 			 <div class="cart-header">

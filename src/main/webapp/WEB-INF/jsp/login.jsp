@@ -23,12 +23,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</form:form>
 		</div>
 		<div class="col-md-4 left-account ">
-			<a href="single.html"><img class="img-responsive " src="images/s1.jpg" alt=""></a>
-			<div class="five">
-			<h2>25% </h2><span>discount</span>
-			</div>
 			<a href="register.html" class="create">Create an account</a>
-<div class="clearfix"> </div>
+			<div class="clearfix"> </div>
 		</div>
 	<div class="clearfix"> </div>
 	</div>
