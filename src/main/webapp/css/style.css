@@ -59,7 +59,7 @@ a.item_add {
 .box_1 h3{
   color: #fff;
   font-size: 1.1em;
-
+  margin : auto;
 }
 .box_1 h3 img{
 	margin-left: 5px;
@@ -126,6 +126,7 @@ a.item_add {
 .header-left{
 	float: right;
 	  margin-top: 4px;
+	display:inline-block;
 }
 .header-left ul{
 	float: left;

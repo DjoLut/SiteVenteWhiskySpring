@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <div class="banner">
     <div class="container">
-        <script src="<spring:url value='../../../js/responsiveslides.min.js'/>"></script>
+        <script src="<spring:url value='/js/responsiveslides.min.js'/>"></script>
         <script>
             $(function () {
                 $("#slider").responsiveSlides({
