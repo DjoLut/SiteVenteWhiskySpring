@@ -1,20 +1,46 @@
 package com.whisky.henallux.whisky.dataAccess.util;
+import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
+import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.model.Whisky;
 
 public class ProviderConverter {
 
     //METHODE POUR CONVERTIR UN OBJET DE TYPE USERENTITY EN OBJET DE TYPE USER
-    /*public UserEntity userModelToUserEntity(User user)
-    {
-        ;
-    }*/
+    public UserEntity userModelToUserEntity(User user) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setAdresse(user.getAdresse());
+        userEntity.setAuthorities(user.getAuthorities());
+        userEntity.setCredentials_non_expired(user.isCredentials_non_expired());
+        userEntity.setEmail(user.getEmail());
+        userEntity.setEnabled(user.isEnabled());
+        userEntity.setLastname(user.getLastname());
+        userEntity.setNon_expired(user.isNon_expired());
+        userEntity.setNon_locked(user.isNon_locked());
+        userEntity.setNumberTVA(user.getNumberTVA());
+        userEntity.setPwd(user.getPwd());
+        userEntity.setUsername(user.getUsername());
+        userEntity.setFirstname(user.getFirstName());
+        return userEntity;
+    }
 
-    //PAREIL MAIS INVERSEMENT
-    /*public User userEntityToUserModel(UserEntity userEntity)
+    public User userEntityToUserModel(UserEntity userEntity)
     {
-        ;
-    }*/
+        User user = new User();
+        user.setAdresse(userEntity.getAdresse());
+        user.setAuthorities(userEntity.getAuthorities());
+        user.setCredentials_non_expired(userEntity.getCredentials_non_expired());
+        user.setEmail(userEntity.getEmail());
+        user.setEnabled(userEntity.getEnabled());
+        user.setFirstName(userEntity.getLastname());
+        user.setLastname(userEntity.getLastname());
+        user.setNon_expired(userEntity.getNon_expired());
+        user.setNon_locked(userEntity.getNon_locked());
+        user.setNumberTVA(userEntity.getNumberTVA());
+        user.setPwd(userEntity.getPwd());
+        user.setUsername(userEntity.getUsername());
+        return user;
+    }
 
     public WhiskyEntity WhiskyToWhiskyEntity(Whisky whisky){
         WhiskyEntity whiskyEntity = new WhiskyEntity();
