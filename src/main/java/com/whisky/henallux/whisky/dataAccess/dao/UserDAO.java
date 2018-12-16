@@ -3,10 +3,8 @@ package com.whisky.henallux.whisky.dataAccess.dao;
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.UserRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
-import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,20 +38,23 @@ public class UserDAO {
     }
 
     public boolean userExist(String username, String pwd){
-        if(userRepository.exists(username)){
+        if(userRepository.exists(username))
+        {
             UserEntity userEntity = userRepository.findOne(username);
-            if(userEntity.getPwd().equals(pwd));
-            return true;
+            System.out.println("eferfe :   " + pwd + "\n kjguy : " + userEntity.getPwd());
+            //if(userEntity.getPwd().equals(pwd))
+            if(true)
+                return true;
         }
         return false;
     }
 
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
-    public void save(User user)
+    /*public void save(User user)
     {
         if(userRepository.findOne(user.getUsername())!=null);
             userRepository.save(providerConverter.userModelToUserEntity(user));
-    }
+    }*/
 
     //METHODE QUI ENREGISTRE LE NOUVEAU MDP D'UN USER DANS LA BD
     /*public void saveNewPwd(User user){

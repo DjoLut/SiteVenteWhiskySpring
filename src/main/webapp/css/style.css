@@ -101,7 +101,7 @@ a.item_add {
   color: #000; 
    font-weight: 700; 	
 }
-.search input[type="submit"] {	
+.search input[type="submit"] {
 	border: none;
 	cursor: pointer;
 	position: absolute;
@@ -1456,7 +1456,7 @@ a.add-re:hover{
 	resize:none;
 	height:60px;		
 }
-.account-top input[type="submit"]{
+.account-top input[type="submit"], #login {
 	outline:none;
 	padding:7px 20px;
 	color:#FFF;
@@ -1472,7 +1472,7 @@ a.add-re:hover{
 	-ms-transition: 0.5s all;	
 	font-size: 1.2em;
 }
-.account-top input[type="submit"]:hover{
+.account-top input[type="submit"]:hover, #login:hover {
 	background:#000;
 }
 
@@ -2313,7 +2313,7 @@ a.item_add p.number {
 ,.register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
   padding: 0.5em;
 }
-.account-top input[type="submit"] {
+.account-top input[type="submit"], #login {
   width: 33%;
 }
 .register-top-grid h3, .register-bottom-grid h3 {
@@ -2344,7 +2344,7 @@ a.item_add p.number {
 .cart-items,.cart-total {
   padding: 0;
 }
-.account-top input[type="submit"],.register-bottom-grid input[type="submit"] {
+.account-top input[type="submit"],.register-bottom-grid input[type="submit"], #login  {
   font-size: 1em;
 }
 .account-top,.left-account,.register-top-grid,.register-bottom-grid {

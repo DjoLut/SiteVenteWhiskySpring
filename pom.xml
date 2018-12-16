@@ -56,7 +56,6 @@
 			<version>4.2.8.RELEASE</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
@@ -72,12 +71,6 @@
             <artifactId>tiles-jsp</artifactId>
             <version>3.0.4</version>
         </dependency>
-
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-jsp</artifactId>
-			<version>3.0.4</version>
-		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>

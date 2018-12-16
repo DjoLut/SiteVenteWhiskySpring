@@ -15,15 +15,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="account-pass">
 		<div class="col-md-8 account-top">
 			<form:form id="form" method="POST" action="/whisky/login/send" modelAttribute="user">
-				<form:label path="username">login</form:label>
-				<form:input path="username" type="text"/>
-				<form:label path="pwd">Password</form:label>
-				<form:input path="pwd" type="password" />
-				<form:button>Login</form:button>
+				<div>
+					<form:label path="username">Login</form:label>
+					<form:input path="username" type="text"/>
+				</div>
+				<div>
+					<form:label path="pwd">Password</form:label>
+					<form:input path="pwd" type="password" />
+				</div>
+				<div>
+					<form:button id="login">Login</form:button>
+				</div>
 			</form:form>
 		</div>
 		<div class="col-md-4 left-account ">
-			<a href="register.html" class="create">Create an account</a>
+			<a href="<spring:url value='register'/>" class="create">Create an account</a>
 			<div class="clearfix"> </div>
 		</div>
 	<div class="clearfix"> </div>
