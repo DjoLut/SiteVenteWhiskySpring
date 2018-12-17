@@ -20,8 +20,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<form:input path="username" type="text"/>
 				</div>
 				<div>
-					<form:label path="pwd">Password</form:label>
-					<form:input path="pwd" type="password" />
+					<form:label path="password">Password</form:label>
+					<form:input path="password" type="password" />
 				</div>
 				<div>
 					<form:button id="login">Login</form:button>

@@ -20,9 +20,9 @@ public class ProviderConverter {
         userEntity.setAccountNonExpired(user.isNon_expired());
         userEntity.setAccountNonLocked(user.isNon_locked());
         userEntity.setNumberTVA(user.getNumberTVA());
-        userEntity.setPassword(user.getPwd());
+        userEntity.setPassword(user.getPassword());
         userEntity.setUsername(user.getUsername());
-        userEntity.setFirstname(user.getFirstName());
+        userEntity.setFirstname(user.getFirstname());
         return userEntity;
     }
 
@@ -34,12 +34,12 @@ public class ProviderConverter {
         user.setCredentials_non_expired(userEntity.isCredentialsNonExpired());
         user.setEmail(userEntity.getEmail());
         user.setEnabled(userEntity.getEnabled());
-        user.setFirstName(userEntity.getLastname());
+        user.setFirstname(userEntity.getLastname());
         user.setLastname(userEntity.getLastname());
         user.setNon_expired(userEntity.getAccountNonExpired());
         user.setNon_locked(userEntity.getAccountNonLocked());
         user.setNumberTVA(userEntity.getNumberTVA());
-        user.setPwd(userEntity.getPassword());
+        user.setPassword(userEntity.getPassword());
         user.setUsername(userEntity.getUsername());
         return user;
     }

@@ -2,9 +2,9 @@ package com.whisky.henallux.whisky.model;
 
 public class User {
     private String username;
-    private String pwd;
+    private String password;
     private String authorities;
-    private String firstName;
+    private String firstname;
     private String lastname;
     private String email;
     private String adresse;
@@ -23,9 +23,9 @@ public class User {
     public void setAdresse(String adresse) { this.adresse = adresse; }
     public void setEmail(String email) { this.email = email; }
     public void setLastname(String lastname) { this.lastname = lastname; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setFirstname(String firstname) { this.firstname = firstname; }
     public void setAuthorities(String authorities) { this.authorities = authorities; }
-    public void setPwd(String pwd) { this.pwd = pwd; }
+    public void setPassword(String password) { this.password = password; }
     public void setUsername(String username) { this.username = username; }
     public void setCredentials_non_expired(boolean credentials_non_expired) {this.credentials_non_expired = credentials_non_expired; }
 
@@ -36,9 +36,9 @@ public class User {
     public String getAdresse() { return adresse; }
     public String getEmail() { return email; }
     public String getLastname() { return lastname;}
-    public String getFirstName() { return firstName;}
+    public String getFirstname() { return firstname;}
     public String getAuthorities() { return authorities; }
     public boolean isEnabled() { return enabled; }
     public String getNumberTVA() { return numberTVA; }
-    public String getPwd() { return pwd; }
+    public String getPassword() { return password; }
 }

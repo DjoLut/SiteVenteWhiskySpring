@@ -1,4 +1,5 @@
-<!--A Design by W3layouts 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -11,40 +12,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class=" container">
 <div class=" register">
 	<h1>Register</h1>
-		  	  <form> 
+		  	  <form:form id="form" method="POST" action="/whisky/register/send" modelAttribute="user">
 				 <div class="col-md-6 register-top-grid">
 					<h3>Personal infomation</h3>
 					 <div>
-						<span>First Name</span>
-						<input type="text"> 
+						 <span><form:label path="firstname">First Name</form:label></span>
+						<form:input path="firstname" type="text"/>
 					 </div>
 					 <div>
-						<span>Last Name</span>
-						<input type="text"> 
+						 <span><form:label path="lastname">Last Name</form:label></span>
+						<form:input path="lastname" type="text"/>
 					 </div>
 					 <div>
-						 <span>Email Address</span>
-						 <input type="text"> 
+						 <span><form:label path="email">Email Address</form:label></span>
+						 <form:input path="email" type="text"/>
 					 </div>
-					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
-					   </a>
+					 <div>
+						 <span><form:label path="adresse">Address</form:label></span>
+						 <form:input path="adresse" type="text"/>
+					 </div>
+					 <div>
+						 <span><form:label path="numberTVA">TVA number</form:label></span>
+						 <form:input path="numberTVA" type="text"/>
+					 </div>
+					 
 					 </div>
 				     <div class="col-md-6 register-bottom-grid">
 						    <h3>Login information</h3>
 							 <div>
-								<span>Password</span>
-								<input type="password">
+								 <span><form:label path="username">login</form:label></span>
+								 <form:input path="username" type="text"/>
+							 </div>
+							 <div>
+								 <span><form:label path="password">Password</form:label></span>
+								<form:input path="password" type="password"/>
 							 </div>
 							 <div>
 								<span>Confirm Password</span>
 								<input type="password">
 							 </div>
-							 <input type="submit" value="submit">
+							 <imput type="submit" value="submit"/>
 							
 					 </div>
 					 <div class="clearfix"> </div>
-				</form>
+				</form:form>
 			</div>
 </div>
 <!--//content-->

@@ -27,7 +27,7 @@ public class LoginController {
 
     @RequestMapping(value="/send", method=RequestMethod.POST)
     public String getFormData(@ModelAttribute(value="user") User form ) {
-        if(userDAO.userExist(form.getUsername(), new BCryptPasswordEncoder().encode(form.getPwd())))
+        if(userDAO.userExist(form.getUsername(), new BCryptPasswordEncoder().encode(form.getPassword())))
         {
             return "redirect:/index";
         }
