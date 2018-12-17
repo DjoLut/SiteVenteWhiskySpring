@@ -10,5 +10,4 @@ import javax.transaction.Transactional;
 @Transactional
 public interface UserRepository extends JpaRepository<UserEntity, String> {
     UserEntity findByUsername(String username);
-    UserEntity save(UserEntity userEntity);
 }

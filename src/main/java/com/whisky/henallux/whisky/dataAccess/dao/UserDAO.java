@@ -3,7 +3,6 @@ package com.whisky.henallux.whisky.dataAccess.dao;
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.UserRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
-import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -42,8 +41,8 @@ public class UserDAO {
         if(userRepository.exists(username))
         {
             UserEntity userEntity = userRepository.findOne(username);
-            System.out.println("eferfe :   " + pwd + "\n kjguy : " + userEntity.getPassword());
-            //if(userEntity.getPassword().equals(pwd))
+            System.out.println("user : " + username + "\neferfe :   " + pwd + "\n kjguy : " + userEntity.getPassword());
+            //if(userEntity.getPwd().equals(pwd))
             if(true)
                 return true;
         }
@@ -57,9 +56,6 @@ public class UserDAO {
             userRepository.save(providerConverter.userModelToUserEntity(user));
     }*/
 
-    public User save(User user){
-        return providerConverter.userEntityToUserModel(userRepository.save(providerConverter.userModelToUserEntity(user)));
-    }
     //METHODE QUI ENREGISTRE LE NOUVEAU MDP D'UN USER DANS LA BD
     /*public void saveNewPwd(User user){
         userRepository
