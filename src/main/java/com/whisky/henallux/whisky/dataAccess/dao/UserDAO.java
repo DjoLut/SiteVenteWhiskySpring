@@ -3,6 +3,9 @@ package com.whisky.henallux.whisky.dataAccess.dao;
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.UserRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
+import com.whisky.henallux.whisky.model.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -14,12 +17,14 @@ import java.util.List;
 public class UserDAO {
 
     private UserRepository userRepository;
+    private SessionFactory sessionFactory;
     private ProviderConverter providerConverter;
 
     @Autowired
-    public UserDAO(UserRepository userRepository, ProviderConverter providerConverter) {
+    public UserDAO(UserRepository userRepository, ProviderConverter providerConverter, SessionFactory sessionFactory) {
         this.userRepository = userRepository;
         this.providerConverter = providerConverter;
+        this.sessionFactory = sessionFactory;
     }
 
     //METHODE QUI CONNECTE UN USER DEJA ENREGISTRER DANS LA BD
@@ -41,7 +46,7 @@ public class UserDAO {
         if(userRepository.exists(username))
         {
             UserEntity userEntity = userRepository.findOne(username);
-            System.out.println("user : " + username + "\neferfe :   " + pwd + "\n kjguy : " + userEntity.getPassword());
+            System.out.println("user : " + username + "\npwd :   " + pwd + "\npwd : " + userEntity.getPassword());
             //if(userEntity.getPwd().equals(pwd))
             if(true)
                 return true;
@@ -60,5 +65,15 @@ public class UserDAO {
     /*public void saveNewPwd(User user){
         userRepository
     }*/
+
+    //METHODE POUR LA SESSION
+    public void transactionMethod(User user1, User user2)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.save(providerConverter.userModelToUserEntity(user1));
+        session.update(providerConverter.userModelToUserEntity(user2));
+        session.getTransaction().commit();
+    }
 
 }
