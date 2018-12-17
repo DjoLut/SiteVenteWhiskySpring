@@ -13,14 +13,14 @@ public class ProviderConverter {
         UserEntity userEntity = new UserEntity();
         userEntity.setAdresse(user.getAdresse());
         userEntity.setAuthorities(user.getAuthorities());
-        userEntity.setCredentials_non_expired(user.isCredentials_non_expired());
+        userEntity.setCredentialsNonExpired(user.isCredentials_non_expired());
         userEntity.setEmail(user.getEmail());
         userEntity.setEnabled(user.isEnabled());
         userEntity.setLastname(user.getLastname());
-        userEntity.setNon_expired(user.isNon_expired());
-        userEntity.setNon_locked(user.isNon_locked());
+        userEntity.setAccountNonExpired(user.isNon_expired());
+        userEntity.setAccountNonLocked(user.isNon_locked());
         userEntity.setNumberTVA(user.getNumberTVA());
-        userEntity.setPwd(user.getPwd());
+        userEntity.setPassword(user.getPwd());
         userEntity.setUsername(user.getUsername());
         userEntity.setFirstname(user.getFirstName());
         return userEntity;
@@ -30,16 +30,16 @@ public class ProviderConverter {
     {
         User user = new User();
         user.setAdresse(userEntity.getAdresse());
-        user.setAuthorities(userEntity.getAuthorities());
-        user.setCredentials_non_expired(userEntity.getCredentials_non_expired());
+        user.setAuthorities(userEntity.getAuthority());
+        user.setCredentials_non_expired(userEntity.isCredentialsNonExpired());
         user.setEmail(userEntity.getEmail());
         user.setEnabled(userEntity.getEnabled());
         user.setFirstName(userEntity.getLastname());
         user.setLastname(userEntity.getLastname());
-        user.setNon_expired(userEntity.getNon_expired());
-        user.setNon_locked(userEntity.getNon_locked());
+        user.setNon_expired(userEntity.getAccountNonExpired());
+        user.setNon_locked(userEntity.getAccountNonLocked());
         user.setNumberTVA(userEntity.getNumberTVA());
-        user.setPwd(userEntity.getPwd());
+        user.setPwd(userEntity.getPassword());
         user.setUsername(userEntity.getUsername());
         return user;
     }

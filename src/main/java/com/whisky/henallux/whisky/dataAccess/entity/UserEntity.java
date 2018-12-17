@@ -1,76 +1,87 @@
 package com.whisky.henallux.whisky.dataAccess.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-@Entity
-@Table(name="utilisateur")
-public class UserEntity {
+import static org.springframework.util.StringUtils.isEmpty;
+
+
+@Entity(name="PERSISTABLE_USER")
+public class UserEntity implements UserDetails {
 
     @Id
-    @Column(name="username")
+    @Column(name = "USERNAME")
     private String username;
 
-    @Column(name="pwd")
-    private String pwd;
+    @Column(name = "PASSWORD")
+    private String password;
 
-    @Column(name="authorities")
+    @Column(name = "AUTHORITIES")
     private String authorities;
 
-    @Column(name="firstname")
+    @Column(name="FIRSTNAME")
     private String firstname;
 
-    @Column(name="lastname")
+    @Column(name="LASTNAME")
     private String lastname;
 
-    @Column(name="email")
+    @Column(name="EMAIL")
     private String email;
 
-    @Column(name="adresse")
+    @Column(name="ADRESSE")
     private String adresse;
 
-    @Column(name="numberTVA")
+    @Column(name="NUMBERTVA")
     private String numberTVA;
 
-    @Column(name="non_expired")
-    private Boolean non_expired;
+    @Column(name = "NON_EXPIRED")
+    private Boolean accountNonExpired;
 
-    @Column(name="non_locked")
-    private Boolean non_locked;
+    @Column(name = "NON_LOCKED")
+    private Boolean accountNonLocked;
 
-    @Column(name="credentials_non_expired")
-    private Boolean credentials_non_expired;
+    @Column(name = "CREDENTIALS_NON_EXPIRED")
+    private Boolean credentialsNonExpired;
 
-    @Column(name="enabled")
+    @Column(name = "ENABLED")
     private Boolean enabled;
 
-    public UserEntity() {;}
 
+    @Override
+    public Collection<GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+
+        if(!isEmpty(authorities)) {
+            String[] authoritiesAsArray = authorities.split(",");
+
+            for(String authority : authoritiesAsArray) {
+                if(!isEmpty(authority)) {
+                    grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+                }
+            }
+        }
+
+        return grantedAuthorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public String getUsername() {
         return username;
     }
 
-    public String getPwd() {
-        return pwd;
-    }
-
-    public String getAuthorities() {
-        return authorities;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
+    public String getAuthority() { return authorities;}
 
     public String getAdresse() {
         return adresse;
@@ -80,44 +91,79 @@ public class UserEntity {
         return numberTVA;
     }
 
-    public Boolean getNon_expired() {
-        return non_expired;
+    public String getEmail() {
+        return email;
     }
 
-    public Boolean getNon_locked() {
-        return non_locked;
+    public String getLastname() {
+        return lastname;
     }
 
-    public Boolean getCredentials_non_expired() {
-        return credentials_non_expired;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public Boolean getEnabled() {
+    @Override
+    public boolean isEnabled() {
         return enabled;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setAuthorities(String authorities) {
         this.authorities = authorities;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public Boolean getAccountNonExpired() {
+        return accountNonExpired;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setAccountNonExpired(Boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Boolean getAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public void setAccountNonLocked(Boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    public Boolean getCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public void setAdresse(String adresse) {
@@ -128,19 +174,15 @@ public class UserEntity {
         this.numberTVA = numberTVA;
     }
 
-    public void setNon_expired(Boolean non_expired) {
-        this.non_expired = non_expired;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setNon_locked(Boolean non_locked) {
-        this.non_locked = non_locked;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public void setCredentials_non_expired(Boolean credentials_non_expired) {
-        this.credentials_non_expired = credentials_non_expired;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 }
