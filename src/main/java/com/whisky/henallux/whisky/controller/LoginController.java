@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping
+@RequestMapping(value="/login")
 public class LoginController {
     private UserDAO userDAO;
 
@@ -28,7 +28,7 @@ public class LoginController {
     }
 
 
-    /*@RequestMapping(value="/send", method=RequestMethod.POST)
+    @RequestMapping(value="/send", method=RequestMethod.POST)
     public String getFormData(@ModelAttribute(value="user") User form ) {
         if(userDAO.userExist(form.getUsername(), new BCryptPasswordEncoder().encode(form.getPassword())))
         {
@@ -37,7 +37,7 @@ public class LoginController {
         else {
             return "redirect:/KeyError";
         }
-    }*/
+    }
 
     /*@RequestMapping(method = RequestMethod.GET)
     public String home(Authentication authentication)

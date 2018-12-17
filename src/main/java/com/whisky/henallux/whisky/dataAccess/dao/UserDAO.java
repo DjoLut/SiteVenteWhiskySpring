@@ -17,14 +17,13 @@ import java.util.List;
 public class UserDAO {
 
     private UserRepository userRepository;
-    private SessionFactory sessionFactory;
+    //private SessionFactory sessionFactory;
     private ProviderConverter providerConverter;
 
     @Autowired
-    public UserDAO(UserRepository userRepository, ProviderConverter providerConverter, SessionFactory sessionFactory) {
+    public UserDAO(UserRepository userRepository, ProviderConverter providerConverter) {
         this.userRepository = userRepository;
         this.providerConverter = providerConverter;
-        this.sessionFactory = sessionFactory;
     }
 
     //METHODE QUI CONNECTE UN USER DEJA ENREGISTRER DANS LA BD
@@ -67,13 +66,13 @@ public class UserDAO {
     }*/
 
     //METHODE POUR LA SESSION
-    public void transactionMethod(User user1, User user2)
+    /*public void transactionMethod(User user1, User user2)
     {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         session.save(providerConverter.userModelToUserEntity(user1));
         session.update(providerConverter.userModelToUserEntity(user2));
         session.getTransaction().commit();
-    }
+    }*/
 
 }

@@ -29,7 +29,6 @@ public class RegisterController {
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
     public String getFormData(@ModelAttribute(value="user") User user){
-        user = userDAO.save(user);
         return "redirect:/index";
     }
 
