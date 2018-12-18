@@ -44,9 +44,10 @@ public class UserDAO {
     public boolean userExist(String username, String pwd){
         if(userRepository.exists(username))
         {
-            UserEntity userEntity = userRepository.findOne(username);
+            System.out.println("fddsfdsf");
+            UserEntity userEntity = userRepository.findByUsername(username);
             System.out.println("user : " + username + "\npwd :   " + pwd + "\npwd : " + userEntity.getPassword());
-            //if(userEntity.getPwd().equals(pwd))
+            //if(userEntity.getPassword().equals(pwd))
             if(true)
                 return true;
         }

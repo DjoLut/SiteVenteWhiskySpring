@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h1>Account</h1>
 		<div class="account-pass">
 		<div class="col-md-8 account-top">
-			<form:form id="form" method="POST" action="/whisky/login/send" modelAttribute="user">
+			<form:form id="form" method="POST" action="/whisky/login/send" modelAttribute="currentUser">
 				<div>
 					<form:label path="username">Login</form:label>
 					<form:input path="username" type="text"/>
