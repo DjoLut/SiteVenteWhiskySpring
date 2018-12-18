@@ -1346,7 +1346,6 @@ a.add-re:hover{
 	border: 1px solid #A09F9F;
 	-webkit-appearance: none;
 }
-
 .checkbox {
 	margin-bottom: 4px;
 	padding-left: 27px;
@@ -2311,7 +2310,8 @@ a.item_add p.number {
   width: 24%;
 }
 .account-top input[type="text"], .account-top textarea, .account-top input[type="password"]
-,.register-top-grid input[type="text"], .register-bottom-grid input[type="password"], .register-bottom-grid input[type="text"] {
+,.register-top-grid input[type="text"], .register-bottom-grid input[type="password"],
+.register-bottom-grid input[type="text"]{
   padding: 0.5em;
 }
 .account-top input[type="submit"], #login {
