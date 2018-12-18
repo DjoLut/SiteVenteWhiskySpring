@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				     <div class="col-md-6 register-bottom-grid">
 						    <h3>Login information</h3>
 							 <div>
-								 <span><form:label path="username">login</form:label></span>
+								 <span><form:label path="username">Login</form:label></span>
 								 <form:input path="username" type="text" />
 							 </div>
 							 <div>
@@ -51,8 +51,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<span>Confirm Password</span>
 								<input type="password">
 							 </div>
-							 <imput type="submit" value="submit"/>
-							
+						 	<form:button id="login">Register</form:button>
 					 </div>
 					 <div class="clearfix"> </div>
 				</form:form>
