@@ -33,7 +33,7 @@ public class WhiskyDAO {
     public ArrayList<Whisky> getWhiskiesInStock(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByStockQuantityIsNotNull()); }
     public ArrayList<Whisky> getWhiskiesBetween(double nombre1, double nombre2){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByPriceBetween(nombre1,nombre2));}
 
-    public Whisky getWhisky(Integer id){ return providerConverter.whiskyEntityToWhisky(whiskyRepository.findOne(id)); }
+    public Whisky getWhiskyEntity(Integer id){ return providerConverter.whiskyEntityToWhisky(whiskyRepository.findOne(id)); }
 
 
 

@@ -1,6 +1,8 @@
 package com.whisky.henallux.whisky.dataAccess.util;
+import com.whisky.henallux.whisky.dataAccess.entity.CategorieEntity;
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
+import com.whisky.henallux.whisky.model.Categorie;
 import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.model.Whisky;
 import org.springframework.stereotype.Component;
@@ -49,10 +51,10 @@ public class ProviderConverter {
         whiskyEntity.setAge(whisky.getAge());
         whiskyEntity.setAlcoholContent(whisky.getAlcoholContent());
         whiskyEntity.setBrand(whisky.getBrand());
-        whiskyEntity.setCategorie(whisky.getCategorie());
+        whiskyEntity.setCategorie(this.categorieToCategorieEntity(whisky.getCategorie()));
         whiskyEntity.setCountry(whisky.getCountry());
         whiskyEntity.setWhiskyName(whisky.getWhiskyName());
-        whiskyEntity.setId(whisky.getId());
+        whiskyEntity.setWhiskyid(whisky.getId());
         whiskyEntity.setImg(whisky.getImg());
         whiskyEntity.setPrice(whisky.getPrice());
         whiskyEntity.setProductionDate(whisky.getProductionDate());
@@ -69,19 +71,30 @@ public class ProviderConverter {
         whisky.setBrand(whiskyEntity.getBrand());
         whisky.setAge(whiskyEntity.getAge());
         whisky.setAlcoholContent(whiskyEntity.getAlcoholContent());
-        whisky.setCategorie(whiskyEntity.getCategorie());
         whisky.setCountry(whiskyEntity.getCountry());
-        whisky.setId(whiskyEntity.getId());
+        whisky.setId(whiskyEntity.getWhiskyid());
         whisky.setImg(whiskyEntity.getImg());
         whisky.setPrice(whiskyEntity.getPrice());
         whisky.setProductionDate(whiskyEntity.getProductionDate());
         whisky.setPromotion(whiskyEntity.getPromotion());
-        whisky.setCategorie(whiskyEntity.getCategorie());
+        whisky.setCategorie(this.categorieEntityToCategorie(whiskyEntity.getCategorie()));
         whisky.setRegion(whiskyEntity.getRegion());
         whisky.setStockQuantity(whiskyEntity.getStockQuantity());
         whisky.setSelection(whiskyEntity.getSelection());
         whisky.setVolume(whiskyEntity.getVolume());
         whisky.setWhiskyName(whiskyEntity.getWhiskyName());
         return whisky;
+    }
+
+    public CategorieEntity categorieToCategorieEntity(Categorie categorie){
+        CategorieEntity categorieEntity = new CategorieEntity();
+        categorieEntity.setNom(categorie.getCategorie());
+        return categorieEntity;
+    }
+
+    public Categorie categorieEntityToCategorie(CategorieEntity categorieEntity){
+        Categorie categorie = new Categorie();
+        categorie.setCategorie(categorieEntity.getNom());
+        return categorie;
     }
 }

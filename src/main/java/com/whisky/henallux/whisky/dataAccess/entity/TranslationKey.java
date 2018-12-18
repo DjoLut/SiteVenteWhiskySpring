@@ -1,39 +1,36 @@
 package com.whisky.henallux.whisky.dataAccess.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
+
 public class TranslationKey implements Serializable {
-    @Column(name="whiskyid")
-    private Integer whisky;
-    @Column(name="languageId")
-    private String language;
+    private WhiskyEntity whiskyEntity;
+    private LanguageEntity translations;
+
     public TranslationKey(){}
 
-    public TranslationKey(Integer whisky, String language){
-        this.whisky = whisky;
-        this.language = language;
+    public TranslationKey(WhiskyEntity whiskyId, LanguageEntity languageId){
+        this.whiskyEntity = whiskyId;
+        this.translations = languageId;
     }
 
-    public String getLanguage() { return language; }
-    public Integer getWhisky() { return whisky; }
+    public LanguageEntity getTranslations() { return translations; }
+    public WhiskyEntity getWhiskyEntity() { return whiskyEntity; }
 
-    public void setWhisky(Integer whisky) { this.whisky = whisky; }
-    public void setLanguage(String language) { this.language = language; }
+    public void setWhiskyEntity(WhiskyEntity whiskyEntity) { this.whiskyEntity = whiskyEntity; }
+    public void setTranslations(LanguageEntity translations) { this.translations = translations; }
 
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
         if(!(obj instanceof TranslationKey)) return false;
         TranslationKey that = (TranslationKey) obj;
-        return Objects.equals(getLanguage(), that.getLanguage())&&Objects.equals(getWhisky(),that.getWhisky());
+        return Objects.equals(getTranslations(), that.getTranslations())&&Objects.equals(getWhiskyEntity(),that.getWhiskyEntity());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getWhisky(),getLanguage());
+        return Objects.hash(getWhiskyEntity(), getTranslations());
     }
 }

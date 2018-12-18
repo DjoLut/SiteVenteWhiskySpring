@@ -94,7 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 			 
 			 <div class="clearfix"></div>
-			 <a class="order" href="#">Place Order</a>
+			 <a class="whiskyorder" href="#">Place Order</a>
 			 <div class="total-item">
 				 <h3>OPTIONS</h3>
 				 <h4>COUPONS</h4>
@@ -116,7 +116,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-4 amet-sed">
 				<h4>MORE INFO</h4>
 				<ul class="nav-bottom">
-						<li><a href="#">How to order</a></li>
+						<li><a href="#">How to whiskyorder</a></li>
 						<li><a href="#">FAQ</a></li>
 						<li><a href="contact.html">Location</a></li>
 						<li><a href="#">Shipping</a></li>
