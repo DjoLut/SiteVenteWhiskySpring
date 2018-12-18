@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h1>Account</h1>
 		<div class="account-pass">
 		<div class="col-md-8 account-top">
-			<form:form whiskyorder="form" method="POST" action="/whiskyEntity/login/send" modelAttribute="user">
+			<form:form id="form" method="POST" action="/whisky/login/send" modelAttribute="currentUser">
 				<div>
 					<form:label path="username">Login</form:label>
 					<form:input path="username" type="text"/>
@@ -24,7 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<form:input path="password" type="password" />
 				</div>
 				<div>
-					<form:button whiskyorder="login">Login</form:button>
+					<form:button id="login">Login</form:button>
 				</div>
 			</form:form>
 		</div>
@@ -46,7 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-4 amet-sed">
 				<h4>MORE INFO</h4>
 				<ul class="nav-bottom">
-						<li><a href="#">How to whiskyorder</a></li>
+						<li><a href="#">How to order</a></li>
 						<li><a href="#">FAQ</a></li>
 						<li><a href="contact.html">Location</a></li>
 						<li><a href="#">Shipping</a></li>
