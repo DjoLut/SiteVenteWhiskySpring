@@ -41,7 +41,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						    <h3>Login information</h3>
 							 <div>
 								 <span><form:label path="username">login</form:label></span>
-								 <form:input path="username" type="text"/>
+								 <form:input path="username" type="text" />
 							 </div>
 							 <div>
 								 <span><form:label path="password">Password</form:label></span>
