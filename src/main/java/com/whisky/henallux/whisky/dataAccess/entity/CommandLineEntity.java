@@ -19,4 +19,15 @@ public class CommandLineEntity {
     private String order;
     @Column(name="whisky")
     private Integer whisky;
+
+    public void setRealPrice(double realPrice) { this.realPrice = realPrice;}
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setOrder(String order) { this.order = order; }
+    public String getOrder() { return order; }
+    public int getQuantity() { return quantity; }
+    public double getRealPrice() { return realPrice; }
+    public void setId(String id) { this.id = id; }
+    public String getId() { return id; }
+    public Integer getWhisky() { return whisky; }
+    public void setWhisky(Integer whisky) { this.whisky = whisky; }
 }

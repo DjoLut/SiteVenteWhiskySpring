@@ -23,7 +23,6 @@ public class RegisterController {
     @RequestMapping(method = RequestMethod.GET)
     public String home (Model model) {
         model.addAttribute("user",new User());
-        model.addAttribute("confPassword", new String());
         return "integrated:register";
     }
 

@@ -3,17 +3,18 @@ package com.whisky.henallux.whisky.dataAccess.entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import static org.springframework.util.StringUtils.isEmpty;
 
 
 @Entity(name="PERSISTABLE_USER")
+@Table(name="PERSISTABLE_USER")
 public class UserEntity implements UserDetails {
 
     @Id
@@ -53,6 +54,9 @@ public class UserEntity implements UserDetails {
     @Column(name = "ENABLED")
     private Boolean enabled;
 
+    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+    private Set<OrderEntity> orders;
+
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
@@ -69,6 +73,15 @@ public class UserEntity implements UserDetails {
         }
 
         return grantedAuthorities;
+    }
+
+    public void setOrders(Set<OrderEntity> orders) {
+        this.orders = orders;
+    }
+
+
+    public Set<OrderEntity> getOrders() {
+        return orders;
     }
 
     @Override
