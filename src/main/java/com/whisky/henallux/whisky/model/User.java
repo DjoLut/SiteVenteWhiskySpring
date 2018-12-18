@@ -1,5 +1,9 @@
 package com.whisky.henallux.whisky.model;
 
+import com.whisky.henallux.whisky.dataAccess.entity.OrderEntity;
+
+import java.util.Set;
+
 public class User {
     private String username;
     private String password;

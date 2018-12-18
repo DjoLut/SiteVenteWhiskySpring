@@ -1,33 +1,32 @@
 package com.whisky.henallux.whisky.dataAccess.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="commandline")
 public class CommandLineEntity {
     @Id
-    @Column(name="id")
-    private String id;
+    @Column(name="commandlineid")
+    private String commandlineid;
     @Column(name="realprice")
-    private double realPrice;
+    private double realprice;
     @Column(name="quantity")
     private int quantity;
-    @Column(name="whiskyorder")
-    private String order;
-    @Column(name="whisky")
-    private Integer whisky;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "whiskyorder", referencedColumnName = "whiskyorderid")
+    private OrderEntity whiskyorder;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "whisky", referencedColumnName = "whiskyid")
+    private WhiskyEntity whisky;
 
-    public void setRealPrice(double realPrice) { this.realPrice = realPrice;}
+    public void setRealprice(double realprice) { this.realprice = realprice;}
     public void setQuantity(int quantity) { this.quantity = quantity; }
-    public void setOrder(String order) { this.order = order; }
-    public String getOrder() { return order; }
     public int getQuantity() { return quantity; }
-    public double getRealPrice() { return realPrice; }
-    public void setId(String id) { this.id = id; }
-    public String getId() { return id; }
-    public Integer getWhisky() { return whisky; }
-    public void setWhisky(Integer whisky) { this.whisky = whisky; }
+    public double getRealprice() { return realprice; }
+    public void setWhiskyorder(OrderEntity whiskyorder) { this.whiskyorder = whiskyorder; }
+    public OrderEntity getWhiskyorder() { return whiskyorder; }
+    public WhiskyEntity getWhisky() { return whisky; }
+    public void setWhisky(WhiskyEntity whisky) { this.whisky = whisky; }
+    public void setCommandlineid(String commandlineid) { this.commandlineid = commandlineid; }
+    public String getCommandlineid() { return commandlineid; }
 }

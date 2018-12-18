@@ -2,18 +2,32 @@ package com.whisky.henallux.whisky.dataAccess.entity;
 
 import javax.persistence.*;
 
-@Entity(name="TranslationEntity")
+@Entity
 @Table(name="translation")
-public class TranslationEntity {
+@IdClass(TranslationKey.class)
+public class TranslationEntity implements java.io.Serializable {
 
-    @EmbeddedId
-    private TranslationKey id;
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "whiskyEntity")
+    private WhiskyEntity whiskyEntity;
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "translations")
+    private LanguageEntity translations;
+
     @Column(name="descriptions")
     private String description;
 
-    public TranslationKey getId() { return id; }
-    public String getDescription() { return description; }
+    public TranslationEntity(){}
 
+
+    public LanguageEntity getTranslations() { return translations; }
+    public WhiskyEntity getWhiskyEntity() { return whiskyEntity; }
+
+    public void setWhiskyEntity(WhiskyEntity whiskyEntity) { this.whiskyEntity = whiskyEntity; }
+    public void setTranslations(LanguageEntity translations) { this.translations = translations; }
+
+    public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    public void setId(TranslationKey id) { this.id = id; }
 }

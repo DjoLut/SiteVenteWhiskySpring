@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class=" container">
 <div class=" register">
 	<h1>Register</h1>
-		  	  <form:form id="form" method="POST" action="/whisky/register/send" modelAttribute="user">
+		  	  <form:form whiskyorder="form" method="POST" action="/whiskyEntity/register/send" modelAttribute="user">
 				 <div class="col-md-6 register-top-grid">
 					<h3>Personal infomation</h3>
 					 <div>
@@ -66,7 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-4 amet-sed">
 				<h4>MORE INFO</h4>
 				<ul class="nav-bottom">
-						<li><a href="#">How to order</a></li>
+						<li><a href="#">How to whiskyorder</a></li>
 						<li><a href="#">FAQ</a></li>
 						<li><a href="contact.html">Location</a></li>
 						<li><a href="#">Shipping</a></li>
