@@ -134,7 +134,7 @@ a.item_add {
 .header-left ul li{
 	display: inline-block;	
 }
-.header-left ul li a{
+.header-left ul li a, .header-left ul li p {
 	text-decoration: none;
 	color:#fff;
 	  font-size: 1.1em;

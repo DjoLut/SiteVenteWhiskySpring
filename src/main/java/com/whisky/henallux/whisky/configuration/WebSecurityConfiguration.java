@@ -2,6 +2,7 @@ package com.whisky.henallux.whisky.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -39,6 +40,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .formLogin()
         .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
         .loginPage(LOGIN_REQUEST)
+                .failureUrl("/login?error")
+                .defaultSuccessUrl("/index")
         .permitAll()
 
         .and()
