@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!--header-->
 <div class="header">
@@ -12,10 +13,15 @@
             </div>
             <div class="header-left">
                 <ul>
+                    <sec:authorize access="!isAuthenticated()">
                     <li><a href="<spring:url value='login'/>" >Login</a></li>
                     <li><a href="<spring:url value='register'/>" >Register</a></li>
-
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                        <li><a href="<spring:url value='logout'/>" >Logout</a></li>
+                    </sec:authorize>
                 </ul>
+
                 <div class="cart box_1">
                     <a href="<spring:url value='checkout'/> ">
                         <h3> <div class="total">
