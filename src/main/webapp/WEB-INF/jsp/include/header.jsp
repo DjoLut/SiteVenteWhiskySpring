@@ -18,10 +18,12 @@
                     <li><a href="<spring:url value='register'/>" >Register</a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
+                        <li><p>Welcome <sec:authentication property="principal.username"></sec:authentication></p></li>
                         <li><a href="<spring:url value='logout'/>" >Logout</a></li>
                     </sec:authorize>
                 </ul>
 
+                <sec:authorize access="isAuthenticated()">
                 <div class="cart box_1">
                     <a href="<spring:url value='checkout'/> ">
                         <h3> <div class="total">
@@ -29,8 +31,9 @@
                             <img src="<spring:url value='/images/cart.png' />"></h3>
                     </a>
                     <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-
                 </div>
+                </sec:authorize>
+
                 <div class="clearfix"> </div>
             </div>
             <div class="clearfix"> </div>
