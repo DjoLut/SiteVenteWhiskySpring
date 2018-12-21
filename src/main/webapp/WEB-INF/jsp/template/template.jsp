@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Whisky lives</title>
+    <title>Whisky alive</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -30,6 +30,14 @@
 
 </head>
 <body>
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<%@ include file="../include/header.jsp" %>
     <tiles:insertAttribute name = "main-content" />
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

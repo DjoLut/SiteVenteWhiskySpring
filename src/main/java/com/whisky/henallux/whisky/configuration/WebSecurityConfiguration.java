@@ -31,21 +31,21 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         http
-                .authorizeRequests()
+            .authorizeRequests()
                 .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
                 .antMatchers("/css/**", "/js/**", "/images/**").permitAll()
-                .anyRequest().authenticated()
+                    .anyRequest().authenticated()
         .and()
-        .formLogin()
-        .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
-        .loginPage(LOGIN_REQUEST)
-                .failureUrl("/login?error")
-                .defaultSuccessUrl("/index")
-        .permitAll()
+            .formLogin()
+                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
+                .loginPage(LOGIN_REQUEST)
+                    .failureUrl("/login?error")
+                    .defaultSuccessUrl("/index")
+                        .permitAll()
 
         .and()
-        .logout()
-        .permitAll();
+            .logout()
+                .permitAll();
     }
 
     @Autowired

@@ -9,8 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WhiskyApplication {
 
 	public static void main(String[] args) {
-		//BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-		//System.out.println(bCryptPasswordEncoder.encode("123"));
+		/*BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		System.out.println(bCryptPasswordEncoder.encode("123"));*/
 		SpringApplication.run(WhiskyApplication.class, args);
 	}
 }
