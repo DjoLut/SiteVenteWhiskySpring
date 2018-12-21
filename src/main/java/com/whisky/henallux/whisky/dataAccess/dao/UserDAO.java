@@ -26,9 +26,6 @@ public class UserDAO {
         this.providerConverter = providerConverter;
     }
 
-    //METHODE QUI CONNECTE UN USER DEJA ENREGISTRER DANS LA BD
-
-
     //METHODE POUR AVOIR TOUT LES USERNAMES
     public ArrayList<String> getUsername()
     {
@@ -41,7 +38,15 @@ public class UserDAO {
         return users;
     }
 
-    public boolean userExist(String username, String pwd){
+    //METHODE QUI ENREGISTRE UN USER DANS LA BD
+    public User save(User user)
+    {
+        UserEntity userEntity = providerConverter.userModelToUserEntity(user);
+        userEntity = userRepository.save(userEntity);
+        return providerConverter.userEntityToUserModel(userEntity);
+    }
+
+    /*public boolean userExist(String username, String pwd){
         if(userRepository.exists(username))
         {
             System.out.println("fddsfdsf");
@@ -52,13 +57,6 @@ public class UserDAO {
                 return true;
         }
         return false;
-    }
-
-    //METHODE QUI ENREGISTRE UN USER DANS LA BD
-    /*public void save(User user)
-    {
-        if(userRepository.findOne(user.getUsername())!=null);
-            userRepository.save(providerConverter.userModelToUserEntity(user));
     }*/
 
     //METHODE QUI ENREGISTRE LE NOUVEAU MDP D'UN USER DANS LA BD
