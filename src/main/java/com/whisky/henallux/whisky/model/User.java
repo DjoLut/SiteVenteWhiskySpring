@@ -1,8 +1,15 @@
 package com.whisky.henallux.whisky.model;
 
 import com.whisky.henallux.whisky.dataAccess.entity.OrderEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
+
+import static org.springframework.util.StringUtils.isEmpty;
 
 public class User {
     private String username;
@@ -28,7 +35,15 @@ public class User {
     public void setEmail(String email) { this.email = email; }
     public void setLastname(String lastname) { this.lastname = lastname; }
     public void setFirstname(String firstname) { this.firstname = firstname; }
-    public void setAuthorities(String authorities) { this.authorities = authorities; }
+
+    public void setAuthorities(Collection<GrantedAuthority> authorities) {
+        String ch = "";
+        for(GrantedAuthority authority : authorities) {
+            ch += authority.getAuthority() + ",";
+        }
+        this.authorities = ch;
+    }
+
     public void setPassword(String password) { this.password = password; }
     public void setUsername(String username) { this.username = username; }
     public void setCredentials_non_expired(boolean credentials_non_expired) {this.credentials_non_expired = credentials_non_expired; }
@@ -41,7 +56,24 @@ public class User {
     public String getEmail() { return email; }
     public String getLastname() { return lastname;}
     public String getFirstname() { return firstname;}
-    public String getAuthorities() { return authorities; }
+
+    public Collection<GrantedAuthority> getAuthorities()
+    {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+
+        if(!isEmpty(authorities)) {
+            String[] authoritiesAsArray = authorities.split(",");
+
+            for(String authority : authoritiesAsArray) {
+                if(!isEmpty(authority)) {
+                    grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+                }
+            }
+        }
+
+        return grantedAuthorities;
+    }
+
     public boolean isEnabled() { return enabled; }
     public String getNumberTVA() { return numberTVA; }
     public String getPassword() { return password; }
