@@ -17,12 +17,13 @@ import java.util.List;
 public class UserDAO {
 
     private UserRepository userRepository;
-    //private SessionFactory sessionFactory;
     private ProviderConverter providerConverter;
+    private SessionFactory sessionFactory;
 
     @Autowired
-    public UserDAO(UserRepository userRepository, ProviderConverter providerConverter) {
+    public UserDAO(SessionFactory sessionFactory, UserRepository userRepository, ProviderConverter providerConverter) {
         this.userRepository = userRepository;
+        this.sessionFactory = sessionFactory;
         this.providerConverter = providerConverter;
     }
 
@@ -46,6 +47,14 @@ public class UserDAO {
         return providerConverter.userEntityToUserModel(userEntity);
     }
 
+    public void transactionMethod(User user)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.save(providerConverter.userModelToUserEntity(user));
+        session.getTransaction().commit();
+    }
+
     /*public boolean userExist(String username, String pwd){
         if(userRepository.exists(username))
         {
@@ -57,21 +66,6 @@ public class UserDAO {
                 return true;
         }
         return false;
-    }*/
-
-    //METHODE QUI ENREGISTRE LE NOUVEAU MDP D'UN USER DANS LA BD
-    /*public void saveNewPwd(User user){
-        userRepository
-    }*/
-
-    //METHODE POUR LA SESSION
-    /*public void transactionMethod(User user1, User user2)
-    {
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.save(providerConverter.userModelToUserEntity(user1));
-        session.update(providerConverter.userModelToUserEntity(user2));
-        session.getTransaction().commit();
     }*/
 
 }

@@ -32,7 +32,7 @@ public class ProviderConverter {
     {
         User user = new User();
         user.setAdresse(userEntity.getAdresse());
-        user.setAuthorities(userEntity.getAuthority());
+        user.setAuthorities(userEntity.getAuthorities());
         user.setCredentials_non_expired(userEntity.isCredentialsNonExpired());
         user.setEmail(userEntity.getEmail());
         user.setEnabled(userEntity.getEnabled());

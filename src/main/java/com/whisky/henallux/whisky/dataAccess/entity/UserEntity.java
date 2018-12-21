@@ -3,6 +3,7 @@ package com.whisky.henallux.whisky.dataAccess.entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.Set;
 import static org.springframework.util.StringUtils.isEmpty;
 
 
-@Entity(name="PERSISTABLE_USER")
+@Entity
 @Table(name="PERSISTABLE_USER")
 public class UserEntity implements UserDetails {
     @Id
@@ -43,7 +44,6 @@ public class UserEntity implements UserDetails {
     private Boolean enabled;
     @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
     private Set<OrderEntity> orders;
-
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
@@ -111,33 +111,38 @@ public class UserEntity implements UserDetails {
     public void setUsername(String username) {
         this.username = username;
     }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password) { this.password = password; }
+
+    public void setAuthorities(Collection<GrantedAuthority> authorities)
+    {
+        String ch = "ROLE_USER";
+        for(GrantedAuthority authority : authorities) {
+            ch += authority.getAuthority() + ",";
+        }
+        this.authorities = ch;
     }
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
-    }
+
     public Boolean getAccountNonExpired() {
         return accountNonExpired;
     }
     public void setAccountNonExpired(Boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
+        this.accountNonExpired = true;
     }
     public Boolean getAccountNonLocked() {
         return accountNonLocked;
     }
     public void setAccountNonLocked(Boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
+        this.accountNonLocked = true;
     }
     public Boolean getCredentialsNonExpired() {
         return credentialsNonExpired;
     }
-    public void setCredentialsNonExpired(Boolean credentialsNonExpired) { this.credentialsNonExpired = credentialsNonExpired; }
+    public void setCredentialsNonExpired(Boolean credentialsNonExpired) { this.credentialsNonExpired = true; }
     public Boolean getEnabled() {
         return enabled;
     }
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        this.enabled = true;
     }
     public void setAdresse(String adresse) {
         this.adresse = adresse;
