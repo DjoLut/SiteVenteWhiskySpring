@@ -14,12 +14,12 @@
             <div class="header-left">
                 <ul>
                     <sec:authorize access="!isAuthenticated()">
-                    <li><a href="<spring:url value='login'/>" >Login</a></li>
-                    <li><a href="<spring:url value='register'/>" >Register</a></li>
+                    <li><a href="<spring:url value='login'/>" ><spring:message code="loginEntry"/></a></li>
+                    <li><a href="<spring:url value='register'/>" ><spring:message code="register"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
-                        <li><p>Welcome <sec:authentication property="principal.username"></sec:authentication></p></li>
-                        <li><a href="<spring:url value='logout'/>" >Logout</a></li>
+                        <li><p><spring:message code="welcome"/> <sec:authentication property="principal.username"></sec:authentication></p></li>
+                        <li><a href="<spring:url value='logout'/>" ><spring:message code="logout"/></a></li>
                     </sec:authorize>
                 </ul>
 
@@ -46,58 +46,33 @@
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li class="active grid"><a class="color8" href="<spring:url value='index'/>">Home</a></li>
-                    <li><a class="color1" href="#">Men</a>
+                    <li class="active grid"><a class="color8" href="<spring:url value='index'/>"><spring:message code="home"/></a></li>
+                    <li><a class="color1" href="#"><spring:message code="category"/></a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
-                                        </ul>
+																			<h4><a href="<spring:url value='whiskies'/>"><spring:message code="allWhisky"/></a></h4>
+																			<ul>
+																				<li><a href="<spring:url value='whiskies/Single Malt'/>">Single Malt</a></li>
+																				<li><a href="<spring:url value='whiskies/Blended Malt'/>">Blended Malt</a></li>
+																				<li><a href="<spring:url value='whiskies/Irish Blend'/>">Irish Blend</a></li>
+																				<li><a href="<spring:url value='whiskies/Blended Whisky'/>">Blended Whisky</a></li>
+																				<li><a href="<spring:url value='whiskies/Bourbon'/>">Bourbon</a></li>
+																				<li><a href="<spring:url value='whiskies/Rye'/>">Rye</a></li>
+																				<li><a href="<spring:url value='whiskies/Whisky de Ble Noir'/>">Whisky de Ble Noir</a></li>
+																				<li><a href="<spring:url value='whiskies/Blend'/>">Blend</a></li>
+																			</ul>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
+                                        <a href="<spring:url value='whisky/22'/>"><img src="images/bottle/macallan-2005-gm.jpg"/></a>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <h4>Popular Brands</h4>
-                                        <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
-                                        </ul>
+																			<a href="<spring:url value='whisky/47'/>"><img src="images/bottle/poit-dhubh-12-ans.jpg"/></a>
                                     </div>
                                 </div>
                             </div>

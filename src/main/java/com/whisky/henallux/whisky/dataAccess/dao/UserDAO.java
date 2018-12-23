@@ -7,6 +7,7 @@ import com.whisky.henallux.whisky.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -17,11 +18,13 @@ import java.util.List;
 public class UserDAO {
 
     private UserRepository userRepository;
+    private BCryptPasswordEncoder passwordEncoder;
     private ProviderConverter providerConverter;
     private SessionFactory sessionFactory;
 
     @Autowired
-    public UserDAO(SessionFactory sessionFactory, UserRepository userRepository, ProviderConverter providerConverter) {
+    public UserDAO(SessionFactory sessionFactory, UserRepository userRepository, ProviderConverter providerConverter, BCryptPasswordEncoder passwordEncoder) {
+        this.passwordEncoder = new BCryptPasswordEncoder();
         this.userRepository = userRepository;
         this.sessionFactory = sessionFactory;
         this.providerConverter = providerConverter;
@@ -40,11 +43,16 @@ public class UserDAO {
     }
 
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
-    public User save(User user)
+    public void save(User user)
     {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
         UserEntity userEntity = providerConverter.userModelToUserEntity(user);
-        userEntity = userRepository.save(userEntity);
-        return providerConverter.userEntityToUserModel(userEntity);
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.save(userEntity);
+        //userEntity = userRepository.save(userEntity);
+        session.getTransaction().commit();
     }
 
     public void transactionMethod(User user)

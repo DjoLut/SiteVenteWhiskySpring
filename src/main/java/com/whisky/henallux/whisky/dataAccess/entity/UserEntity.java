@@ -45,6 +45,17 @@ public class UserEntity implements UserDetails {
     @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
     private Set<OrderEntity> orders;
 
+    public String getConfPassword() {
+        return confPassword;
+    }
+
+    public void setConfPassword(String confPassword) {
+        this.confPassword = confPassword;
+    }
+
+    @Transient
+    private String confPassword;
+
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();

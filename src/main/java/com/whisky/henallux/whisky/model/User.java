@@ -1,13 +1,12 @@
 package com.whisky.henallux.whisky.model;
 
-import com.whisky.henallux.whisky.dataAccess.entity.OrderEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
+
 
 import static org.springframework.util.StringUtils.isEmpty;
 
@@ -24,6 +23,9 @@ public class User {
     private boolean non_locked;
     private boolean credentials_non_expired;
     private boolean enabled;
+    private String confPassword;
+
+
 
     public User(){}
 
@@ -77,4 +79,6 @@ public class User {
     public boolean isEnabled() { return enabled; }
     public String getNumberTVA() { return numberTVA; }
     public String getPassword() { return password; }
+    public String getConfPassword() { return confPassword; }
+    public void setConfPassword(String confPassword) { this.confPassword = confPassword; }
 }
