@@ -42,16 +42,28 @@ public class UserDAO {
         return users;
     }
 
+    public void saveNewUser(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
+        user.setNon_locked(true);
+        user.setNon_expired(true);
+        user.setEnabled(true);
+        user.setCredentials_non_expired(true);
+        UserEntity userEntity = providerConverter.userModelToUserEntity(user);
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.save(userEntity);
+        session.getTransaction().commit();
+    }
+
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
     public void save(User user)
     {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
-        UserEntity userEntity = providerConverter.userModelToUserEntity(user);
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.save(userEntity);
-        //userEntity = userRepository.save(userEntity);
+        session.save(providerConverter.userModelToUserEntity(user));
         session.getTransaction().commit();
     }
 

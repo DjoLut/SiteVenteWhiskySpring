@@ -1,7 +1,10 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.Validator.UserValidator;
 import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
 import com.whisky.henallux.whisky.model.User;
+import com.whisky.henallux.whisky.service.SecurityService;
+import com.whisky.henallux.whisky.service.SecurityServiceImpl;
 import org.aspectj.weaver.bcel.BcelAccessForInlineMunger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
+import java.security.Security;
 import java.util.Locale;
 
 @Controller
@@ -20,11 +24,13 @@ import java.util.Locale;
 public class RegisterController {
     private UserDAO userDAO;
     private MessageSource messageSource;
+    private UserValidator userValidator;
 
     @Autowired
-    public RegisterController(UserDAO userDAO, MessageSource messageSource){
+    public RegisterController(UserDAO userDAO, MessageSource messageSource,UserValidator userValidator){
         this.userDAO = userDAO;
         this.messageSource = messageSource;
+        this.userValidator = userValidator;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -36,12 +42,13 @@ public class RegisterController {
     @RequestMapping(method = RequestMethod.POST)
     public String getFormData(Model model, @Valid @ModelAttribute(value="user") User user,
                               final BindingResult errors){
-        if(!errors.hasErrors()) {
-            userDAO.save(user);
-            return "redirect:/login";
-        }
+        userValidator.validate(user,errors);
+        if(errors.hasErrors())
+            return "redirect:/register";
 
-        return "integrated:register?error";
+        userDAO.save(user);
+        new SecurityServiceImpl().autoLogin(user.getUsername(),user.getPassword());
+        return "redirect:/login";
     }
 
 }
