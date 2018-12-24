@@ -42,18 +42,8 @@ public class UserDAO {
         return users;
     }
 
-    public void saveNewUser(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
-        user.setNon_locked(true);
-        user.setNon_expired(true);
-        user.setEnabled(true);
-        user.setCredentials_non_expired(true);
-        UserEntity userEntity = providerConverter.userModelToUserEntity(user);
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.save(userEntity);
-        session.getTransaction().commit();
+    public User findByEmail(String email){
+        return findByEmail(email);
     }
 
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
@@ -65,6 +55,15 @@ public class UserDAO {
         session.beginTransaction();
         session.save(providerConverter.userModelToUserEntity(user));
         session.getTransaction().commit();
+    }
+
+    //METHODE QUI ENREGISTRE UN nouveau USER DANS LA BD
+    public void saveNewUser(User user){
+        user.setCredentials_non_expired(true);
+        user.setEnabled(true);
+        user.setNon_expired(true);
+        user.setNon_locked(true);
+        this.save(user);
     }
 
     public void transactionMethod(User user)

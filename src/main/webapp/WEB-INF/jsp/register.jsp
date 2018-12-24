@@ -10,9 +10,11 @@
 				 <div class="col-md-6 register-top-grid">
 					<h3><spring:message code="personalInformation"/></h3>
 					 <div>
-						 <span><form:label path="firstname"><spring:message code="firstname"/></form:label></span>
-						<form:input path="firstname" type="text"/>
-						 <form:errors path="firstname"/>
+					 	<spring:bind path="username">
+							<span><form:label path="firstname"><spring:message code="firstname"/></form:label></span>
+							<form:input path="firstname" type="text"/>
+							<form:errors path="firstname"/>
+					 	</spring:bind>
 					 </div>
 					 <div>
 						 <span><form:label path="lastname"><spring:message code="lastname"/></form:label></span>

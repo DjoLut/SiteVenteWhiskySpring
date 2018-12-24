@@ -44,6 +44,8 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","email");
         if(user.getEmail().equals(new Regexp("^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")))
             errors.rejectValue("email", "Invalid.email");
+        if(userService.loadUserByEmail(user.getEmail())!=null)
+            errors.rejectValue("email", "Duplicate.email");
 
         ValidationUtils.rejectIfEmpty(errors,"adresse","adresse");
         if(user.getAdresse().length()<15 || user.getAdresse().length() >200)

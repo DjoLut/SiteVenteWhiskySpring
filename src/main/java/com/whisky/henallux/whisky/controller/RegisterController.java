@@ -43,12 +43,14 @@ public class RegisterController {
     public String getFormData(Model model, @Valid @ModelAttribute(value="user") User user,
                               final BindingResult errors){
         userValidator.validate(user,errors);
-        if(errors.hasErrors())
-            return "redirect:/register";
+        if(errors.hasErrors()) {
+            model.addAttribute(errors);
+            return "integrated:register";
+        }
 
-        userDAO.save(user);
+        userDAO.saveNewUser(user);
         new SecurityServiceImpl().autoLogin(user.getUsername(),user.getPassword());
-        return "redirect:/login";
+        return "redirect:/index";
     }
 
 }
