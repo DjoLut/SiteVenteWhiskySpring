@@ -5,8 +5,7 @@
 <div class=" container">
 <div class=" register">
 	<h1><spring:message code="register"/></h1>
-		<c:if test="${errorRegister}">${message}</c:if>
-		  	  <form:form id="form" method="POST" modelAttribute="user">
+			<form:form id="form" method="POST" modelAttribute="user">
 				 <div class="col-md-6 register-top-grid">
 					<h3><spring:message code="personalInformation"/></h3>
 					 <div>

@@ -126,7 +126,7 @@ public class UserEntity implements UserDetails {
 
     public void setAuthorities(Collection<GrantedAuthority> authorities)
     {
-        String ch = "ROLE_USER";
+        String ch = "";
         for(GrantedAuthority authority : authorities) {
             ch += authority.getAuthority() + ",";
         }

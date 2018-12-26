@@ -25,7 +25,6 @@ public class ProviderConverter {
         userEntity.setPassword(user.getPassword());
         userEntity.setUsername(user.getUsername());
         userEntity.setFirstname(user.getFirstname());
-        userEntity.setConfPassword(user.getConfPassword());
         return userEntity;
     }
 
@@ -44,7 +43,7 @@ public class ProviderConverter {
         user.setNumberTVA(userEntity.getNumberTVA());
         user.setPassword(userEntity.getPassword());
         user.setUsername(userEntity.getUsername());
-        user.setConfPassword(userEntity.getConfPassword());
+        user.setConfPassword(userEntity.getPassword());
         return user;
     }
 

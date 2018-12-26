@@ -7,10 +7,13 @@ import com.whisky.henallux.whisky.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -47,23 +50,33 @@ public class UserDAO {
     }
 
     //METHODE QUI ENREGISTRE UN USER DANS LA BD
-    public void save(User user)
+    public User save(User user)
     {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.save(providerConverter.userModelToUserEntity(user));
-        session.getTransaction().commit();
+        transactionMethod(user);
+        return user;
     }
 
     //METHODE QUI ENREGISTRE UN nouveau USER DANS LA BD
-    public void saveNewUser(User user){
+    public User saveNewUser(User user){
         user.setCredentials_non_expired(true);
         user.setEnabled(true);
         user.setNon_expired(true);
         user.setNon_locked(true);
-        this.save(user);
+        List<GrantedAuthority> collection = new ArrayList<>();
+        collection.add(new SimpleGrantedAuthority("ROLE_USER"));
+        user.setAuthorities(collection);
+        return save(user);
+    }
+
+    public User findByUsername(String username){
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.byId(username);
+        UserEntity userEntity = new UserEntity();
+        session.get(username, userEntity);
+        return providerConverter.userEntityToUserModel(userEntity);
     }
 
     public void transactionMethod(User user)

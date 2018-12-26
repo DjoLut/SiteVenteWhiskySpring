@@ -14,6 +14,8 @@ public class UserValidator implements Validator {
     @Autowired
     private UserDetailsServiceImplementation userService;
 
+    private static final Regexp regex = new Regexp("^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$");
+
     public boolean supports(Class clazz){
         return clazz.equals(User.class);
     }
@@ -24,10 +26,10 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"firstname", "username");
         if(user.getUsername().length()<3 || user.getUsername().length()>30)
             errors.rejectValue("username","Size.username");
-        if(userService.loadUserByUsername(user.getUsername())!=null)
+        if(userService.UserExist(user.getUsername()))
             errors.rejectValue("username", "Duplicate.username");
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password");
         if(user.getPassword().length()<3 || user.getPassword().length()>30)
             errors.rejectValue("password", "Size.password");
         if(!user.getPassword().equals(user.getConfPassword()))
@@ -42,9 +44,9 @@ public class UserValidator implements Validator {
             errors.rejectValue("lastname", "Size.lastname");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","email");
-        if(user.getEmail().equals(new Regexp("^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")))
+        if(regex.equals(user.getEmail()))
             errors.rejectValue("email", "Invalid.email");
-        if(userService.loadUserByEmail(user.getEmail())!=null)
+        if(userService.EmailExist(user.getEmail()))
             errors.rejectValue("email", "Duplicate.email");
 
         ValidationUtils.rejectIfEmpty(errors,"adresse","adresse");

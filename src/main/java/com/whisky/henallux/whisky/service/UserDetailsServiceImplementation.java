@@ -26,13 +26,21 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
         {
             return user;
         }
-        throw new UsernameNotFoundException("User not found");
+        return null;
+    }
+
+    public boolean UserExist(String username){
+        return userRepository.findByUsername(username)!=null;
+    }
+
+    public boolean EmailExist(String email){
+        return userRepository.findByEmail(email) != null;
     }
 
     public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException{
         UserDetails user = userRepository.findByEmail(email);
         if(user!=null)
             return user;
-        throw new UsernameNotFoundException("User not found");
+        return null;
     }
 }
