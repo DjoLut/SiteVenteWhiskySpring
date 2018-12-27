@@ -10,8 +10,8 @@ public class TranslationKey implements Serializable {
 
     public TranslationKey(){}
 
-    public TranslationKey(WhiskyEntity whiskyId, LanguageEntity languageId){
-        this.whiskyEntity = whiskyId;
+    public TranslationKey(WhiskyEntity id, LanguageEntity languageId){
+        this.whiskyEntity = id;
         this.translations = languageId;
     }
 

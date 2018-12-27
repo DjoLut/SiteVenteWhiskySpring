@@ -1,4 +1,3 @@
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ include file="../include/importTags.jsp" %>
 
 <!DOCTYPE HTML>
@@ -36,8 +35,8 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<%@ include file="../include/header.jsp" %>
+    <%@ include file="../include/header.jsp" %>
     <tiles:insertAttribute name = "main-content" />
-<%@ include file="../include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

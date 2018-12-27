@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="banner">
     <div class="container">
-        <script src="<spring:url value='/js/responsiveslides.min.js'/>"></script>
+        <script src="<spring:url value='../js/responsiveslides.min.js'/>"></script>
         <script>
             $(function () {
                 $("#slider").responsiveSlides({

@@ -1,6 +1,7 @@
 package com.whisky.henallux.whisky.dataAccess.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -9,16 +10,16 @@ public class CategorieEntity {
     @Id
     @Column(name="nom")
     private String nom;
-    @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Set<WhiskyEntity> whiskyEntity;
+    @OneToMany(mappedBy = "categorie")
+    private Collection<WhiskyEntity> whiskyEntity;
 
     public CategorieEntity(){}
 
-    public void setWhiskyEntity(Set<WhiskyEntity> whiskyEntity) {
+    public void setWhiskyEntity(Collection<WhiskyEntity> whiskyEntity) {
         this.whiskyEntity = whiskyEntity;
     }
 
-    public Set<WhiskyEntity> getWhiskyEntity() {
+    public Collection<WhiskyEntity> getWhiskyEntity() {
         return whiskyEntity;
     }
 

@@ -7,12 +7,12 @@ import java.util.Set;
 @Table(name="whisky")
 public class WhiskyEntity {
     @Id
-    @Column(name="whiskyid")
-    private Integer whiskyid;
+    @Column(name="id")
+    private Integer id;
     @Column(name="whiskyname")
     private String whiskyName;
     @Column(name="age")
-    private int age;
+    private Integer age;
     @Column(name="selection")
     private String selection;
     @Column(name="brand")
@@ -22,22 +22,22 @@ public class WhiskyEntity {
     @Column(name = "country")
     private String country;
     @Column(name="productiondate")
-    private int productionDate;
-    @Column(name="alcoholContent")
-    private int alcoholContent;
+    private Integer productionDate;
+    @Column(name="alcoholcontent")
+    private Integer alcoholContent;
     @Column(name="volume")
-    private int volume;
+    private Integer volume;
     @Column(name="stockquantity")
-    private int stockQuantity;
-    @ManyToOne(fetch = FetchType.LAZY)
+    private Integer stockQuantity;
     @JoinColumn(name = "categorie", referencedColumnName = "nom")
+    @ManyToOne
     private CategorieEntity categorie;
     @Column(name="img")
     private String img;
     @Column(name="price")
-    private double price;
+    private Double price;
     @Column(name="promotion")
-    private double promotion;
+    private Double promotion;
     @OneToMany(mappedBy = "whisky",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<CommandLineEntity> commandlines;
     @OneToMany(mappedBy = "whiskyEntity",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -52,7 +52,7 @@ public class WhiskyEntity {
     public Set<CommandLineEntity> getCommandlines() { return commandlines; }
     public void setCommandlines(Set<CommandLineEntity> commandlines) {this.commandlines = commandlines; }
 
-    public Integer getWhiskyid(){return this.whiskyid;}
+    public Integer getId(){return this.id;}
     public String getWhiskyName(){return this.whiskyName;}
     public Integer getAge(){return this.age;}
     public String getSelection(){return this.selection;}
@@ -65,10 +65,10 @@ public class WhiskyEntity {
     public Integer getStockQuantity() { return stockQuantity; }
     public CategorieEntity getCategorie() { return categorie; }
     public String getImg() { return img; }
-    public double getPrice() { return price; }
-    public double getPromotion() { return promotion; }
+    public Double getPrice() { return price; }
+    public Double getPromotion() { return promotion; }
 
-    public void setWhiskyid(Integer whiskyid) { this.whiskyid = whiskyid; }
+    public void setId(Integer id) { this.id = id; }
     public void setWhiskyName(String whiskyName) { this.whiskyName = whiskyName; }
     public void setAge(Integer age) { this.age = age; }
     public void setSelection(String selection) { this.selection = selection; }
@@ -81,6 +81,6 @@ public class WhiskyEntity {
     public void setStockQuantity(Integer stockQuantity) { this.stockQuantity = stockQuantity; }
     public void setCategorie(CategorieEntity categorie) { this.categorie = categorie; }
     public void setImg(String img) { this.img = img; }
-    public void setPrice(double price) { this.price = price; }
-    public void setPromotion(double promotion) { this.promotion = promotion; }
+    public void setPrice(Double price) { this.price = price; }
+    public void setPromotion(Double promotion) { this.promotion = promotion; }
 }

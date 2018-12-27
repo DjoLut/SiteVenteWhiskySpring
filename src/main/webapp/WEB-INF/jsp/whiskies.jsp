@@ -1,115 +1,28 @@
+<%@ taglib prefix="form" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!--content-->
 <!---->
 <div class="product">
     <div class="container">
-        <div class="col-md-9 product1">
-            <div class=" bottom-product">
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi3.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-                </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi1.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi4.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class=" bottom-product">
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi5.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-                </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi1.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class=" bottom-product">
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi3.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 
-                </div>
+            <div class=" bottom-product">
+                <form:forEach items="${whisky}" var="whisky">
                 <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi4.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
+
+                        <div class="product-at ">
+                            <a href="<spring:url value='whiskies/${whisky.whiskyName}'/>">
+                                <img src="<spring:url value='/images/bottle/${whisky.img}' />" height="250" width="250">
+                                <div class="pro-grid">
+                                    <span class="buy-in">Buy Now</span>
+                                </div>
+                            </a>
+                        </div>
+                        <p class="tun">${whisky.whiskyName}</p>
+                        <a href="#" class="item_add"><p class="number item_price"><i> </i>${whisky.price} &euro;</p></a>
                 </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi5.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-                </div>
-                <div class="clearfix"> </div>
+                </form:forEach>
             </div>
 
-        </div>
         <div class="clearfix"> </div>
         <nav class="in">
             <ul class="pagination">

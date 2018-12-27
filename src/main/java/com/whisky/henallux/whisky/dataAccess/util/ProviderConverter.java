@@ -1,14 +1,17 @@
 package com.whisky.henallux.whisky.dataAccess.util;
-import com.whisky.henallux.whisky.dataAccess.entity.CategorieEntity;
+
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
-import com.whisky.henallux.whisky.model.Categorie;
 import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.model.Whisky;
+import org.dozer.Mapper;
+import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProviderConverter {
+
+    private Mapper mapper = new DozerBeanMapper();
 
     //METHODE POUR CONVERTIR UN OBJET DE TYPE USERENTITY EN OBJET DE TYPE USER
     public UserEntity userModelToUserEntity(User user) {
@@ -47,7 +50,7 @@ public class ProviderConverter {
         return user;
     }
 
-    public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky){
+    /*public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky){
         WhiskyEntity whiskyEntity = new WhiskyEntity();
         whiskyEntity.setAge(whisky.getAge());
         whiskyEntity.setAlcoholContent(whisky.getAlcoholContent());
@@ -55,7 +58,7 @@ public class ProviderConverter {
         whiskyEntity.setCategorie(this.categorieToCategorieEntity(whisky.getCategorie()));
         whiskyEntity.setCountry(whisky.getCountry());
         whiskyEntity.setWhiskyName(whisky.getWhiskyName());
-        whiskyEntity.setWhiskyid(whisky.getId());
+        whiskyEntity.setId(whisky.getId());
         whiskyEntity.setImg(whisky.getImg());
         whiskyEntity.setPrice(whisky.getPrice());
         whiskyEntity.setProductionDate(whisky.getProductionDate());
@@ -73,7 +76,7 @@ public class ProviderConverter {
         whisky.setAge(whiskyEntity.getAge());
         whisky.setAlcoholContent(whiskyEntity.getAlcoholContent());
         whisky.setCountry(whiskyEntity.getCountry());
-        whisky.setId(whiskyEntity.getWhiskyid());
+        whisky.setId(whiskyEntity.getId());
         whisky.setImg(whiskyEntity.getImg());
         whisky.setPrice(whiskyEntity.getPrice());
         whisky.setProductionDate(whiskyEntity.getProductionDate());
@@ -97,5 +100,20 @@ public class ProviderConverter {
         Categorie categorie = new Categorie();
         categorie.setCategorie(categorieEntity.getNom());
         return categorie;
+    }*/
+
+
+    public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky)
+    {
+        return mapper.map(whisky, WhiskyEntity.class);
     }
+
+    public Whisky whiskyEntityToWhisky(WhiskyEntity whiskyEntity)
+    {
+        return mapper.map(whiskyEntity, Whisky.class);
+    }
+
+
+
+
 }

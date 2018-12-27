@@ -36,7 +36,7 @@ public class RegisterController {
     public String getFormData(Model model, @Valid @ModelAttribute(value="user") User user, BindingResult errors){
         userValidator.validate(user,errors);
         if(!errors.hasErrors()){
-            user = userDAO.saveNewUser(user);
+            userDAO.saveNewUser(user);
             return "redirect:/login";
         }
 

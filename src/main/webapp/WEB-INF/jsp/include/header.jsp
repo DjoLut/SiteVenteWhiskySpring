@@ -52,17 +52,17 @@
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
-																			<h4><a href="<spring:url value='whiskies'/>"><spring:message code="allWhisky"/></a></h4>
-																			<ul>
-																				<li><a href="<spring:url value='whiskies/Single Malt'/>">Single Malt</a></li>
-																				<li><a href="<spring:url value='whiskies/Blended Malt'/>">Blended Malt</a></li>
-																				<li><a href="<spring:url value='whiskies/Irish Blend'/>">Irish Blend</a></li>
-																				<li><a href="<spring:url value='whiskies/Blended Whisky'/>">Blended Whisky</a></li>
-																				<li><a href="<spring:url value='whiskies/Bourbon'/>">Bourbon</a></li>
-																				<li><a href="<spring:url value='whiskies/Rye'/>">Rye</a></li>
-																				<li><a href="<spring:url value='whiskies/Whisky de Ble Noir'/>">Whisky de Ble Noir</a></li>
-																				<li><a href="<spring:url value='whiskies/Blend'/>">Blend</a></li>
-																			</ul>
+                                        <h4><a href="<spring:url value='whiskies'/>"><spring:message code="allWhisky"/></a></h4>
+                                        <ul>
+                                            <li><a href="<spring:url value='whiskies/SingleMalt'/>">Single Malt</a></li>
+                                            <li><a href="<spring:url value='whiskies/BlendedMalt'/>">Blended Malt</a></li>
+                                            <li><a href="<spring:url value='whiskies/IrishBlend'/>">Irish Blend</a></li>
+                                            <li><a href="<spring:url value='whiskies/BlendedWhisky'/>">Blended Whisky</a></li>
+                                            <li><a href="<spring:url value='whiskies/Bourbon'/>">Bourbon</a></li>
+                                            <li><a href="<spring:url value='whiskies/Rye'/>">Rye</a></li>
+                                            <li><a href="<spring:url value='whiskies/WhiskyDeBleNoir'/>">Whisky de Ble Noir</a></li>
+                                            <li><a href="<spring:url value='whiskies/Blend'/>">Blend</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="col1">
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-																			<a href="<spring:url value='whisky/47'/>"><img src="images/bottle/poit-dhubh-12-ans.jpg"/></a>
+                                        <a href="<spring:url value='whisky/47'/>"><img src="images/bottle/poit-dhubh-12-ans.jpg"/></a>
                                     </div>
                                 </div>
                             </div>

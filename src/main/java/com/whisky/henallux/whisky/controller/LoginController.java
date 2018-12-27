@@ -1,6 +1,5 @@
 package com.whisky.henallux.whisky.controller;
 
-import com.whisky.henallux.whisky.Constants;
 import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
 import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.model.User;
@@ -34,7 +33,7 @@ public class LoginController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Authentication authentication)
+    public String getUserAuth(Authentication authentication)
     {
         UserEntity userDetails = (UserEntity) authentication.getPrincipal();
 

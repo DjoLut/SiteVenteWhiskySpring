@@ -16,7 +16,7 @@ public class CommandLineEntity {
     @JoinColumn(name = "whiskyorder", referencedColumnName = "whiskyorderid")
     private OrderEntity whiskyorder;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "whisky", referencedColumnName = "whiskyid")
+    @JoinColumn(name = "whisky", referencedColumnName = "id")
     private WhiskyEntity whisky;
 
     public void setRealprice(double realprice) { this.realprice = realprice;}
