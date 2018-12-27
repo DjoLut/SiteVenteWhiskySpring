@@ -12,6 +12,13 @@
                 </form>
             </div>
             <div class="header-left">
+                <spring:url var="localEn" value=""><spring:param name="locale" value="en"/></spring:url>
+                <spring:url var="localFr" value=""><spring:param name="locale" value="fr"/></spring:url>
+    
+                <ul>
+                    <li><a href="${localEn}"><img class="icoLang" src="<spring:url value='images/icoLangEn.png'/>"></a>
+                        <a href="${loclalFr}"><img class="icoLang" src="<spring:url value='images/icoLangFr.png'/>"></a></li>
+                </ul>
                 <ul>
                     <sec:authorize access="!isAuthenticated()">
                     <li><a href="<spring:url value='login'/>" ><spring:message code="loginEntry"/></a></li>
