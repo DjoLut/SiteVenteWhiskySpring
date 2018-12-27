@@ -22,6 +22,12 @@ ul{
 h1,h2,h3,h4,h5,h6,label,p{
 	margin:0;	
 }
+
+.icoLang{
+	height:30px;
+	width: 30px;
+}
+
 /*----*/
 .itemContainer{
 			width:100%;

@@ -13,6 +13,7 @@
     <link type="text/css" href="<spring:url value='/css/memenu.css'/>" rel="stylesheet" media="all" />
     <link type="text/css" href="<spring:url value='/css/flexslider.css'/>" rel="stylesheet" media="all" />
     <link type="text/css" href="<spring:url value='/css/bootstrap.css'/>" rel="stylesheet" media="all" />
+    <link rel="shortcut icon" href="<spring:url value='/images/shortcutW.png'/>">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<spring:url value='js/jquery.min.js'/>"></script>
