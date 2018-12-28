@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!--content-->
 <!---->
 <div class="product">
@@ -49,7 +50,9 @@
 
                     <p>${whisky.country}</p>
 
-                    <a href="#" class="add-cart item_add">ADD TO CART</a>
+                    <sec:authorize access="isAuthenticated()">
+                        <a href="#" class="add-cart item_add">ADD TO CART</a>
+                    </sec:authorize>
 
                 </div>
             </div>
