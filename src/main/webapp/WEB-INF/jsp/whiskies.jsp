@@ -7,11 +7,11 @@
 
             <div class=" bottom-product">
                 <form:forEach items="${whisky}" var="whisky">
-                    <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                    <div class="col-md-4 bottom-cd simpleCart_shelfItem" style="min-width: 180px; max-width: 283.325px; max-height: 402.6px">
 
                         <div class="product-at ">
                             <a href="<spring:url value='single/${whisky.id}'/>">
-                                <img src="<spring:url value='/images/bottle/${whisky.img}' />" height="300" width="350">
+                                <img src="<spring:url value='/images/bottle/${whisky.img}' />" style="max-width: 280px;	max-height: 300px;">
                                 <div class="pro-grid">
                                     <span class="buy-in">Buy Now</span>
                                 </div>
