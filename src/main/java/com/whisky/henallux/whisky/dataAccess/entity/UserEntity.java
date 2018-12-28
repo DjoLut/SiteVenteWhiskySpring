@@ -42,7 +42,7 @@ public class UserEntity implements UserDetails {
     private Boolean credentialsNonExpired;
     @Column(name = "ENABLED")
     private Boolean enabled;
-    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
     private Set<OrderEntity> orders;
 
     public String getConfPassword() {

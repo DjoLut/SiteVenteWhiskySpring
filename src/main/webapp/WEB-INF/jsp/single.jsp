@@ -53,6 +53,9 @@
                     <sec:authorize access="isAuthenticated()">
                         <a href="#" class="add-cart item_add">ADD TO CART</a>
                     </sec:authorize>
+                    <sec:authorize access="!isAuthenticated()">
+                        <a href="<spring:url value='/login'/>" class="add-cart item_add">ADD TO CART</a>
+                    </sec:authorize>
 
                 </div>
             </div>

@@ -1,6 +1,5 @@
 package com.whisky.henallux.whisky.dataAccess.dao;
 
-import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.WhiskyRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
@@ -74,7 +73,6 @@ public class WhiskyDAO {
         }
         return whiskys;
     }
-
 
     //METHODE POUR AVOIR UN WHISKY PAR SON ID
     public Whisky getWhiskyById(int id)
