@@ -1,6 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
-import com.whisky.henallux.whisky.Validator.UserValidator;
+import com.whisky.henallux.whisky.validator.UserValidator;
 import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
 import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

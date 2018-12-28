@@ -1,4 +1,4 @@
-package com.whisky.henallux.whisky.Validator;
+package com.whisky.henallux.whisky.validator;
 
 import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.service.UserDetailsServiceImplementation;
