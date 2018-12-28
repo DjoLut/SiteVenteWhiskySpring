@@ -22,7 +22,8 @@
 			</form:form>
 		</div>
 		<div class="col-md-4 left-account ">
-			<a href="<spring:url value='register'/>" class="create"><spring:message code="register"/></a>
+			<img src="<spring:url value='/images/bottle/loginImage.jpg' />">
+			<a href="<spring:url value='/register'/>" class="create"><spring:message code="register"/></a>
 			<div class="clearfix"> </div>
 		</div>
 	<div class="clearfix"> </div>

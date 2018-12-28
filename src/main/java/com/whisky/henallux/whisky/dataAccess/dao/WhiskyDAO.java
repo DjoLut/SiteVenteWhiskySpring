@@ -23,7 +23,7 @@ public class WhiskyDAO {
 
     @Autowired
     public WhiskyDAO(WhiskyRepository whiskyRepository, ProviderConverter providerConverter, SessionFactory sessionFactory){
-        this.whiskyRepository=whiskyRepository;
+        this.whiskyRepository = whiskyRepository;
         this.providerConverter = providerConverter;
         this.sessionFactory = sessionFactory;
     }
@@ -51,7 +51,7 @@ public class WhiskyDAO {
         return whiskies;
     }*/
 
-    //METHODE POUR AVOIR TOUT LES WHISKY
+    //METHODE POUR AVOIR TOUS LES WHISKY
     public ArrayList<Whisky> getAllWhisky()
     {
         List<WhiskyEntity> whiskyEntities = whiskyRepository.findAll();
@@ -63,5 +63,28 @@ public class WhiskyDAO {
         }
         return whiskys;
     }
+
+    //METHODE POUR AVOIR TOUS LES SINGLE MALT
+    public ArrayList<Whisky> getWhiskyByCategorie(String categorie)
+    {
+        List<WhiskyEntity> whiskyEntities = whiskyRepository.findByCategorieNom(categorie);
+        ArrayList<Whisky> whiskys = new ArrayList<>();
+        for(WhiskyEntity entity : whiskyEntities)
+        {
+            Whisky whisky = providerConverter.whiskyEntityToWhisky(entity);
+            whiskys.add(whisky);
+        }
+        return whiskys;
+    }
+
+
+    //METHODE POUR AVOIR UN WHISKY PAR SON ID
+    public Whisky getWhiskyById(int id)
+    {
+        WhiskyEntity whiskyEntity = whiskyRepository.findById(id);
+        return providerConverter.whiskyEntityToWhisky(whiskyEntity);
+    }
+
+
 
 }

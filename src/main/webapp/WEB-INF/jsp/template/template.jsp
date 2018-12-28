@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="<spring:url value='/images/shortcutW.png'/>">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="<spring:url value='js/jquery.min.js'/>"></script>
+    <script src="<spring:url value='/js/jquery.min.js'/>"></script>
     <!-- Custom Theme files -->
 
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -24,9 +24,9 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
     <!-- start menu -->
-    <script type="text/javascript" src="<spring:url value='js/memenu.js'/>"></script>
+    <script type="text/javascript" src="<spring:url value='/js/memenu.js'/>"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
-    <script src="<spring:url value='js/simpleCart.min.js'/>"> </script>
+    <script src="<spring:url value='/js/simpleCart.min.js'/>"> </script>
 
 </head>
 <body>

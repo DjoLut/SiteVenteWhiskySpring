@@ -16,23 +16,23 @@
                 <spring:url var="localFr" value=""><spring:param name="locale" value="fr"/></spring:url>
     
                 <ul>
-                    <li><a href="${localEn}"><img class="icoLang" src="<spring:url value='images/icoLangEn.png'/>"></a>
-                        <a href="${loclalFr}"><img class="icoLang" src="<spring:url value='images/icoLangFr.png'/>"></a></li>
+                    <li><a href="${localEn}"><img class="icoLang" src="<spring:url value='/images/icoLangEn.png'/>"></a>
+                        <a href="${localFr}"><img class="icoLang" src="<spring:url value='/images/icoLangFr.png'/>"></a></li>
                 </ul>
                 <ul>
                     <sec:authorize access="!isAuthenticated()">
-                    <li><a href="<spring:url value='login'/>" ><spring:message code="loginEntry"/></a></li>
-                    <li><a href="<spring:url value='register'/>" ><spring:message code="register"/></a></li>
+                    <li><a href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a></li>
+                    <li><a href="<spring:url value='/register'/>" ><spring:message code="register"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li><p><spring:message code="welcome"/> <sec:authentication property="principal.username"></sec:authentication></p></li>
-                        <li><a href="<spring:url value='logout'/>" ><spring:message code="logout"/></a></li>
+                        <li><a href="<spring:url value='/logout'/>" ><spring:message code="logout"/></a></li>
                     </sec:authorize>
                 </ul>
 
                 <sec:authorize access="isAuthenticated()">
                 <div class="cart box_1">
-                    <a href="<spring:url value='checkout'/> ">
+                    <a href="<spring:url value='/checkout'/> ">
                         <h3> <div class="total">
                             <span class="simpleCart_total"></span> (<span whiskyorder="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
                             <img src="<spring:url value='/images/cart.png' />"></h3>
@@ -49,37 +49,37 @@
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="<spring:url value='index'/>"><img src="images/logoW.png" alt=""></a>
+                <a href="<spring:url value='/index'/>"><img src="<spring:url value='/images/logoW.png' />" ></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li class="active grid"><a class="color8" href="<spring:url value='index'/>"><spring:message code="home"/></a></li>
+                    <li class="active grid"><a class="color3" href="<spring:url value='/index'/>"><spring:message code="home"/></a></li>
                     <li><a class="color1" href="#"><spring:message code="category"/></a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <h4><a href="<spring:url value='whiskies'/>"><spring:message code="allWhisky"/></a></h4>
+                                        <h4><a href="<spring:url value='/whiskies'/>"><spring:message code="allWhisky"/></a></h4>
                                         <ul>
-                                            <li><a href="<spring:url value='whiskies/SingleMalt'/>">Single Malt</a></li>
-                                            <li><a href="<spring:url value='whiskies/BlendedMalt'/>">Blended Malt</a></li>
-                                            <li><a href="<spring:url value='whiskies/IrishBlend'/>">Irish Blend</a></li>
-                                            <li><a href="<spring:url value='whiskies/BlendedWhisky'/>">Blended Whisky</a></li>
-                                            <li><a href="<spring:url value='whiskies/Bourbon'/>">Bourbon</a></li>
-                                            <li><a href="<spring:url value='whiskies/Rye'/>">Rye</a></li>
-                                            <li><a href="<spring:url value='whiskies/WhiskyDeBleNoir'/>">Whisky de Ble Noir</a></li>
-                                            <li><a href="<spring:url value='whiskies/Blend'/>">Blend</a></li>
+                                            <li><a href="<spring:url value='/whiskies/SingleMalt'/>">Single Malt</a></li>
+                                            <li><a href="<spring:url value='/whiskies/BlendedMalt'/>">Blended Malt</a></li>
+                                            <li><a href="<spring:url value='/whiskies/IrishBlend'/>">Irish Blend</a></li>
+                                            <li><a href="<spring:url value='/whiskies/BlendedWhisky'/>">Blended Whisky</a></li>
+                                            <li><a href="<spring:url value='/whiskies/Bourbon'/>">Bourbon</a></li>
+                                            <li><a href="<spring:url value='/whiskies/Rye'/>">Rye</a></li>
+                                            <li><a href="<spring:url value='/whiskies/WhiskyDeBleNoir'/>">Whisky de Ble Noir</a></li>
+                                            <li><a href="<spring:url value='/whiskies/Blend'/>">Blend</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <a href="<spring:url value='whisky/22'/>"><img src="images/bottle/macallan-2005-gm.jpg"/></a>
+                                        <a href="<spring:url value='/single/22'/>"><img src="<spring:url value='/images/bottle/macallan-2005-gm.jpg' />"/></a>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <a href="<spring:url value='whisky/47'/>"><img src="images/bottle/poit-dhubh-12-ans.jpg"/></a>
+                                        <a href="<spring:url value='/single/47'/>"><img src="<spring:url value='/images/bottle/poit-dhubh-12-ans.jpg' />"/></a>
                                     </div>
                                 </div>
                             </div>

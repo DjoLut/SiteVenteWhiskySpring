@@ -17,4 +17,6 @@ public interface WhiskyRepository extends JpaRepository<WhiskyEntity, Integer> {
     public List<WhiskyEntity> findAllByStockQuantityIsNotNull();
     public List<WhiskyEntity> findAllByPriceBetween(double nombre1, double nombre2);*/
     List<WhiskyEntity> findAll();
+    WhiskyEntity findById(int id);
+    List<WhiskyEntity> findByCategorieNom(String categorie);
 }
