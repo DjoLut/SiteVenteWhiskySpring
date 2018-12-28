@@ -10,7 +10,7 @@
                     <div class="col-md-4 bottom-cd simpleCart_shelfItem">
 
                         <div class="product-at ">
-                            <a href="<spring:url value='single/${whisky.id}'/>">
+                            <a href="<spring:url value='/single/${whisky.id}'/>">
                                 <img class="img-responsive" src="<spring:url value='/images/bottle/${whisky.img}' />" >
                                 <div class="pro-grid">
                                     <span class="buy-in">Buy Now</span>

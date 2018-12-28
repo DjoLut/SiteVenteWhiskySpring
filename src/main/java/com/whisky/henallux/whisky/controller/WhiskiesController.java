@@ -32,16 +32,4 @@ public class WhiskiesController {
     }
 
 
-
-
-
-
-    /* VA DANS SINGLE CONTROLLER QUAND ON CLIC SUR UN WHISKY A FAIRE PLUS TARD
-    @RequestMapping(value = "/whiskies/{id}")
-    public String getWhiskyById(Model model, @PathVariable(value = "id") int id)
-    {
-        model.addAttribute("whisky", whiskyDAO.getWhiskyById(id));
-        return "integrated:whiskies";
-    }*/
-
 }

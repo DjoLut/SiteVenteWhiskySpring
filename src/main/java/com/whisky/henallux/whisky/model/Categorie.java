@@ -1,13 +1,10 @@
 package com.whisky.henallux.whisky.model;
 
-import java.util.Locale;
-import java.util.Set;
-
 public class Categorie {
-    private String categorie;
+    private String nom;
 
     public Categorie(){}
 
-    public String getCategorie() { return categorie; }
-    public void setCategorie(String categorie) { this.categorie = categorie; }
+    public String getNom() { return nom; }
+    public void setNom(String nom) { this.nom = nom; }
 }
