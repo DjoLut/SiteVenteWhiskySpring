@@ -11,7 +11,7 @@
 
                         <div class="product-at ">
                             <a href="<spring:url value='single/${whisky.id}'/>">
-                                <img src="<spring:url value='/images/bottle/${whisky.img}' />" height="300" width="350">
+                                <img class="img-responsive" src="<spring:url value='/images/bottle/${whisky.img}' />" >
                                 <div class="pro-grid">
                                     <span class="buy-in">Buy Now</span>
                                 </div>
