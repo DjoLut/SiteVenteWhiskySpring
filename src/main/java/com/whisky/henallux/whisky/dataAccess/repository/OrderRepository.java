@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 @Transactional
 public interface OrderRepository extends JpaRepository<OrderEntity,String> {
-    //List<OrderEntity> findAllByUtilisateurId(String username);
+    OrderEntity findAllByUtilisateurUsername(String username);
 }

@@ -7,9 +7,10 @@ import javax.persistence.*;
 public class CommandLineEntity {
     @Id
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     @Column(name="realprice")
-    private double realprice;
+    private Double realprice;
     @Column(name="quantity")
     private int quantity;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -19,10 +20,10 @@ public class CommandLineEntity {
     @JoinColumn(name = "whisky", referencedColumnName = "id")
     private WhiskyEntity whisky;
 
-    public void setRealprice(double realprice) { this.realprice = realprice;}
+    public void setRealprice(Double realprice) { this.realprice = realprice;}
     public void setQuantity(int quantity) { this.quantity = quantity; }
     public int getQuantity() { return quantity; }
-    public double getRealprice() { return realprice; }
+    public Double getRealprice() { return realprice; }
     public void setWhiskyorder(OrderEntity whiskyorder) { this.whiskyorder = whiskyorder; }
     public OrderEntity getWhiskyorder() { return whiskyorder; }
     public WhiskyEntity getWhisky() { return whisky; }

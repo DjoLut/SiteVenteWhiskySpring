@@ -9,8 +9,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Transactional
@@ -27,7 +25,7 @@ public class OrderDAO {
         this.providerConverter = providerConverter;
     }
 
-    /*public void addOrder(Order order)
+    public void addOrder(Order order)
     {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
@@ -35,16 +33,10 @@ public class OrderDAO {
         session.getTransaction().commit();
     }
 
-    public ArrayList<Order> getAllOrderByUtilisateur(String username)
+    public Order getOrderByUtilisateur(String username)
     {
-        List<OrderEntity> orderEntities = orderRepository.findAllByUtilisateurId(username);
-        ArrayList<Order> orders = new ArrayList<>();
-        for(OrderEntity entity : orderEntities)
-        {
-            Order order = providerConverter.orderEntityToOrder(entity);
-            orders.add(order);
-        }
-        return orders;
-    }*/
+        OrderEntity orderEntity = orderRepository.findAllByUtilisateurUsername(username);
+        return providerConverter.orderEntityToOrder(orderEntity);
+    }
 
 }

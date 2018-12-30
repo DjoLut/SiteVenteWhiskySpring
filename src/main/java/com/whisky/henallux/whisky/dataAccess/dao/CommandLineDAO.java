@@ -20,13 +20,14 @@ public class CommandLineDAO {
     private ProviderConverter providerConverter;
 
     @Autowired
-    public CommandLineDAO(SessionFactory sessionFactory, ProviderConverter providerConverter)
+    public CommandLineDAO(CommandLineRepository commandLineRepository, SessionFactory sessionFactory, ProviderConverter providerConverter)
     {
+        this.commandLineRepository = commandLineRepository;
         this.sessionFactory = sessionFactory;
         this.providerConverter = providerConverter;
     }
 
-    /*public void addCommandLine(CommandLine commandLine)
+    public void addCommandLine(CommandLine commandLine)
     {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
@@ -44,7 +45,7 @@ public class CommandLineDAO {
             commandLines.add(commandLine);
         }
         return commandLines;
-    }*/
+    }
 
 
 }

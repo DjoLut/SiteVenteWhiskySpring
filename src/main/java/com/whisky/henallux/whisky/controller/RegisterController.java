@@ -34,7 +34,7 @@ public class RegisterController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String getFormData(Model model, @Valid @ModelAttribute(value="user") User user, BindingResult errors){
-        userValidator.validate(user,errors);
+        userValidator.validate(user, errors);
         if(!errors.hasErrors()){
             userDAO.saveNewUser(user);
             return "redirect:/login";

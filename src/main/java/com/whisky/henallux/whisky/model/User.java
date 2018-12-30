@@ -23,8 +23,6 @@ public class User {
     private boolean enabled;
     private String confPassword;
 
-
-
     public User(){}
 
     public void setEnabled(boolean enabled) { this.enabled = enabled; }

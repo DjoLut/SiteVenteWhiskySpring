@@ -1,9 +1,8 @@
 package com.whisky.henallux.whisky.model;
 
-import com.whisky.henallux.whisky.dataAccess.entity.CommandLineEntity;
-
 import java.util.GregorianCalendar;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Order {
     private String id;
@@ -12,6 +11,7 @@ public class Order {
     private User utilisateur;
     private double promotion;
     private double totalprice;
+
     public Order(){}
 
     public double getPromotion() { return promotion; }

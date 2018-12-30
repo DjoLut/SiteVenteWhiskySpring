@@ -23,12 +23,7 @@
 
                         <p class="tun">${whisky.whiskyName}</p>
 
-                        <sec:authorize access="isAuthenticated()">
-                            <a href="#" class="item_add"><p class="number item_price"><i> </i>${whisky.price} &euro;</p></a>
-                        </sec:authorize>
-                        <sec:authorize access="!isAuthenticated()">
-                            <a href="<spring:url value='/login'/>" class="item_add"><p class="number item_price"><i> </i>${whisky.price} &euro;</p></a>
-                        </sec:authorize>
+                        <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><i> </i>${whisky.price} &euro;</p></a>
 
                     </div>
                 </form:forEach>

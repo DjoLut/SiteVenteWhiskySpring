@@ -70,14 +70,14 @@ public class UserDAO {
         return save(user);
     }
 
-    public User findByUsername(String username){
+    /*public User findByUsername(String username){
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         session.byId(username);
         UserEntity userEntity = new UserEntity();
         session.get(username, userEntity);
         return providerConverter.userEntityToUserModel(userEntity);
-    }
+    }*/
 
     public void transactionMethod(User user)
     {
@@ -86,18 +86,5 @@ public class UserDAO {
         session.save(providerConverter.userModelToUserEntity(user));
         session.getTransaction().commit();
     }
-
-    /*public boolean userExist(String username, String pwd){
-        if(userRepository.exists(username))
-        {
-            System.out.println("fddsfdsf");
-            UserEntity userEntity = userRepository.findByUsername(username);
-            System.out.println("user : " + username + "\npwd :   " + pwd + "\npwd : " + userEntity.getPassword());
-            //if(userEntity.getPassword().equals(pwd))
-            if(true)
-                return true;
-        }
-        return false;
-    }*/
 
 }

@@ -30,7 +30,6 @@
                     </sec:authorize>
                 </ul>
 
-                <sec:authorize access="isAuthenticated()">
                 <div class="cart box_1">
                     <a href="<spring:url value='/checkout'/> ">
                         <h3> <div class="total">
@@ -39,7 +38,6 @@
                     </a>
                     <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                 </div>
-                </sec:authorize>
 
                 <div class="clearfix"> </div>
             </div>

@@ -53,6 +53,8 @@ public class ProviderConverter {
         user.setConfPassword(userEntity.getPassword());
         return user;
     }
+    /*public UserEntity userModelToUserEntity(User user) { return mapper.map(user, UserEntity.class); }
+    public User userEntityToUserModel(UserEntity userEntity) { return  mapper.map(userEntity, User.class); }*/
 
     public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky)
     {

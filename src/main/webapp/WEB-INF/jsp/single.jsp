@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!--content-->
 <!---->
 <div class="product">
@@ -50,12 +51,12 @@
 
                     <p>${whisky.country}</p>
 
-                    <sec:authorize access="isAuthenticated()">
-                        <a href="#" class="add-cart item_add">ADD TO CART</a>
-                    </sec:authorize>
-                    <sec:authorize access="!isAuthenticated()">
-                        <a href="<spring:url value='/login'/>" class="add-cart item_add">ADD TO CART</a>
-                    </sec:authorize>
+                    <form action="${pageContext.request.contextPath}/single/${whisky.id}/add" method="POST">
+                        <input type="number" min="1" max="999" value="1" name="quantity">
+                        <input type="hidden" value="${whisky.id}" name="whisky">
+                        <input type="submit" value="add"/>
+                    </form>
+
 
                 </div>
             </div>

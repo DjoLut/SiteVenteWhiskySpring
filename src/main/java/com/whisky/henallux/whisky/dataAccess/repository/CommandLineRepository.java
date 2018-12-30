@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface CommandLineRepository extends JpaRepository<CommandLineEntity,String> {
-    //List<CommandLineEntity> findAll();
+public interface CommandLineRepository extends JpaRepository<CommandLineEntity, String> {
+    List<CommandLineEntity> findAll();
 }

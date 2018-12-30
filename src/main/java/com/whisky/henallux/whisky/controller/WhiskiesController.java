@@ -31,5 +31,4 @@ public class WhiskiesController {
         return "integrated:whiskies";
     }
 
-
 }
