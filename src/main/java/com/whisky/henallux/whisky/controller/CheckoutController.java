@@ -32,7 +32,6 @@ public class CheckoutController {
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String deleteWhisky(HttpServletRequest request)
     {
-        System.out.println(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))));
         panier.deleteWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))));
         return "redirect:/checkout";
     }
