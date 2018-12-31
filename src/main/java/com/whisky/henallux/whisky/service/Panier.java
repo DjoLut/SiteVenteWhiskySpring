@@ -50,6 +50,18 @@ public class Panier {
         }
     }
 
+    public void modifyWhisky(Whisky whisky, int quantity)
+    {
+        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
+            Map.Entry<Whisky, Integer> entry = it.next();
+            if (entry.getKey().getId() == whisky.getId())
+            {
+                it.remove();
+                whiskys.put(whisky, quantity);
+            }
+        }
+    }
+
     public Map<Whisky, Integer> getWhiskys() {
         return whiskys;
     }

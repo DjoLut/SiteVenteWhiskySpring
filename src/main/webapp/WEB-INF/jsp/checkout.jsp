@@ -21,7 +21,7 @@
                 <div class="cart-header">
                     <form action="/whisky/checkout/delete" method="POST">
                         <input type="hidden" value="${panier.key.id}" name="whisky">
-                        <input type="submit" value=""/>
+                        <input type="submit" id="checkout" value=""/>
                     </form>
                     <div class="cart-sec simpleCart_shelfItem">
                         <div class="cart-item cyc">
@@ -30,7 +30,16 @@
                         <div class="cart-item-info">
                             <h3><a href="<spring:url value='/single/${panier.key.id}'/>">${panier.key.whiskyName}</a><span>${panier.key.alcoholContent} %</span></h3>
                             <ul class="qty">
-                                <li><p>Qty : ${panier.value}</p></li>
+                                <li>
+                                    <p>
+                                        Qty :
+                                        <form action="/whisky/checkout/modify" method="POST">
+                                            <input type="number" min="1" max="999" value="${panier.value}" name="quantity">
+                                            <input type="hidden" value="${panier.key.id}" name="whisky">
+                                            <input type="submit" value="Change quantity" />
+                                        </form>
+                                    </p>
+                                </li>
                             </ul>
                             <h3>${(panier.key.price*panier.value)-promotion} &euro;</h3>
                             <div class="clearfix"></div>

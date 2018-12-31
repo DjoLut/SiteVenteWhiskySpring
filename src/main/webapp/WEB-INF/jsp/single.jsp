@@ -51,10 +51,11 @@
 
                     <p>${whisky.country}</p>
 
-                    <form action="${pageContext.request.contextPath}/single/${whisky.id}/add" method="POST">
+                    <form action="/whisky/single/${whisky.id}/add" method="POST">
                         <input type="number" min="1" max="999" value="1" name="quantity">
                         <input type="hidden" value="${whisky.id}" name="whisky">
-                        <input type="submit" value="add"/>
+                        <div class="clearfix"> </div>
+                        <input type="submit" value="add" id="login"/>
                     </form>
 
 

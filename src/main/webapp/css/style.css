@@ -1624,7 +1624,7 @@ a.create {
 	font-weight:400;
 } 
 
-.close1,.close2, .cart-header input[type="submit"]  {
+.close1,.close2, #checkout  {
   background: url('../images/close_1.png') no-repeat 0px 0px;
   cursor: pointer;
   width: 28px;

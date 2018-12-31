@@ -36,5 +36,11 @@ public class CheckoutController {
         return "redirect:/checkout";
     }
 
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    public String modifyQuantity(HttpServletRequest request)
+    {
+        panier.modifyWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        return "redirect:/checkout";
+    }
 
 }
