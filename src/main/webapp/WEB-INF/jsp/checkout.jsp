@@ -5,7 +5,7 @@
 
 <div class="container">
         <div class="check">
-            <h1>My Shopping Bag</h1>
+            <h1>My Shopping Bag (${panier.size()})</h1>
             <div class="col-md-9 cart-items">
                 <form:set var="total" value="${0}" />
                 <form:set var="promo" value="${0}" />
