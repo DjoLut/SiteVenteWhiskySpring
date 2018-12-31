@@ -58,6 +58,7 @@ public class Panier {
             {
                 it.remove();
                 whiskys.put(whisky, quantity);
+                break;
             }
         }
     }

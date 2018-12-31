@@ -32,7 +32,7 @@
                             <ul class="qty">
                                 <li>
                                     <p>
-                                        Qty :
+                                        Qty : ${panier.value}
                                         <form action="/whisky/checkout/modify" method="POST">
                                             <input type="number" min="1" max="999" value="${panier.value}" name="quantity">
                                             <input type="hidden" value="${panier.key.id}" name="whisky">
