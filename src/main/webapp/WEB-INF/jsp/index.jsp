@@ -18,9 +18,9 @@
                 <li>
 
                     <div class="banner-text">
-                        <h3>Lorem Ipsum is not simply dummy  </h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-                        <a href="single.html">Learn More</a>
+                        <h3><spring:message code="index.Banner1"/></h3>
+                        <p><spring:message code="index.Banner1.p"/></p>
+                        <a href="<spring:url value="whiskies"/>"><spring:message code="index.Banner1.a"/></a>
                     </div>
 
                 </li>
