@@ -8,13 +8,13 @@ insert into whiskyproject.categorie(nom) value('Whisky de Blé Noir');
 insert into whiskyproject.categorie(nom) value('Blend');
 
 
-insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(1,'Nikka Pure Malt Black','nikka-pure-malt-black.jpg','Blended Malt',43,50,'Japon',49.50);
+insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price, promotion) value(1,'Nikka Pure Malt Black','nikka-pure-malt-black.jpg','Blended Malt',43,50,'Japon',49.50,10.0 );
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) values(2,'The Macallan 1824 Series Amber','the-macallan-1824-series-amber.jpg','Single Malt',40,70,'Ecosse Speyside',68.80);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(3,'Highland Park 12 ans','highland-park-12-ans.jpg','Single Malt',12,40,70,'Ecosse Highlands',38.45);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(4,'Glen Garioch Founder’s Reserve','glen-garioch-founders-reserve.jpg','Single Malt',48,70,'Ecosse Highlands',39.95);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(5,'Auchentoshan Three Wood','auchentoshan-three-wood.jpg','Single Malt',43,70,'Ecosse Lowlands',58.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(6,'Bruichladdich Islay Barley','bruichladdich-islay-barley.jpg','Single Malt',50,70,'Ecosse Islay',63.90);
-insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(7,'Glenglassaugh Revival','glenglassaugh-revival.jpg','Single Malt',46,70,'Ecosse Highlands',49.00);
+insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price,promotion) value(7,'Glenglassaugh Revival','glenglassaugh-revival.jpg','Single Malt',46,70,'Ecosse Highlands',49.00,5.21);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(8,'Kavalan King Car Whisky','kavalan-king-car-whisky.jpg','Single Malt',46,70,'Taiwan',67.95);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(9,'Old Pulteney 17 ans','old-pulteney-17-ans.jpg','Single Malt',17,46,70,'Ecosse Highlands',104.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(10,'Nikka Pure Malt Red','nikka-pure-malt-red.jpg','Blended Malt',43,50,'Japon',50.00);
@@ -33,7 +33,7 @@ insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volu
 insert into whiskyproject.whisky(id,whiskyname,img, price) value(23,'Maker’s Mark','makers-mark.jpg',32.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(24,'Springbank 10 ans','springbank-10-ans.jpg','Single Malt',10,46,70,'Ecosse Campbeltown',53.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(25,'Mars Maltage Cosmo','mars-maltage-cosmo.jpg','Blended Malt',43,70,'Japon',60.00);
-insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(26,'Balvenie Single Barrel 12 ans','balvenie-single-barrel-12-ans.jpg','Single Malt',12,48,70,'Ecosse Speyside',72.00);
+insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price,promotion) value(26,'Balvenie Single Barrel 12 ans','balvenie-single-barrel-12-ans.jpg','Single Malt',12,48,70,'Ecosse Speyside',72.00,15.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(27,'Benrinnes 10 ans','benrinnes-10-ans.jpg','Single Malt',10,46,70,'Ecosse Speyside',222.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(28,'Benromach Organic','benromach-organic.jpg','Single Malt',43,70,'Ecosse Speyside', 64.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(29,'Black Bottle','black-bottle.jpg','Blended Whisky',40,70,'Ecosse',32.00);
@@ -45,13 +45,13 @@ insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volu
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(35,'Sonoma County Rye','sonoma-county-rye.jpg','Rye',48,70,'Etats Unis',70.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(36,'Wild Turkey 8 ans','wild-turkey-8-ans.jpg','Bourbon',8,50,70,'Etats Unis',36.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(37,'Eddu Silver Brocéliande','eddu-silver-broceliande.jpg','Whisky de Blé Noir',42,70,'France',51.00);
-insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(38,'DALMORE Cigar Malt Reserve','dalmore-cigar-malt-reserve.jpg','Single Malt',44,70,'Ecosse Highlands',110.00);
+insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price,promotion) value(38,'DALMORE Cigar Malt Reserve','dalmore-cigar-malt-reserve.jpg','Single Malt',44,70,'Ecosse Highlands',110.00,3.27);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(39,'NIKKA 12 ans','nikka-12-ans.jpg','Blend',12,43,70,'Japon',105.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(40,'Teeling Single Malt','teeling-single-malt.jpg','Single Malt',46,70,'Irlande',60.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(41,'Blair Athol 11 ans','blair-athol-11-ans.jpg','Single Malt',11,46,70,'Ecosse Highlands',118.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(42,'Braeval 12 ans Sherry','braeval-12-ans-sherry.jpg','Single Malt',12,46,70,'Ecosse Speyside',350.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(43,'Glengoyne 18 ans','glengoyne-18-ans.jpg','Single Malt',18,43,70,'Ecosse Highlands',93.00);
-insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(44,'Hudson Manhattan Rye','hudson-manhattan-rye.jpg','Rye',46,35,'Etats Unis New York',35.00);
+insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price, promotion) value(44,'Hudson Manhattan Rye','hudson-manhattan-rye.jpg','Rye',46,35,'Etats Unis New York',35.00,25.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(45,'Isle of Skye 12 ans','isle-of-skye-12-ans.jpg','Blended Whisky',12,40,70 ,'Ecosse',44.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(46,'Kilchoman Machir Bay','kilchoman-machir-bay.jpg','Single Malt',46,70,'Ecosse Islay',63.00);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(47,'Poit Dhubh 12 ans','poit-dhubh-12-ans.jpg','Blended Malt',12,43,70,'Ecosse',56.00);
