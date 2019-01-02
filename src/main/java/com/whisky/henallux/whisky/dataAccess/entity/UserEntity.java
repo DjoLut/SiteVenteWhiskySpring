@@ -27,8 +27,8 @@ public class UserEntity implements UserDetails {
     private String email;
     @Column(name="ADRESSE")
     private String adresse;
-    @Column(name="NUMBERTVA")
-    private String numberTVA;
+    @Column(name="TELEPHONE")
+    private String telephone;
     @Column(name = "NON_EXPIRED")
     private Boolean accountNonExpired;
     @Column(name = "NON_LOCKED")
@@ -53,8 +53,8 @@ public class UserEntity implements UserDetails {
     public String getAdresse() {
         return adresse;
     }
-    public String getNumberTVA() {
-        return numberTVA;
+    public String getTelephone() {
+        return telephone;
     }
     public String getEmail() {
         return email;
@@ -114,8 +114,8 @@ public class UserEntity implements UserDetails {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-    public void setNumberTVA(String numberTVA) {
-        this.numberTVA = numberTVA;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
     public void setEmail(String email) {
         this.email = email;

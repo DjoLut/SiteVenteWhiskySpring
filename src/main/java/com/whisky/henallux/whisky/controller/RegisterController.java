@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
-import java.util.Locale;
 
 @Controller
 @RequestMapping(value="/register")
@@ -26,7 +25,7 @@ public class RegisterController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home (Model model, Locale locale) {
+    public String home (Model model) {
         model.addAttribute("user", new User());
         return "integrated:register";
     }

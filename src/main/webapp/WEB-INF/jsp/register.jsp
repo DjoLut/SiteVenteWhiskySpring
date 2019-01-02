@@ -31,8 +31,8 @@
 						 <form:input path="adresse" type="text"/>
 					 </div>
 					 <div>
-						 <span><form:label path="numberTVA"><spring:message code="TVA"/></form:label></span>
-						 <form:input path="numberTVA" type="text"/>
+						 <span><form:label path="telephone"><spring:message code="phone"/></form:label></span>
+						 <form:input path="telephone" type="text"/>
 					 </div>
 					 
 					 </div>

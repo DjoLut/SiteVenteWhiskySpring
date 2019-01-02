@@ -16,7 +16,7 @@ public class User {
     private String lastname;
     private String email;
     private String adresse;
-    private String numberTVA;
+    private String telephone;
     private boolean non_expired;
     private boolean non_locked;
     private boolean credentials_non_expired;
@@ -30,7 +30,7 @@ public class User {
     public String getLastname() { return lastname;}
     public String getFirstname() { return firstname;}
     public String getUsername() { return username; }
-    public String getNumberTVA() { return numberTVA; }
+    public String getTelephone() { return telephone; }
     public String getPassword() { return password; }
     public String getConfPassword() { return confPassword; }
     public boolean isEnabled() { return enabled; }
@@ -61,7 +61,7 @@ public class User {
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
     public void setNon_locked(boolean non_locked) { this.non_locked = non_locked; }
     public void setNon_expired(boolean non_expired) { this.non_expired = non_expired; }
-    public void setNumberTVA(String numberTVA) { this.numberTVA = numberTVA; }
+    public void setTelephone(String telephone) { this.telephone = telephone; }
     public void setAdresse(String adresse) { this.adresse = adresse; }
     public void setEmail(String email) { this.email = email; }
     public void setLastname(String lastname) { this.lastname = lastname; }
