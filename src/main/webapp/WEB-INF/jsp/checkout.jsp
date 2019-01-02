@@ -6,7 +6,7 @@
 
 <div class="container">
         <div class="check">
-            <h1>My Shopping Bag (${panier.size()})</h1>
+            <h1><spring:message code="shoppingBag"/> (${panier.size()})</h1>
             <div class="col-md-9 cart-items">
                 <c:set var="total" value="${0}" />
                 <c:set var="promo" value="${0}" />

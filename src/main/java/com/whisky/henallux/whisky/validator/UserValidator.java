@@ -2,6 +2,7 @@ package com.whisky.henallux.whisky.validator;
 
 import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.service.UserDetailsServiceImplementation;
+import org.hibernate.validator.spi.valuehandling.ValidatedValueUnwrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -14,7 +15,8 @@ public class UserValidator implements Validator {
     @Autowired
     private UserDetailsServiceImplementation userService;
 
-    private static final Regexp regex = new Regexp("^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$");
+    private static final Regexp regexMail = new Regexp("^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$");
+    private static final Regexp regexTelephone = new Regexp("(0|\\+|00)([0-9]{2}|{3})[1-9][0-9]{6.}");
 
     public boolean supports(Class clazz){
         return clazz.equals(User.class);
@@ -44,7 +46,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("lastname", "Size.lastname");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","Empty.email");
-        if(regex.equals(user.getEmail()))
+        if(!regexMail.equals(user.getEmail()))
             errors.rejectValue("email", "Invalid.email");
         if(userService.EmailExist(user.getEmail()))
             errors.rejectValue("email", "Duplicate.email");
@@ -52,6 +54,11 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmpty(errors,"adresse","Empty.adresse");
         if(user.getAdresse().length()<15 || user.getAdresse().length() >200)
             errors.rejectValue("adresse", "Size.adresse");
+
+        if(user.getTelephone()!=null) {
+            if (!regexTelephone.equals(user.getTelephone()))
+                errors.rejectValue("telephone", "Invalid.telephone");
+        }
 
     }
 }

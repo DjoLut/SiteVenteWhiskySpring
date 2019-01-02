@@ -32,7 +32,8 @@
 					 </div>
 					 <div>
 						 <span><form:label path="telephone"><spring:message code="phone"/></form:label></span>
-						 <form:input path="telephone" type="text"/>
+						 <form:errors path="telephone"/>
+						 <form:input path="telephone" type="tel"/>
 					 </div>
 					 
 					 </div>

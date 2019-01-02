@@ -15,7 +15,7 @@
                                 <img class="img-responsive" src="<spring:url value='/images/bottle/${whisky.img}' />" >
                                 <sec:authorize access="isAuthenticated()">
                                     <div class="pro-grid">
-                                        <span class="buy-in">Buy Now</span>
+                                        <span class="buy-in"><spring:message code="buyNow"/></span>
                                     </div>
                                 </sec:authorize>
                             </a>

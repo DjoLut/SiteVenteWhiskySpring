@@ -37,11 +37,11 @@
                 <div class="cart box_1">
                     <a href="<spring:url value='/checkout'/> ">
                         <h3>
-                            <div class="total">Panier</div>
+                            <div class="total"><spring:message code="cart"/></div>
                             <img src="<spring:url value='/images/cart.png' />">
                         </h3>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty"><spring:message code="emptyCart"/></a></p>
                 </div>
 
                 <div class="clearfix"> </div>
