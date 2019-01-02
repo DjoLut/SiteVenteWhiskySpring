@@ -2,21 +2,20 @@ package com.whisky.henallux.whisky.validator;
 
 import com.whisky.henallux.whisky.model.User;
 import com.whisky.henallux.whisky.service.UserDetailsServiceImplementation;
-import org.hibernate.validator.spi.valuehandling.ValidatedValueUnwrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-import sun.misc.Regexp;
+import java.util.regex.*;
 
 @Component
 public class UserValidator implements Validator {
     @Autowired
     private UserDetailsServiceImplementation userService;
 
-    private static final Regexp regexMail = new Regexp("^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$");
-    private static final Regexp regexTelephone = new Regexp("(0|\\+|00)([0-9]{2}|{3})[1-9][0-9]{6.}");
+    private static final Pattern pMail = Pattern.compile("[a-z|A-Z|0-9|\\-|\\.|\\_]+\\@([a-z|A-Z|0-9|\\-|\\.]+)\\.([a-z|A-Z]{2,4})");
+    private static final Pattern pTelephone = Pattern.compile("0|(00|\\+)[0-9]{2}(\\/|\\.|\\-|\\ )?[0-9]{2,3}(\\/|\\.|\\-|\\ )?((([0-9]{2}(\\/|\\.|\\-|\\ )?){3,4})|(([0-9]{3}(\\/|\\.|\\-|\\ )?){2,3}))");
 
     public boolean supports(Class clazz){
         return clazz.equals(User.class);
@@ -46,7 +45,8 @@ public class UserValidator implements Validator {
             errors.rejectValue("lastname", "Size.lastname");
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","Empty.email");
-        if(!regexMail.equals(user.getEmail()))
+        Matcher mMail = pMail.matcher(user.getEmail());
+        if(!mMail.matches())
             errors.rejectValue("email", "Invalid.email");
         if(userService.EmailExist(user.getEmail()))
             errors.rejectValue("email", "Duplicate.email");
@@ -56,7 +56,8 @@ public class UserValidator implements Validator {
             errors.rejectValue("adresse", "Size.adresse");
 
         if(user.getTelephone()!=null) {
-            if (!regexTelephone.equals(user.getTelephone()))
+            Matcher mTelephone = pTelephone.matcher(user.getTelephone());
+            if (!mTelephone.matches())
                 errors.rejectValue("telephone", "Invalid.telephone");
         }
 
