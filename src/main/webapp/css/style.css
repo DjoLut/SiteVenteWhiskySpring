@@ -1698,7 +1698,11 @@ a.cpns:hover{
 	color:#000;
 	text-decoration:underline;
 }
-a.continue{
+#validate {
+	width: 255px;
+	height: 40px;
+}
+a.continue, #validate {
 	background:#EF5F21;
 	padding:10px 20px;
 	  font-family: 'Lato', sans-serif;
@@ -1710,7 +1714,7 @@ a.continue{
    text-align: center;
    margin-bottom:2em;
 }
-a.continue:hover{
+a.continue:hover, validate:hover{
 	background:#000;
 }
 ul.total_price{

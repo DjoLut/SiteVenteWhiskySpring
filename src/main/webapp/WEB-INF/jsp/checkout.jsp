@@ -53,18 +53,19 @@
                 </c:forEach>
             </div>
 
-
             <div class="col-md-3 cart-total">
                 <sec:authorize access="isAuthenticated()">
-                    <form action="/whisky/checkout/validate" method="POST">
-                        <input type="hidden" name="utilisateur" value="<sec:authentication property="principal.username"/>" />
-                        <input type="hidden" name="promotion" value="${promo}" />
-                        <input type="hidden" name="totalprice" value="${total}" />
-
-                        <input type="submit" value="Validate">
-                    </form>
-
-                    <a class="continue" href="<spring:url value='/checkout/validate' />">Validate</a>
+                    <c:if test="${panier.size() != 0}">
+                        <form action="/whisky/checkout/validate" method="POST">
+                            <input type="hidden" name="utilisateur" value="<sec:authentication property="principal.username"/>" />
+                            <input type="hidden" name="promotion" value="${promo}" />
+                            <input type="hidden" name="totalprice" value="${total}" />
+                            <input type="submit" id="validate" value="Validate">
+                        </form>
+                    </c:if>
+                    <c:if test="${panier.size() == 0}">
+                        <a class="continue" href="<spring:url value='/whiskies'/>" >Add whiskys</a>
+                    </c:if>
                 </sec:authorize>
                 <sec:authorize access="!isAuthenticated()">
                     <a class="continue" href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a>
