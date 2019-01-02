@@ -60,7 +60,7 @@
                             <input type="hidden" name="utilisateur" value="<sec:authentication property="principal.username"/>" />
                             <input type="hidden" name="promotion" value="${promo}" />
                             <input type="hidden" name="totalprice" value="${total}" />
-                            <input type="submit" id="validate" value="Validate">
+                            <input type="submit" id="validate" value="Validate" onclick="return confirm('Voulez-vous valider la commander ?')">
                         </form>
                     </c:if>
                     <c:if test="${panier.size() == 0}">
