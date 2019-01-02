@@ -1,17 +1,20 @@
 package com.whisky.henallux.whisky.model;
 
+import com.whisky.henallux.whisky.dataAccess.entity.LanguageEntity;
+import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
+
 public class Translation {
     private String description;
-    private Integer whisky;
-    private String language;
+    private WhiskyEntity whisky;
+    private LanguageEntity language;
 
     public Translation(){}
 
-    public Integer getWhisky() { return whisky; }
+    public WhiskyEntity getWhisky() { return whisky; }
     public String getDescription() { return description; }
-    public String getLanguage() { return language; }
+    public LanguageEntity getLanguage() { return language; }
 
     public void setDescription(String description) { this.description = description; }
-    public void setLanguage(String language) { this.language = language; }
-    public void setWhisky(Integer whisky) { this.whisky = whisky; }
+    public void setLanguage(LanguageEntity language) { this.language = language; }
+    public void setWhisky(WhiskyEntity whisky) { this.whisky = whisky; }
 }

@@ -3,16 +3,11 @@ package com.whisky.henallux.whisky.dataAccess.entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-
 import static org.springframework.util.StringUtils.isEmpty;
-
 
 @Entity
 @Table(name="PERSISTABLE_USER")
@@ -42,43 +37,11 @@ public class UserEntity implements UserDetails {
     private Boolean credentialsNonExpired;
     @Column(name = "ENABLED")
     private Boolean enabled;
-    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
-    private Set<OrderEntity> orders;
-
-    public String getConfPassword() {
-        return confPassword;
-    }
-
-    public void setConfPassword(String confPassword) {
-        this.confPassword = confPassword;
-    }
-
+    @OneToMany(mappedBy = "utilisateur")
+    private Collection<OrderEntity> orders;
     @Transient
     private String confPassword;
 
-    @Override
-    public Collection<GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-
-        if(!isEmpty(authorities)) {
-            String[] authoritiesAsArray = authorities.split(",");
-
-            for(String authority : authoritiesAsArray) {
-                if(!isEmpty(authority)) {
-                    grantedAuthorities.add(new SimpleGrantedAuthority(authority));
-                }
-            }
-        }
-
-        return grantedAuthorities;
-    }
-
-    public void setOrders(Set<OrderEntity> orders) {
-        this.orders = orders;
-    }
-    public Set<OrderEntity> getOrders() {
-        return orders;
-    }
     @Override
     public String getPassword() {
         return password;
@@ -87,7 +50,6 @@ public class UserEntity implements UserDetails {
     public String getUsername() {
         return username;
     }
-    public String getAuthority() { return authorities;}
     public String getAdresse() {
         return adresse;
     }
@@ -118,40 +80,34 @@ public class UserEntity implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return credentialsNonExpired;
     }
+    @Override
+    public Collection<GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    public void setPassword(String password) { this.password = password; }
+        if(!isEmpty(authorities)) {
+            String[] authoritiesAsArray = authorities.split(",");
 
-    public void setAuthorities(Collection<GrantedAuthority> authorities)
-    {
-        String ch = "";
-        for(GrantedAuthority authority : authorities) {
-            ch += authority.getAuthority() + ",";
+            for(String authority : authoritiesAsArray) {
+                if(!isEmpty(authority)) {
+                    grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+                }
+            }
         }
-        this.authorities = ch;
+
+        return grantedAuthorities;
+    }
+    public Collection<OrderEntity> getOrders() { return orders; }
+    public String getConfPassword() {
+        return confPassword;
     }
 
-    public Boolean getAccountNonExpired() {
-        return accountNonExpired;
-    }
     public void setAccountNonExpired(Boolean accountNonExpired) {
         this.accountNonExpired = true;
-    }
-    public Boolean getAccountNonLocked() {
-        return accountNonLocked;
     }
     public void setAccountNonLocked(Boolean accountNonLocked) {
         this.accountNonLocked = true;
     }
-    public Boolean getCredentialsNonExpired() {
-        return credentialsNonExpired;
-    }
     public void setCredentialsNonExpired(Boolean credentialsNonExpired) { this.credentialsNonExpired = true; }
-    public Boolean getEnabled() {
-        return enabled;
-    }
     public void setEnabled(Boolean enabled) {
         this.enabled = true;
     }
@@ -170,4 +126,21 @@ public class UserEntity implements UserDetails {
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setPassword(String password) { this.password = password; }
+    public void setAuthorities(Collection<GrantedAuthority> authorities)
+    {
+        String ch = "";
+        for(GrantedAuthority authority : authorities) {
+            ch += authority.getAuthority() + ",";
+        }
+        this.authorities = ch;
+    }
+    public void setOrders(Collection<OrderEntity> orders) { this.orders = orders; }
+    public void setConfPassword(String confPassword) {
+        this.confPassword = confPassword;
+    }
+
 }

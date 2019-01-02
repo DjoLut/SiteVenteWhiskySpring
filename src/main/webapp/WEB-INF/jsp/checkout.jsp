@@ -1,15 +1,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
         <div class="check">
             <h1>My Shopping Bag (${panier.size()})</h1>
             <div class="col-md-9 cart-items">
-                <form:set var="total" value="${0}" />
-                <form:set var="promo" value="${0}" />
-                <form:forEach items="${panier}" var="panier">
+                <c:set var="total" value="${0}" />
+                <c:set var="promo" value="${0}" />
+                <c:forEach items="${panier}" var="panier">
 				<script>$(document).ready(function(c) {
 					$('.close1').on('click', function(c){
 						$('.cart-header').fadeOut('slow', function(c){
@@ -47,14 +48,27 @@
 					   <div class="clearfix"></div>
                     </div>
                 </div>
-                    <form:set var="total" value="${total + (panier.key.price*panier.value)}" />
-                    <form:set var="promo" value="${promo + promotion}" />
-                </form:forEach>
+                    <c:set var="total" value="${total + (panier.key.price*panier.value)}" />
+                    <c:set var="promo" value="${promo + promotion}" />
+                </c:forEach>
             </div>
 
 
             <div class="col-md-3 cart-total">
-                 <a class="continue" href="#">Continue to basket</a>
+                <sec:authorize access="isAuthenticated()">
+                    <form action="/whisky/checkout/validate" method="POST">
+                        <input type="hidden" name="utilisateur" value="<sec:authentication property="principal.username"/>" />
+                        <input type="hidden" name="promotion" value="${promo}" />
+                        <input type="hidden" name="totalprice" value="${total}" />
+
+                        <input type="submit" value="Validate">
+                    </form>
+
+                    <a class="continue" href="<spring:url value='/checkout/validate' />">Validate</a>
+                </sec:authorize>
+                <sec:authorize access="!isAuthenticated()">
+                    <a class="continue" href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a>
+                </sec:authorize>
                  <div class="price-details">
                      <h3>Price Details</h3>
                      <span>Total</span>

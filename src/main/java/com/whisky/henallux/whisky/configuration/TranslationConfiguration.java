@@ -8,8 +8,10 @@ import org.springframework.validation.DefaultMessageCodesResolver;
 @Configuration
 public class TranslationConfiguration {
     @Bean
-    public DefaultMessageCodesResolver defaultMessageCodesResolver(){
-        return new DefaultMessageCodesResolver();
+    public DefaultMessageCodesResolver defaultMessageCodesResolver()
+    {
+        DefaultMessageCodesResolver defaultMessageCodesResolver = new DefaultMessageCodesResolver();
+        return defaultMessageCodesResolver;
     }
 
     @Bean

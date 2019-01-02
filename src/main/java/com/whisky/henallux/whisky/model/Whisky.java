@@ -1,5 +1,7 @@
 package com.whisky.henallux.whisky.model;
 
+import com.whisky.henallux.whisky.dataAccess.entity.CategorieEntity;
+
 public class Whisky {
     private Integer id;
     private String whiskyName;
@@ -12,7 +14,7 @@ public class Whisky {
     private Integer alcoholContent;
     private Integer volume;
     private Integer stockQuantity;
-    private Categorie categorie;
+    private CategorieEntity categorie;
     private String img;
     private Double price;
     private Double promotion;
@@ -29,7 +31,7 @@ public class Whisky {
     public Double getPromotion() { return promotion; }
     public Double getPrice() { return price; }
     public String getImg() { return img; }
-    public Categorie getCategorie() { return categorie; }
+    public CategorieEntity getCategorie() { return categorie; }
     public String getBrand() { return brand;}
     public String getCountry() { return country; }
     public String getRegion() { return region; }
@@ -40,7 +42,7 @@ public class Whisky {
     public void setId(Integer id) { this.id = id; }
     public void setPrice(Double price) { this.price = price; }
     public void setImg(String img) { this.img = img; }
-    public void setCategorie(Categorie categorie) { this.categorie = categorie; }
+    public void setCategorie(CategorieEntity categorie) { this.categorie = categorie; }
     public void setStockQuantity(Integer stockQuantity) { this.stockQuantity = stockQuantity; }
     public void setVolume(Integer volume) { this.volume = volume; }
     public void setAlcoholContent(Integer alcoholContent) { this.alcoholContent = alcoholContent; }

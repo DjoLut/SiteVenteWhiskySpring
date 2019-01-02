@@ -13,7 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -45,21 +44,8 @@ public class UserDAO {
         return users;
     }
 
-    public User findByEmail(String email){
-        return findByEmail(email);
-    }
-
-    //METHODE QUI ENREGISTRE UN USER DANS LA BD
-    public User save(User user)
-    {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
-        transactionMethod(user);
-        return user;
-    }
-
     //METHODE QUI ENREGISTRE UN nouveau USER DANS LA BD
-    public User saveNewUser(User user){
+    public void saveNewUser(User user){
         user.setCredentials_non_expired(true);
         user.setEnabled(true);
         user.setNon_expired(true);
@@ -67,17 +53,16 @@ public class UserDAO {
         List<GrantedAuthority> collection = new ArrayList<>();
         collection.add(new SimpleGrantedAuthority("ROLE_USER"));
         user.setAuthorities(collection);
-        return save(user);
+        save(user);
     }
 
-    /*public User findByUsername(String username){
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.byId(username);
-        UserEntity userEntity = new UserEntity();
-        session.get(username, userEntity);
-        return providerConverter.userEntityToUserModel(userEntity);
-    }*/
+    //METHODE QUI ENREGISTRE UN USER DANS LA BD
+    public void save(User user)
+    {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setConfPassword(passwordEncoder.encode(user.getConfPassword()));
+        transactionMethod(user);
+    }
 
     public void transactionMethod(User user)
     {
@@ -85,6 +70,13 @@ public class UserDAO {
         session.beginTransaction();
         session.save(providerConverter.userModelToUserEntity(user));
         session.getTransaction().commit();
+    }
+
+    //METHODE POUR AVOIR UN WHISKY PAR SON ID
+    public User getUserByUsername(String username)
+    {
+        UserEntity userEntity = userRepository.findByUsername(username);
+        return providerConverter.userEntityToUserModel(userEntity);
     }
 
 }

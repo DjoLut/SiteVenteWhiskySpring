@@ -4,16 +4,17 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="translation")
-@IdClass(TranslationKey.class)
-public class TranslationEntity implements java.io.Serializable {
+public class TranslationEntity {
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "whiskyEntity")
-    private WhiskyEntity whiskyEntity;
-    @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "translations")
+    @Column(name = "id")
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "whiskyid", referencedColumnName = "id")
+    private WhiskyEntity whiskyid;
+    @ManyToOne
+    @JoinColumn(name = "languageid", referencedColumnName = "languageid")
     private LanguageEntity translations;
 
     @Column(name="descriptions")
@@ -21,11 +22,13 @@ public class TranslationEntity implements java.io.Serializable {
 
     public TranslationEntity(){}
 
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public LanguageEntity getTranslations() { return translations; }
-    public WhiskyEntity getWhiskyEntity() { return whiskyEntity; }
+    public WhiskyEntity getWhiskyid() { return whiskyid; }
 
-    public void setWhiskyEntity(WhiskyEntity whiskyEntity) { this.whiskyEntity = whiskyEntity; }
+    public void setWhiskyid(WhiskyEntity whiskyid) { this.whiskyid = whiskyid; }
     public void setTranslations(LanguageEntity translations) { this.translations = translations; }
 
     public String getDescription() { return description; }

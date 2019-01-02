@@ -1,6 +1,5 @@
 package com.whisky.henallux.whisky.service;
 
-import com.whisky.henallux.whisky.dataAccess.repository.WhiskyRepository;
 import com.whisky.henallux.whisky.model.Whisky;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,6 +60,11 @@ public class Panier {
                 break;
             }
         }
+    }
+
+    public void deleteAll()
+    {
+        whiskys.clear();
     }
 
     public Map<Whisky, Integer> getWhiskys() {

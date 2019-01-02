@@ -1,22 +1,22 @@
 package com.whisky.henallux.whisky.dataAccess.entity;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
 
 @Entity
 @Table(name="langue")
 public class LanguageEntity {
     @Id
-    @Column(name="langueid")
-    private String LangueId;
+    @Column(name="languageid")
+    private String languageid;
     @OneToMany(mappedBy = "translations",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TranslationEntity> translations;
+    private Collection<TranslationEntity> translations;
 
     public LanguageEntity(){}
 
-    public Set<TranslationEntity> getTranslations() { return translations; }
-    public void setTranslations(Set<TranslationEntity> translations) { this.translations = translations; }
+    public Collection<TranslationEntity> getTranslations() { return translations; }
+    public void setTranslations(Collection<TranslationEntity> translations) { this.translations = translations; }
 
-    public String getLangueId() { return LangueId; }
-    public void setLangueId(String langueId) { LangueId = langueId; }
+    public String getLanguageid() { return languageid; }
+    public void setLanguageid(String languageid) { languageid = languageid; }
 }

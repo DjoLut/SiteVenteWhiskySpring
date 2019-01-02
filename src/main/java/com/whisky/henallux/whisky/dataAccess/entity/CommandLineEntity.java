@@ -8,16 +8,16 @@ public class CommandLineEntity {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Integer id;
     @Column(name="realprice")
     private Double realprice;
     @Column(name="quantity")
     private int quantity;
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "whiskyorder", referencedColumnName = "id")
-    private OrderEntity whiskyorder;
     @ManyToOne(fetch = FetchType.LAZY)
+    private OrderEntity whiskyorder;
     @JoinColumn(name = "whisky", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private WhiskyEntity whisky;
 
     public void setRealprice(Double realprice) { this.realprice = realprice;}
@@ -28,6 +28,6 @@ public class CommandLineEntity {
     public OrderEntity getWhiskyorder() { return whiskyorder; }
     public WhiskyEntity getWhisky() { return whisky; }
     public void setWhisky(WhiskyEntity whisky) { this.whisky = whisky; }
-    public void setId(String id) { this.id = id; }
-    public String getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public Integer getId() { return id; }
 }

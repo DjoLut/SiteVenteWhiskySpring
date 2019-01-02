@@ -12,8 +12,12 @@
                 </form>
             </div>
             <div class="header-left">
-                <spring:url var="localEn" value=""><spring:param name="locale" value="en"/></spring:url>
-                <spring:url var="localFr" value=""><spring:param name="locale" value="fr"/></spring:url>
+                <spring:url var="localEn" value="">
+                    <spring:param name="locale" value="en"/>
+                </spring:url>
+                <spring:url var="localFr" value="">
+                    <spring:param name="locale" value="fr"/>
+                </spring:url>
     
                 <ul>
                     <li><a href="${localEn}"><img class="icoLang" src="<spring:url value='/images/icoLangEn.png'/>"></a>
@@ -21,8 +25,8 @@
                 </ul>
                 <ul>
                     <sec:authorize access="!isAuthenticated()">
-                    <li><a href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a></li>
-                    <li><a href="<spring:url value='/register'/>" ><spring:message code="register"/></a></li>
+                        <li><a href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a></li>
+                        <li><a href="<spring:url value='/register'/>" ><spring:message code="register"/></a></li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li><p><spring:message code="welcome"/> <sec:authentication property="principal.username"></sec:authentication></p></li>
@@ -32,9 +36,10 @@
 
                 <div class="cart box_1">
                     <a href="<spring:url value='/checkout'/> ">
-                        <h3> <div class="total">
-                            <span class="simpleCart_total"></span> (<span whiskyorder="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-                            <img src="<spring:url value='/images/cart.png' />"></h3>
+                        <h3>
+                            <div class="total">Panier</div>
+                            <img src="<spring:url value='/images/cart.png' />">
+                        </h3>
                     </a>
                     <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                 </div>

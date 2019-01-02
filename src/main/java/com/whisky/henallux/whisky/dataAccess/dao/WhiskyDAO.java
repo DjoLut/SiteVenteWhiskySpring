@@ -4,7 +4,6 @@ import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.WhiskyRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.Whisky;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,21 +32,6 @@ public class WhiskyDAO {
             list.add(whiskyEntity.getWhiskyName());
         return list;
     }
-    /*public ArrayList<Whisky> getWhiskies(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAll()); }
-    public ArrayList<Whisky> getWhiskiesByPrice(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByOrOrderByPrice()); }
-    public ArrayList<Whisky> getWhiskiesByCategorie(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByOrOrderByCategorie()); }
-    public ArrayList<Whisky> getWhiskiesInPromotion(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByPromotionIsNotNull()); }
-    public ArrayList<Whisky> getWhiskiesInStock(){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByStockQuantityIsNotNull()); }
-    public ArrayList<Whisky> getWhiskiesBetween(double nombre1, double nombre2){ return this.whiskyEntitiesToWhiskies(whiskyRepository.findAllByPriceBetween(nombre1,nombre2));}
-
-    public Whisky getWhiskyEntity(Integer id){ return providerConverter.whiskyEntityToWhisky(whiskyRepository.findOne(id)); }
-
-    private ArrayList<Whisky> whiskyEntitiesToWhiskies(List<WhiskyEntity> whiskyEntities){
-        ArrayList<Whisky> whiskies = new ArrayList<>();
-        for(WhiskyEntity whiskyEntity : whiskyEntities)
-            whiskies.add(providerConverter.whiskyEntityToWhisky(whiskyEntity));
-        return whiskies;
-    }*/
 
     //METHODE POUR AVOIR TOUS LES WHISKY
     public ArrayList<Whisky> getAllWhisky()

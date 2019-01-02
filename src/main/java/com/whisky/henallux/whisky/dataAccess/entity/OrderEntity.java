@@ -2,21 +2,22 @@ package com.whisky.henallux.whisky.dataAccess.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 @Entity
 @Table(name="whiskyorder")
 public class OrderEntity {
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue
+    private Integer id;
     @Column(name="dateorder")
-    private GregorianCalendar dateOrder;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOrder;
     @Column (name="validity")
     private boolean validity;
-    @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name = "utilisateur")
+    @JoinColumn(name = "utilisateur", referencedColumnName = "username")
+    @ManyToOne
     private UserEntity utilisateur;
     @Column(name="promotion")
     private double promotion;
@@ -27,16 +28,16 @@ public class OrderEntity {
 
     public OrderEntity(){}
 
-    public String getId(){return this.id;}
-    public GregorianCalendar getDateOrder() { return dateOrder; }
+    public Integer getId(){return this.id;}
+    public Date getDateOrder() { return dateOrder; }
     public boolean isValidity() { return validity; }
     public UserEntity getUtilisateur() { return utilisateur; }
     public double getPromotion() { return promotion; }
     public double getTotalPrice() { return totalprice; }
     public Collection<CommandLineEntity> getCommandlines() { return commandlines; }
 
-    public void setId(String id) { this.id = id; }
-    public void setDateOrder(GregorianCalendar dateOrder) { this.dateOrder = dateOrder; }
+    public void setId(Integer id) { this.id = id; }
+    public void setDateOrder(Date dateOrder) { this.dateOrder = dateOrder; }
     public void setValidity(boolean validity) { this.validity = validity; }
     public void setUtilisateur(UserEntity utilisateur) { this.utilisateur = utilisateur; }
     public void setPromotion(double promotion) { this.promotion = promotion; }

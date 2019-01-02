@@ -4,13 +4,15 @@ import com.whisky.henallux.whisky.dataAccess.entity.CommandLineEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.CommandLineRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.CommandLine;
+import com.whisky.henallux.whisky.model.Order;
+import com.whisky.henallux.whisky.model.Whisky;
+import com.whisky.henallux.whisky.service.Panier;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Transactional
@@ -27,14 +29,6 @@ public class CommandLineDAO {
         this.providerConverter = providerConverter;
     }
 
-    public void addCommandLine(CommandLine commandLine)
-    {
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.saveOrUpdate(providerConverter.commandLineToCommandLineEntity(commandLine));
-        session.getTransaction().commit();
-    }
-
     public ArrayList<CommandLine> getAllCommandLine()
     {
         List<CommandLineEntity> commandLineEntities = commandLineRepository.findAll();
@@ -45,6 +39,31 @@ public class CommandLineDAO {
             commandLines.add(commandLine);
         }
         return commandLines;
+    }
+
+    public void saveCommandLine(CommandLine commandLine)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.save(providerConverter.commandLineToCommandLineEntity(commandLine));
+        session.getTransaction().commit();
+    }
+
+    public void addPanier(Order order, Panier panier)
+    {
+        Map<Whisky, Integer> whiskys = panier.getWhiskys();
+
+        for(Map.Entry<Whisky, Integer> entry : whiskys.entrySet()) {
+            CommandLine commandLine = new CommandLine();
+
+            commandLine.setRealPrice(entry.getKey().getPrice());
+            commandLine.setQuantity(entry.getValue());
+            commandLine.setWhiskyOrder(providerConverter.orderToOrderEntity(order));
+            commandLine.setWhisky(providerConverter.whiskyToWhiskyEntity(entry.getKey()));
+
+            saveCommandLine(commandLine);
+        }
+
     }
 
 

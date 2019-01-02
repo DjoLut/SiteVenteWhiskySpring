@@ -11,14 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.security.core.Authentication;
 
-import java.util.Locale;
-
 @Controller
 @RequestMapping
 public class LoginController {
     private UserDAO userDAO;
     private final MessageSource messageSource;
-
 
     @Autowired
     public LoginController(UserDAO userDAO, MessageSource messageSource) {
@@ -27,7 +24,7 @@ public class LoginController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
-    public String home (Model model, Locale locale) {
+    public String home (Model model) {
         model.addAttribute("user", new User());
         return "integrated:login";
     }

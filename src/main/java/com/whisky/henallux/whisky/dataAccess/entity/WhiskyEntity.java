@@ -1,7 +1,7 @@
 package com.whisky.henallux.whisky.dataAccess.entity;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
 
 @Entity
 @Table(name="whisky")
@@ -39,18 +39,18 @@ public class WhiskyEntity {
     @Column(name="promotion")
     private Double promotion;
     @OneToMany(mappedBy = "whisky",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<CommandLineEntity> commandlines;
-    @OneToMany(mappedBy = "whiskyEntity",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TranslationEntity> translationEntities;
+    private Collection<CommandLineEntity> commandlines;
+    @OneToMany(mappedBy = "whiskyid",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Collection<TranslationEntity> translationEntities;
 
 
     public WhiskyEntity(){}
 
-    public Set<TranslationEntity> getTranslationEntities() { return translationEntities; }
-    public void setTranslationEntities(Set<TranslationEntity> translationEntities) { this.translationEntities = translationEntities; }
+    public Collection<TranslationEntity> getTranslationEntities() { return translationEntities; }
+    public void setTranslationEntities(Collection<TranslationEntity> translationEntities) { this.translationEntities = translationEntities; }
 
-    public Set<CommandLineEntity> getCommandlines() { return commandlines; }
-    public void setCommandlines(Set<CommandLineEntity> commandlines) {this.commandlines = commandlines; }
+    public Collection<CommandLineEntity> getCommandlines() { return commandlines; }
+    public void setCommandlines(Collection<CommandLineEntity> commandlines) {this.commandlines = commandlines; }
 
     public Integer getId(){return this.id;}
     public String getWhiskyName(){return this.whiskyName;}

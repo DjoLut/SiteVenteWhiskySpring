@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.dataAccess.dao.OrderDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.WhiskyDAO;
 import com.whisky.henallux.whisky.service.Panier;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 public class CheckoutController {
     private WhiskyDAO whiskyDAO;
     private Panier panier;
+    private OrderDAO orderDAO;
 
     @Autowired
-    public CheckoutController(WhiskyDAO whiskyDAO, Panier panier)
+    public CheckoutController(WhiskyDAO whiskyDAO, Panier panier, OrderDAO orderDAO)
     {
         this.whiskyDAO = whiskyDAO;
         this.panier = panier;
+        this.orderDAO = orderDAO;
     }
 
     @RequestMapping
@@ -40,6 +43,14 @@ public class CheckoutController {
     public String modifyQuantity(HttpServletRequest request)
     {
         panier.modifyWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        return "redirect:/checkout";
+    }
+
+    @RequestMapping(value = "/validate", method = RequestMethod.POST)
+    public String validatePanier(HttpServletRequest request)
+    {
+        orderDAO.addPanier(request, panier);
+        panier.deleteAll();
         return "redirect:/checkout";
     }
 

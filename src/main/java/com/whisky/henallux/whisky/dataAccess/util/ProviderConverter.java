@@ -14,10 +14,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProviderConverter {
-
     private Mapper mapper = new DozerBeanMapper();
 
     //METHODE POUR CONVERTIR UN OBJET DE TYPE USERENTITY EN OBJET DE TYPE USER
+    /*public UserEntity userModelToUserEntity(User user) { return mapper.map(user, UserEntity.class); }
+    public User userEntityToUserModel(UserEntity userEntity) { return  mapper.map(userEntity, User.class); }*/
     public UserEntity userModelToUserEntity(User user) {
         UserEntity userEntity = new UserEntity();
         userEntity.setAdresse(user.getAdresse());
@@ -34,7 +35,6 @@ public class ProviderConverter {
         userEntity.setFirstname(user.getFirstname());
         return userEntity;
     }
-
     public User userEntityToUserModel(UserEntity userEntity)
     {
         User user = new User();
@@ -42,39 +42,109 @@ public class ProviderConverter {
         user.setAuthorities(userEntity.getAuthorities());
         user.setCredentials_non_expired(userEntity.isCredentialsNonExpired());
         user.setEmail(userEntity.getEmail());
-        user.setEnabled(userEntity.getEnabled());
+        user.setEnabled(userEntity.isEnabled());
         user.setFirstname(userEntity.getLastname());
         user.setLastname(userEntity.getLastname());
-        user.setNon_expired(userEntity.getAccountNonExpired());
-        user.setNon_locked(userEntity.getAccountNonLocked());
+        user.setNon_expired(userEntity.isAccountNonExpired());
+        user.setNon_locked(userEntity.isAccountNonLocked());
         user.setNumberTVA(userEntity.getNumberTVA());
         user.setPassword(userEntity.getPassword());
         user.setUsername(userEntity.getUsername());
         user.setConfPassword(userEntity.getPassword());
         return user;
     }
-    /*public UserEntity userModelToUserEntity(User user) { return mapper.map(user, UserEntity.class); }
-    public User userEntityToUserModel(UserEntity userEntity) { return  mapper.map(userEntity, User.class); }*/
 
+    /*public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky) { return mapper.map(whisky, WhiskyEntity.class); }
+    public Whisky whiskyEntityToWhisky(WhiskyEntity whiskyEntity) { return mapper.map(whiskyEntity, Whisky.class); }*/
     public WhiskyEntity whiskyToWhiskyEntity(Whisky whisky)
     {
-        return mapper.map(whisky, WhiskyEntity.class);
+        WhiskyEntity whiskyEntity = new WhiskyEntity();
+        whiskyEntity.setId(whisky.getId());
+        whiskyEntity.setWhiskyName(whisky.getWhiskyName());
+        whiskyEntity.setAge(whisky.getAge());
+        whiskyEntity.setSelection(whisky.getSelection());
+        whiskyEntity.setBrand(whisky.getBrand());
+        whiskyEntity.setRegion(whisky.getRegion());
+        whiskyEntity.setCountry(whisky.getCountry());
+        whiskyEntity.setProductionDate(whisky.getProductionDate());
+        whiskyEntity.setAlcoholContent(whisky.getAlcoholContent());
+        whiskyEntity.setVolume(whisky.getVolume());
+        whiskyEntity.setStockQuantity(whisky.getStockQuantity());
+        whiskyEntity.setCategorie(whisky.getCategorie());
+        whiskyEntity.setImg(whisky.getImg());
+        whiskyEntity.setPrice(whisky.getPrice());
+        whiskyEntity.setPromotion(whisky.getPromotion());
+        return whiskyEntity;
     }
-
     public Whisky whiskyEntityToWhisky(WhiskyEntity whiskyEntity)
     {
-        return mapper.map(whiskyEntity, Whisky.class);
+        Whisky whisky = new Whisky();
+        whisky.setId(whiskyEntity.getId());
+        whisky.setWhiskyName(whiskyEntity.getWhiskyName());
+        whisky.setAge(whiskyEntity.getAge());
+        whisky.setSelection(whiskyEntity.getSelection());
+        whisky.setBrand(whiskyEntity.getBrand());
+        whisky.setRegion(whiskyEntity.getRegion());
+        whisky.setCountry(whiskyEntity.getCountry());
+        whisky.setProductionDate(whiskyEntity.getProductionDate());
+        whisky.setAlcoholContent(whiskyEntity.getAlcoholContent());
+        whisky.setVolume(whiskyEntity.getVolume());
+        whisky.setStockQuantity(whiskyEntity.getStockQuantity());
+        whisky.setCategorie(whiskyEntity.getCategorie());
+        whisky.setImg(whiskyEntity.getImg());
+        whisky.setPrice(whiskyEntity.getPrice());
+        whisky.setPromotion(whiskyEntity.getPromotion());
+        return whisky;
+    }
+
+    /*public CommandLineEntity commandLineToCommandLineEntity(CommandLine commandLine) { return mapper.map(commandLine, CommandLineEntity.class); }
+    public CommandLine commandLineEntityToCommandLine(CommandLineEntity commandLineEntity) { return mapper.map(commandLineEntity, CommandLine.class); }*/
+    public CommandLineEntity commandLineToCommandLineEntity(CommandLine commandLine)
+    {
+        CommandLineEntity commandLineEntity = new CommandLineEntity();
+        commandLineEntity.setId(commandLine.getId());
+        commandLineEntity.setRealprice(commandLine.getRealPrice());
+        commandLineEntity.setQuantity(commandLine.getQuantity());
+        commandLineEntity.setWhiskyorder(commandLine.getWhiskyOrder());
+        commandLineEntity.setWhisky(commandLine.getWhisky());
+        return  commandLineEntity;
+    }
+    public CommandLine commandLineEntityToCommandLine(CommandLineEntity commandLineEntity)
+    {
+        CommandLine commandLine = new CommandLine();
+        commandLine.setId(commandLineEntity.getId());
+        commandLine.setRealPrice(commandLineEntity.getRealprice());
+        commandLine.setQuantity(commandLineEntity.getQuantity());
+        commandLine.setWhiskyOrder(commandLineEntity.getWhiskyorder());
+        commandLine.setWhisky(commandLineEntity.getWhisky());
+        return commandLine;
     }
 
 
-    public CommandLineEntity commandLineToCommandLineEntity(CommandLine commandLine) { return mapper.map(commandLine, CommandLineEntity.class); }
-
-    public CommandLine commandLineEntityToCommandLine(CommandLineEntity commandLineEntity) { return mapper.map(commandLineEntity, CommandLine.class); }
-
-
-    public OrderEntity orderToOrderEntity(Order order) { return mapper.map(order, OrderEntity.class); }
-
-    public Order orderEntityToOrder(OrderEntity orderEntity) { return mapper.map(orderEntity, Order.class); }
+    /*public OrderEntity orderToOrderEntity(Order order) { return mapper.map(order, OrderEntity.class); }
+    public Order orderEntityToOrder(OrderEntity orderEntity) { return mapper.map(orderEntity, Order.class); }*/
+    public OrderEntity orderToOrderEntity(Order order)
+    {
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setId(order.getId());
+        orderEntity.setDateOrder(order.getDateOrder());
+        orderEntity.setValidity(order.isValidity());
+        orderEntity.setUtilisateur(order.getUtilisateur());
+        orderEntity.setPromotion(order.getPromotion());
+        orderEntity.setTotalPrice(order.getTotalPrice());
+        return orderEntity;
+    }
+    public Order orderEntityToOrder(OrderEntity orderEntity)
+    {
+        Order order = new Order();
+        order.setId(orderEntity.getId());
+        order.setDateOrder(orderEntity.getDateOrder());
+        order.setValidity(orderEntity.isValidity());
+        order.setUtilisateur(orderEntity.getUtilisateur());
+        order.setPromotion(orderEntity.getPromotion());
+        order.setTotalPrice(orderEntity.getTotalPrice());
+        return order;
+    }
 
 
 }
