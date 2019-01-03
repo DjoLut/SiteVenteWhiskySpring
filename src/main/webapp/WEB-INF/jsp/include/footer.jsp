@@ -28,15 +28,6 @@
                 
                 </ul>
             </div>
-            <div class="col-md-4 amet-sed">
-                <h4>Newsletter</h4>
-                <p>Sign Up to get all news update
-                    and promo</p>
-                <form>
-                    <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-                    <input type="submit" value="Sign up">
-                </form>
-            </div>
             <div class="clearfix"> </div>
         </div>
     </div>

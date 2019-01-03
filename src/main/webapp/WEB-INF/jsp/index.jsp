@@ -45,6 +45,21 @@
                 </li>
             </ul>
         </div>
-
+    </div>
+</div>
+        <div class="clearfix"> </div>
+<div class="footer">
+    <div class="container">
+        <div class="footer-top-at">
+        
+            <div class="col-md-4 amet-sed">
+                <h4 style="opacity:1;"><spring:message code="index.info.crea.h"/></h4>
+                <p class="nav-bottom" style="opacity:1;"><spring:message code="index.info.crea.p"/></p>
+            </div>
+            <div class="col-md-4 amet-sed">
+                <img src="<spring:url value='images/index.Pres.001.jpg'/>" style="max-width: 540px;"/>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
     </div>
 </div>
