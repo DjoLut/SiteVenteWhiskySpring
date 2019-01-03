@@ -67,7 +67,6 @@
                 <nav>
                     <ul class="cd-tabs-navigation">
                         <li><a data-content="fashion"  href="#0">Description </a></li>
-                        <li><a data-content="cinema" href="#0" >Additionnal information</a></li>
                     </ul>
 			    </nav>
                 <p>${translation.descriptions}</p>
