@@ -15,7 +15,9 @@ public class UserValidator implements Validator {
     private UserDetailsServiceImplementation userService;
 
     private static final Pattern pMail = Pattern.compile("[a-z|A-Z|0-9|\\-|\\.|\\_]+\\@([a-z|A-Z|0-9|\\-|\\.]+)\\.([a-z|A-Z]{2,4})");
-    private static final Pattern pTelephone = Pattern.compile("0|(00|\\+)[0-9]{2}(\\/|\\.|\\-|\\ )?[0-9]{2,3}(\\/|\\.|\\-|\\ )?((([0-9]{2}(\\/|\\.|\\-|\\ )?){3,4})|(([0-9]{3}(\\/|\\.|\\-|\\ )?){2,3}))");
+    private static final Pattern pTelephone = Pattern.compile("(0|((00|\\+)[0-9]{2}))?(\\/|\\.|\\-|\\ )?" +
+            "[0-9]{2,3}(\\/|\\.|\\-|\\ )?" +
+            "((([0-9]{2}(\\/|\\.|\\-|\\ )?){3,4})|(([0-9]{3}(\\/|\\.|\\-|\\ )?){2,3}))");
 
     public boolean supports(Class clazz){
         return clazz.equals(User.class);
@@ -55,7 +57,7 @@ public class UserValidator implements Validator {
         if(user.getAdresse().length()<15 || user.getAdresse().length() >200)
             errors.rejectValue("adresse", "Size.adresse");
 
-        if(user.getTelephone()!=null) {
+        if(!user.getTelephone().isEmpty()) {
             Matcher mTelephone = pTelephone.matcher(user.getTelephone());
             if (!mTelephone.matches())
                 errors.rejectValue("telephone", "Invalid.telephone");
