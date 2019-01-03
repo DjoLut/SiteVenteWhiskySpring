@@ -32,11 +32,10 @@ public class SingleController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addWhisky(HttpServletRequest request, Model model)
+    public String addWhisky(HttpServletRequest request)
     {
         panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
-        model.addAttribute("whisky", whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))));
-        return "integrated:single";
+        return "redirect:/single/{id}";
     }
 
 }

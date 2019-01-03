@@ -30,6 +30,7 @@ public class Panier {
                 it.remove();
                 whiskys.put(whisky, quantity+quantityOld);
                 whiskyPresent = true;
+                break;
             }
         }
 
@@ -45,6 +46,7 @@ public class Panier {
             if (entry.getKey().getId() == whisky.getId())
             {
                 it.remove();
+                break;
             }
         }
     }

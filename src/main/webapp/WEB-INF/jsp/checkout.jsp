@@ -57,10 +57,6 @@
                 <sec:authorize access="isAuthenticated()">
                     <c:if test="${panier.size() != 0}">
                         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                            <input type="hidden" name="utilisateur" value="<sec:authentication property="principal.username"/>" />
-                            <input type="hidden" name="promotion" value="${promo}" />
-                            <input type="hidden" name="totalprice" value="${total}" />
-
                             <input type="hidden" name="business" value="jordan.lutgen.business@hotmail.com">
                             <input type="hidden" name="password" value="EIv6nB2i7eBuAkFRh8RvNDatl0uQeVJTv_wh85uFfPnYh88SPQyDgmelRvCAELjICLLMbTrUQOIqj2K-">
                             <input type="hidden" name="cert_id" value="AcMqbG3VnQLrUd8JudoU1o_Nv5yAfCCm5KbchYw34P2CdeCvmF9AMLvcVFPM9v75Wk5uB1GGbN7S9m8B">
