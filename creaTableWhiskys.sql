@@ -49,7 +49,7 @@ create table whiskyproject.whisky(
     productiondate int(10),
     alcoholcontent int(3),
     volume int(6) ,
-    stockquantity int(5),
+    stockquantity int(5) default 100,
     categorie varchar(50),
     img varchar(50),
     price double(10,2),

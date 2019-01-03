@@ -8,7 +8,7 @@ insert into whiskyproject.categorie(nom) value('Whisky de Blé Noir');
 insert into whiskyproject.categorie(nom) value('Blend');
 
 
-insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price, promotion) value(1,'Nikka Pure Malt Black','nikka-pure-malt-black.jpg','Blended Malt',43,50,'Japon',49.50,10.0 );
+insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price, promotion, stockquantity) value(1,'Nikka Pure Malt Black','nikka-pure-malt-black.jpg','Blended Malt',43,50,'Japon',49.50,10.0, 3 );
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) values(2,'The Macallan 1824 Series Amber','the-macallan-1824-series-amber.jpg','Single Malt',40,70,'Ecosse Speyside',68.80);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,age,alcoholcontent,volume, country, price) value(3,'Highland Park 12 ans','highland-park-12-ans.jpg','Single Malt',12,40,70,'Ecosse Highlands',38.45);
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price) value(4,'Glen Garioch Founder’s Reserve','glen-garioch-founders-reserve.jpg','Single Malt',48,70,'Ecosse Highlands',39.95);
