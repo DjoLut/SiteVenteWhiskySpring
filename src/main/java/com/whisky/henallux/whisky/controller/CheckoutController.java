@@ -46,10 +46,10 @@ public class CheckoutController {
         return "redirect:/checkout";
     }
 
-    @RequestMapping(value = "/validate", method = RequestMethod.POST)
-    public String validatePanier(HttpServletRequest request)
+    @RequestMapping(value = "/validate")
+    public String validatePanier()
     {
-        orderDAO.addPanier(request, panier);
+        orderDAO.addPanier(panier);
         panier.deleteAll();
         return "redirect:/checkout";
     }

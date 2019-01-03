@@ -70,9 +70,8 @@
                             <input type="hidden" name="item_name" value="whisky">
                             <input type="hidden" name="currency_code" value="EUR">
 
-                            <input type="hidden" name="return" value="/whisky/checkout/validate">
-                            <input type='hidden' name='rm' value='2'>
-                            <input type="hidden" name="cancel_return" value="/whisky/checkout/">
+                            <input type="hidden" name="return" value="http://localhost:8082/whisky/checkout/validate">
+                            <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/checkout">
 
                             <input id="validate" type="image" name="submit"
                                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
