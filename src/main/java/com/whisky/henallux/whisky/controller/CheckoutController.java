@@ -54,4 +54,11 @@ public class CheckoutController {
         return "redirect:/checkout";
     }
 
+    @RequestMapping(value = "/delete")
+    public String deleteWhisky()
+    {
+        panier.deleteAll();
+        return "redirect:/checkout";
+    }
+
 }

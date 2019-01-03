@@ -41,7 +41,7 @@
                             <img src="<spring:url value='/images/cart.png' />">
                         </h3>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty"><spring:message code="emptyCart"/></a></p>
+                    <p><a href="<spring:url value='/checkout/delete'/>" class="simpleCart_empty"><spring:message code="emptyCart"/></a></p>
                 </div>
 
                 <div class="clearfix"> </div>

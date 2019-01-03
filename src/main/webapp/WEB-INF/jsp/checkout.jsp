@@ -56,11 +56,29 @@
             <div class="col-md-3 cart-total">
                 <sec:authorize access="isAuthenticated()">
                     <c:if test="${panier.size() != 0}">
-                        <form action="/whisky/checkout/validate" method="POST">
+                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                             <input type="hidden" name="utilisateur" value="<sec:authentication property="principal.username"/>" />
                             <input type="hidden" name="promotion" value="${promo}" />
                             <input type="hidden" name="totalprice" value="${total}" />
-                            <input type="submit" id="validate" value="Validate" onclick="return confirm('Voulez-vous valider la commander ?')">
+
+                            <input type="hidden" name="business" value="jordan.lutgen.business@hotmail.com">
+                            <input type="hidden" name="password" value="EIv6nB2i7eBuAkFRh8RvNDatl0uQeVJTv_wh85uFfPnYh88SPQyDgmelRvCAELjICLLMbTrUQOIqj2K-">
+                            <input type="hidden" name="cert_id" value="AcMqbG3VnQLrUd8JudoU1o_Nv5yAfCCm5KbchYw34P2CdeCvmF9AMLvcVFPM9v75Wk5uB1GGbN7S9m8B">
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="hosted_button_id" value="HMAZCTEMUDKFS">
+                            <input type="hidden" name="amount" value="${total-promo}">
+                            <input type="hidden" name="item_name" value="whisky">
+                            <input type="hidden" name="currency_code" value="EUR">
+
+                            <input type="hidden" name="return" value="/whisky/checkout/validate">
+                            <input type='hidden' name='rm' value='2'>
+                            <input type="hidden" name="cancel_return" value="/whisky/checkout/">
+
+                            <input id="validate" type="image" name="submit"
+                                   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                                   alt="PayPal - The safer, easier way to pay online" onclick="return confirm('Voulez-vous confirmer votre commande ?')">
+                            <img alt="" width="1" height="1"
+                                 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
                         </form>
                     </c:if>
                     <c:if test="${panier.size() == 0}">
@@ -80,7 +98,7 @@
                  </div>
                  <ul class="total_price">
                    <li class="last_price"><h4>TOTAL</h4></li>
-                   <li class="last_price"><h4>${total-promotion} &euro;</h4></li>
+                   <li class="last_price"><h4>${total-promo} &euro;</h4></li>
                    <div class="clearfix"> </div>
                  </ul>
 
