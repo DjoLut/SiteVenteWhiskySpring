@@ -38,9 +38,9 @@ public class WhiskyEntity {
     private Double price;
     @Column(name="promotion")
     private Double promotion;
-    @OneToMany(mappedBy = "whisky",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "whisky")
     private Collection<CommandLineEntity> commandlines;
-    @OneToMany(mappedBy = "whiskyid",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "whiskyid")
     private Collection<TranslationEntity> translationEntities;
 
 

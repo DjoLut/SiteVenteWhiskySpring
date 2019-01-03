@@ -7,9 +7,9 @@ import java.util.Collection;
 @Table(name="langue")
 public class LanguageEntity {
     @Id
-    @Column(name="languageid")
-    private String languageid;
-    @OneToMany(mappedBy = "translations",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(name="id")
+    private String id;
+    @OneToMany(mappedBy = "languageid",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<TranslationEntity> translations;
 
     public LanguageEntity(){}
@@ -17,6 +17,6 @@ public class LanguageEntity {
     public Collection<TranslationEntity> getTranslations() { return translations; }
     public void setTranslations(Collection<TranslationEntity> translations) { this.translations = translations; }
 
-    public String getLanguageid() { return languageid; }
-    public void setLanguageid(String languageid) { languageid = languageid; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 }

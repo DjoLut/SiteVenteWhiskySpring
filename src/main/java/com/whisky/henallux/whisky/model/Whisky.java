@@ -21,7 +21,6 @@ public class Whisky {
 
     public Whisky(){}
 
-
     public Integer getStockQuantity() { return stockQuantity; }
     public Integer getVolume() { return volume; }
     public Integer getAlcoholContent() { return alcoholContent; }

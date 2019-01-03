@@ -1,13 +1,7 @@
 package com.whisky.henallux.whisky.dataAccess.util;
 
-import com.whisky.henallux.whisky.dataAccess.entity.CommandLineEntity;
-import com.whisky.henallux.whisky.dataAccess.entity.OrderEntity;
-import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
-import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
-import com.whisky.henallux.whisky.model.CommandLine;
-import com.whisky.henallux.whisky.model.Order;
-import com.whisky.henallux.whisky.model.User;
-import com.whisky.henallux.whisky.model.Whisky;
+import com.whisky.henallux.whisky.dataAccess.entity.*;
+import com.whisky.henallux.whisky.model.*;
 import org.dozer.Mapper;
 import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Component;
@@ -120,7 +114,6 @@ public class ProviderConverter {
         return commandLine;
     }
 
-
     /*public OrderEntity orderToOrderEntity(Order order) { return mapper.map(order, OrderEntity.class); }
     public Order orderEntityToOrder(OrderEntity orderEntity) { return mapper.map(orderEntity, Order.class); }*/
     public OrderEntity orderToOrderEntity(Order order)
@@ -146,5 +139,36 @@ public class ProviderConverter {
         return order;
     }
 
+    public TranslationEntity translationToTranslationEntity(Translation translation)
+    {
+        TranslationEntity translationEntity = new TranslationEntity();
+        translationEntity.setId(translation.getId());
+        translationEntity.setDescriptions(translation.getDescriptions());
+        translationEntity.setWhiskyid(translation.getWhiskyid());
+        translationEntity.setLanguageid(translation.getLanguageid());
+        return translationEntity;
+    }
+    public Translation translationEntityToTranslation(TranslationEntity translationEntity)
+    {
+        Translation translation = new Translation();
+        translation.setId(translationEntity.getId());
+        translation.setDescriptions(translationEntity.getDescriptions());
+        translation.setWhiskyid(translationEntity.getWhiskyid());
+        translation.setLanguageid(translationEntity.getLanguageid());
+        return translation;
+    }
+
+    public LanguageEntity languageToLanguageEntity(Language language)
+    {
+        LanguageEntity languageEntity = new LanguageEntity();
+        languageEntity.setId(language.getId());
+        return languageEntity;
+    }
+    public Language languageEntityToLanguage(LanguageEntity languageEntity)
+    {
+        Language language = new Language();
+        language.setId(languageEntity.getId());
+        return language;
+    }
 
 }

@@ -1,10 +1,10 @@
 package com.whisky.henallux.whisky.model;
 
 public class Language {
-    private String languageid;
+    private String id;
     public Language(){}
 
-    public String getLanguageid() { return languageid; }
+    public String getId() { return id; }
 
-    public void setLanguageid(String languageid) { this.languageid = languageid; }
+    public void setId(String id) { this.id = id; }
 }

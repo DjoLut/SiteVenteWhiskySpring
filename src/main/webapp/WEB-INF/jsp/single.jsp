@@ -70,6 +70,7 @@
                         <li><a data-content="cinema" href="#0" >Additionnal information</a></li>
                     </ul>
 			    </nav>
+                <p>${translation.descriptions}</p>
                 <ul class="cd-tabs-content">
                     <li data-content="fashion" >
                         <div class="facts">

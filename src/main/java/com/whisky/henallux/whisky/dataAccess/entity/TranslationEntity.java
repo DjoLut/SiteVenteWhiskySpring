@@ -14,23 +14,23 @@ public class TranslationEntity {
     @JoinColumn(name = "whiskyid", referencedColumnName = "id")
     private WhiskyEntity whiskyid;
     @ManyToOne
-    @JoinColumn(name = "languageid", referencedColumnName = "languageid")
-    private LanguageEntity translations;
+    @JoinColumn(name = "languageid", referencedColumnName = "id")
+    private LanguageEntity languageid;
 
     @Column(name="descriptions")
-    private String description;
+    private String descriptions;
 
     public TranslationEntity(){}
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
-    public LanguageEntity getTranslations() { return translations; }
+    public LanguageEntity getLanguageid() { return languageid; }
     public WhiskyEntity getWhiskyid() { return whiskyid; }
 
     public void setWhiskyid(WhiskyEntity whiskyid) { this.whiskyid = whiskyid; }
-    public void setTranslations(LanguageEntity translations) { this.translations = translations; }
+    public void setLanguageid(LanguageEntity languageid) { this.languageid = languageid; }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getDescriptions() { return descriptions; }
+    public void setDescriptions(String descriptions) { this.descriptions = descriptions; }
 }

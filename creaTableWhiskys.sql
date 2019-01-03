@@ -69,7 +69,7 @@ create table whiskyproject.commandline(
 );
 
 create table whiskyproject.langue(
-	languageid varchar(50) primary key
+	id varchar(50) primary key
 );
 
 create table whiskyproject.translation(
@@ -78,6 +78,6 @@ create table whiskyproject.translation(
     whiskyid int(65) not null,
     languageid varchar(50) not null,
     constraint whiskyid foreign key(whiskyid) references whiskyproject.whisky(id),
-    constraint languageid foreign key(languageid) references whiskyproject.langue(languageid)
+    constraint languageid foreign key(languageid) references whiskyproject.langue(id)
 );
 
