@@ -18,6 +18,14 @@ public class Panier {
         whiskys = new HashMap<>();
     }
 
+    public Map<Whisky, Integer> getWhiskys() {
+        return whiskys;
+    }
+
+    public void setWhiskys(Map<Whisky, Integer> whiskys) {
+        this.whiskys = whiskys;
+    }
+
     public void addWhisky(Whisky whisky, int quantity)
     {
         Boolean whiskyPresent = false;
@@ -26,9 +34,16 @@ public class Panier {
             Map.Entry<Whisky, Integer> entry = it.next();
             if (entry.getKey().getId() == whisky.getId())
             {
-                quantityOld = entry.getValue();
-                it.remove();
-                whiskys.put(whisky, quantity+quantityOld);
+                if((entry.getKey().getStockQuantity()-entry.getValue()) > 0)
+                {
+                    quantityOld = entry.getValue();
+                    it.remove();
+                    whiskys.put(whisky, quantity+quantityOld);
+                }
+                else
+                {
+                    //MESSAGE : PLUS D'ARTICLES OU QUANTITYARTICLES RESTANTES !!!
+                }
                 whiskyPresent = true;
                 break;
             }
@@ -69,12 +84,24 @@ public class Panier {
         whiskys.clear();
     }
 
-    public Map<Whisky, Integer> getWhiskys() {
-        return whiskys;
+    public double calculPrice()
+    {
+        double totalPrice = 0;
+        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
+            Map.Entry<Whisky, Integer> entry = it.next();
+            totalPrice += (entry.getKey().getPrice()*entry.getValue());
+        }
+        return totalPrice;
     }
 
-    public void setWhiskys(Map<Whisky, Integer> whiskys) {
-        this.whiskys = whiskys;
+    public double calculPromo()
+    {
+        double totalPromo = 0;
+        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
+            Map.Entry<Whisky, Integer> entry = it.next();
+            totalPromo += (entry.getKey().getPrice()*entry.getValue()) / (entry.getKey().getPrice()*entry.getValue()*entry.getKey().getPromotion());
+        }
+        return totalPromo;
     }
 
 }

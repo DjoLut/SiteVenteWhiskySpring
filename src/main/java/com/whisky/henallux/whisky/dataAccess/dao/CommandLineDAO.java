@@ -20,13 +20,15 @@ public class CommandLineDAO {
     private CommandLineRepository commandLineRepository;
     private SessionFactory sessionFactory;
     private ProviderConverter providerConverter;
+    private WhiskyDAO whiskyDAO;
 
     @Autowired
-    public CommandLineDAO(CommandLineRepository commandLineRepository, SessionFactory sessionFactory, ProviderConverter providerConverter)
+    public CommandLineDAO(CommandLineRepository commandLineRepository, SessionFactory sessionFactory, ProviderConverter providerConverter, WhiskyDAO whiskyDAO)
     {
         this.commandLineRepository = commandLineRepository;
         this.sessionFactory = sessionFactory;
         this.providerConverter = providerConverter;
+        this.whiskyDAO = whiskyDAO;
     }
 
     public ArrayList<CommandLine> getAllCommandLine()
@@ -61,6 +63,7 @@ public class CommandLineDAO {
             commandLine.setWhiskyOrder(providerConverter.orderToOrderEntity(order));
             commandLine.setWhisky(providerConverter.whiskyToWhiskyEntity(entry.getKey()));
 
+            whiskyDAO.updateStockQuantity(entry.getKey().getId(), entry.getKey().getStockQuantity()-entry.getValue());
             saveCommandLine(commandLine);
         }
 

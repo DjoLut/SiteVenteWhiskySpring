@@ -8,8 +8,8 @@
         <div class="check">
             <h1><spring:message code="shoppingBag"/> (${panier.size()})</h1>
             <div class="col-md-9 cart-items">
-                <c:set var="total" value="${0}" />
-                <c:set var="promo" value="${0}" />
+                <c:set var="totalPrice" value="0" />
+                <c:set var="totalPromo" value="0" />
                 <c:forEach items="${panier}" var="panier">
 				<script>$(document).ready(function(c) {
 					$('.close1').on('click', function(c){
@@ -35,21 +35,26 @@
                                     <p>
                                         Qty : ${panier.value}
                                         <form action="/whisky/checkout/modify" method="POST">
-                                            <input type="number" min="1" max="999" value="${panier.value}" name="quantity">
+                                            <input type="number" min="1" max="${panier.key.stockQuantity}" value="${panier.value}" name="quantity">
                                             <input type="hidden" value="${panier.key.id}" name="whisky">
-                                            <input type="submit" value="Change quantity" />
+                                            <input type="submit" value="<spring:message code="changeQuantity"/>" />
                                         </form>
                                     </p>
                                 </li>
                             </ul>
-                            <h3>${(panier.key.price*panier.value)-promotion} &euro;</h3>
+                            <c:if test="${not empty panier.key.promotion}">
+                                <h3>${panier.key.price*panier.value} &euro;</h3>- ${panier.key.promotion/100*panier.key.price*panier.value}
+                            </c:if>
+                            <c:if test="${empty panier.key.promotion}">
+                                <h3>${panier.key.price*panier.value} &euro;</h3>
+                            </c:if>
                             <div class="clearfix"></div>
 					   </div>
 					   <div class="clearfix"></div>
                     </div>
                 </div>
-                    <c:set var="total" value="${total + (panier.key.price*panier.value)}" />
-                    <c:set var="promo" value="${promo + promotion}" />
+                    <c:set var="total" value="${totalPrice = totalPrice + (panier.key.price*panier.value)}" />
+                    <c:set var="promo" value="${totalPromo = totalPromo + (panier.key.promotion/100*panier.key.price*panier.value)}" />
                 </c:forEach>
             </div>
 
@@ -62,7 +67,7 @@
                             <input type="hidden" name="cert_id" value="AcMqbG3VnQLrUd8JudoU1o_Nv5yAfCCm5KbchYw34P2CdeCvmF9AMLvcVFPM9v75Wk5uB1GGbN7S9m8B">
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="hosted_button_id" value="HMAZCTEMUDKFS">
-                            <input type="hidden" name="amount" value="${total-promo}">
+                            <input type="hidden" name="amount" value="${totalPrice-totalPromo}">
                             <input type="hidden" name="item_name" value="whisky">
                             <input type="hidden" name="currency_code" value="EUR">
 
@@ -77,23 +82,23 @@
                         </form>
                     </c:if>
                     <c:if test="${panier.size() == 0}">
-                        <a class="continue" href="<spring:url value='/whiskies'/>" >Add whiskys</a>
+                        <a class="continue" href="<spring:url value='/whiskies'/>" ><spring:message code="AddWhisky"/></a>
                     </c:if>
                 </sec:authorize>
                 <sec:authorize access="!isAuthenticated()">
                     <a class="continue" href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a>
                 </sec:authorize>
                  <div class="price-details">
-                     <h3>Price Details</h3>
-                     <span>Total</span>
-                     <span class="total1">${total} &euro;</span>
-                     <span>Discount</span>
-                     <span class="total1">-${promo} &euro;</span>
+                     <h3><spring:message code="priceDetails"/></h3>
+                     <span><spring:message code="total"/></span>
+                     <span class="total1">${totalPrice} &euro;</span>
+                     <span><spring:message code="discount"/></span>
+                     <span class="total1">- ${totalPromo} &euro;</span>
                      <div class="clearfix"></div>
                  </div>
                  <ul class="total_price">
-                   <li class="last_price"><h4>TOTAL</h4></li>
-                   <li class="last_price"><h4>${total-promo} &euro;</h4></li>
+                   <li class="last_price"><h4><spring:message code="total"/></h4></li>
+                   <li class="last_price"><h4>${totalPrice-totalPromo} &euro;</h4></li>
                    <div class="clearfix"> </div>
                  </ul>
 

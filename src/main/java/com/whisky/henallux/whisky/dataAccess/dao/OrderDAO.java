@@ -55,14 +55,8 @@ public class OrderDAO {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         order.setUtilisateur(providerConverter.userModelToUserEntity(userDAO.getUserByUsername(authentication.getName())));
 
-        Map<Whisky, Integer> whiskys = panier.getWhiskys();
-        double totalprice = 0;
-        for(Map.Entry<Whisky, Integer> entry : whiskys.entrySet()) {
-            //PROMO
-            totalprice += (entry.getKey().getPrice())*entry.getValue();
-        }
-        order.setPromotion(0);
-        order.setTotalPrice(totalprice);
+        order.setPromotion(panier.calculPromo());
+        order.setTotalPrice(panier.calculPrice()-panier.calculPromo());
 
         saveOrder(order, panier);
     }

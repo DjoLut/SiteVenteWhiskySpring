@@ -4,6 +4,7 @@ import com.whisky.henallux.whisky.dataAccess.entity.WhiskyEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.WhiskyRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.Whisky;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,6 +65,15 @@ public class WhiskyDAO {
         return providerConverter.whiskyEntityToWhisky(whiskyEntity);
     }
 
+    public void updateStockQuantity(int id, int newStockQuantity)
+    {
+        Whisky whisky = getWhiskyById(id);
+        whisky.setStockQuantity(newStockQuantity);
 
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.saveOrUpdate(providerConverter.whiskyToWhiskyEntity(whisky));
+        session.getTransaction().commit();
+    }
 
 }

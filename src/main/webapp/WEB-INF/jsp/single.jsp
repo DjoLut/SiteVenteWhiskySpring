@@ -52,10 +52,10 @@
                     <p>${whisky.country}</p>
 
                     <form action="/whisky/single/${whisky.id}/add" method="POST">
-                        <input type="number" min="1" max="999" value="1" name="quantity">
+                        <input type="number" min="1" max="${whisky.stockQuantity}" value="1" name="quantity">
                         <input type="hidden" value="${whisky.id}" name="whisky">
                         <div class="clearfix"> </div>
-                        <input type="submit" value="add" id="login"/>
+                        <input type="submit" value="<spring:message code="add"/>" id="login"/>
                     </form>
 
 
