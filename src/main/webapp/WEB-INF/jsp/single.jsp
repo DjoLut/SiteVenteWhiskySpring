@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--content-->
 <!---->
 <div class="product">
@@ -51,13 +52,17 @@
 
                     <p>${whisky.country}</p>
 
-                    <form action="/whisky/single/${whisky.id}/add" method="POST">
-                        <input type="number" min="1" max="${whisky.stockQuantity}" value="1" name="quantity">
-                        <input type="hidden" value="${whisky.id}" name="whisky">
-                        <div class="clearfix"> </div>
-                        <input type="submit" value="<spring:message code="add"/>" id="login"/>
-                    </form>
-
+                    <c:if test="${whisky.stockQuantity > 0}" >
+                        <form action="/whisky/single/${whisky.id}/add" method="POST">
+                            <input type="number" min="1" max="${whisky.stockQuantity}" value="1" name="quantity">
+                            <input type="hidden" value="${whisky.id}" name="whisky">
+                            <div class="clearfix"> </div>
+                            <input type="submit" value="<spring:message code="add"/>" id="login"/>
+                        </form>
+                    </c:if>
+                    <c:if test="${whisky.stockQuantity == 0}">
+                        <p><spring:message code="outOfStock"/></p>
+                    </c:if>
 
                 </div>
             </div>
