@@ -99,9 +99,9 @@ public class Panier {
         double totalPromo = 0;
         for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
             Map.Entry<Whisky, Integer> entry = it.next();
-            totalPromo += (entry.getKey().getPrice()*entry.getValue()) / (entry.getKey().getPrice()*entry.getValue()*entry.getKey().getPromotion());
+            if(entry.getKey().getPromotion() != null)
+                totalPromo += (entry.getKey().getPromotion()*entry.getKey().getPrice()*entry.getValue());
         }
         return totalPromo;
     }
-
 }

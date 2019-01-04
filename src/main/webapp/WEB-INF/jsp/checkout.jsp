@@ -67,7 +67,12 @@
                             <input type="hidden" name="cert_id" value="AcMqbG3VnQLrUd8JudoU1o_Nv5yAfCCm5KbchYw34P2CdeCvmF9AMLvcVFPM9v75Wk5uB1GGbN7S9m8B">
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="hosted_button_id" value="HMAZCTEMUDKFS">
-                            <input type="hidden" name="amount" value="${totalPrice-totalPromo}">
+                            <c:if test="${(totalPrice-totalPromo) > 99}">
+                                <input type="hidden" name="amount" value="${totalPrice-totalPromo}">
+                            </c:if>
+                            <c:if test="${(totalPrice-totalPromo) < 100}">
+                                <input type="hidden" name="amount" value="${totalPrice-totalPromo+30}">
+                            </c:if>
                             <input type="hidden" name="item_name" value="whisky">
                             <input type="hidden" name="currency_code" value="EUR">
 
@@ -94,12 +99,24 @@
                      <span class="total1">${totalPrice} &euro;</span>
                      <span><spring:message code="discount"/></span>
                      <span class="total1">- ${totalPromo} &euro;</span>
+                     <span><spring:message code="total"/></span>
+                     <span class="total1">${totalPrice-totalPromo}</span>
                      <div class="clearfix"></div>
                  </div>
                  <ul class="total_price">
-                   <li class="last_price"><h4><spring:message code="total"/></h4></li>
-                   <li class="last_price"><h4>${totalPrice-totalPromo} &euro;</h4></li>
-                   <div class="clearfix"> </div>
+                     <c:if test="${(totalPrice-totalPromo) > 99  and panier.size() != 0}">
+                         <li class="last_price"><h4><spring:message code="shippingCost"/></h4></li>
+                         <li class="last_price"><h4><spring:message code="freeShippingCost"/></h4></li>
+                         <li class="last_price"><h4><spring:message code="total"/></h4></li>
+                         <li class="last_price"><h4>${totalPrice-totalPromo} &euro;</h4></li>
+                     </c:if>
+                     <c:if test="${(totalPrice-totalPromo) < 100 and panier.size() !=0}">
+                         <li class="last_price"><h4><spring:message code="shippingCost"/></h4></li>
+                         <li class="last_price"><h4>+ 30 &euro;</h4></li>
+                         <li class="last_price"><h4><spring:message code="total"/></h4></li>
+                         <li class="last_price"><h4>${totalPrice-totalPromo+30} &euro;</h4></li>
+                     </c:if>
+                     <div class="clearfix"> </div>
                  </ul>
 
 
