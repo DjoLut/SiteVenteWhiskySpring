@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="banner">
     <div class="container">
 
@@ -60,7 +61,7 @@
 
                             <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add">
                                 <p class="number item_price">
-                                    <i> </i><del>${whisky.price} &euro;</del> ${whisky.price-(whisky.promotion/100*whisky.price)} &euro;
+                                    <i> </i><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="" maxFractionDigits="2"/> &euro;
                                 </p>
                             </a>
                         </div>
