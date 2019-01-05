@@ -19,6 +19,10 @@
     <script src="<spring:url value='/js/jquery.min.js'/>"></script>
     <!-- Custom Theme files -->
 
+    <script src="<spring:url value="/js/jquery.flexslider.js"/>"></script>
+    <script src="<spring:url value="/js/main.js"/>"></script>
+    <script src="<spring:url value="/js/responsiveslides.min.js"/>"></script>
+    
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!--fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>

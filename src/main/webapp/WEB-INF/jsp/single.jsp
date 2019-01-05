@@ -13,15 +13,6 @@
                         <li data-thumb="<spring:url value='/images/bottle/${whisky.img}' />">
                             <img src="<spring:url value='/images/bottle/${whisky.img}' />" >
                         </li>
-                        <li data-thumb="">
-                            <img src="" >
-                        </li>
-                        <li data-thumb="">
-                            <img src="" >
-                        </li>
-                        <li data-thumb="">
-                            <img src="" >
-                        </li>
                     </ul>
                 </div>
                 <!-- FlexSlider -->

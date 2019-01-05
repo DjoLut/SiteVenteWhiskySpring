@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="banner">
     <div class="container">
-        <script src="<spring:url value='../js/responsiveslides.min.js'/>"></script>
+
         <script>
             $(function () {
                 $("#slider").responsiveSlides({
@@ -19,7 +19,7 @@
 
                     <div class="banner-text">
                         <h3><spring:message code="index.Banner1"/></h3>
-                        <p><spring:message code="index.Banner1.p"/></p>
+                        <p style="background-image:url(<spring:url value="images/Fond-noir.png"/>); height:100%; flood-opacity: 0.2;"><spring:message code="index.Banner1.p"/></p>
                         <a href="<spring:url value="whiskies"/>"><spring:message code="index.Banner1.a"/></a>
                     </div>
 
