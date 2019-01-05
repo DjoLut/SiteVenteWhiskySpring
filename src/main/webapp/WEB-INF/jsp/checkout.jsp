@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
@@ -43,10 +43,10 @@
                                 </li>
                             </ul>
                             <c:if test="${not empty panier.key.promotion}">
-                                <h3>${panier.key.price*panier.value} &euro;</h3>- ${panier.key.promotion/100*panier.key.price*panier.value}
+                                <h3><fmt:formatNumber value="${panier.key.price*panier.value}" type="currency" currencySymbol=""/> &euro;</h3>- <fmt:formatNumber value="${panier.key.promotion/100*panier.key.price*panier.value}" type="currency" currencySymbol=""/>
                             </c:if>
                             <c:if test="${empty panier.key.promotion}">
-                                <h3>${panier.key.price*panier.value} &euro;</h3>
+                                <h3><fmt:formatNumber value="${panier.key.price*panier.value}" type="currency" currencySymbol=""/> &euro;</h3>
                             </c:if>
                             <div class="clearfix"></div>
 					   </div>
@@ -95,11 +95,11 @@
                  <div class="price-details">
                      <h3><spring:message code="priceDetails"/></h3>
                      <span><spring:message code="total"/></span>
-                     <span class="total1">${totalPrice} &euro;</span>
+                     <span class="total1"><fmt:formatNumber value="${totalPrice}" type="currency" currencySymbol=""/> &euro;</span>
                      <span><spring:message code="discount"/></span>
-                     <span class="total1">- ${totalPromo} &euro;</span>
+                     <span class="total1">- <fmt:formatNumber value="${totalPromo}" type="currency" currencySymbol=""/> &euro;</span>
                      <span><spring:message code="total"/></span>
-                     <span class="total1">${totalPrice-totalPromo}</span>
+                     <span class="total1"><fmt:formatNumber value="${totalPrice-totalPromo}" type="currency" currencySymbol=""/> &euro;</span>
                      <div class="clearfix"></div>
                  </div>
                  <ul class="total_price">
@@ -107,13 +107,13 @@
                          <li class="last_price"><h4><spring:message code="shippingCost"/></h4></li>
                          <li class="last_price"><h4><spring:message code="freeShippingCost"/></h4></li>
                          <li class="last_price"><h4><spring:message code="total"/></h4></li>
-                         <li class="last_price"><h4>${totalPrice-totalPromo} &euro;</h4></li>
+                         <li class="last_price"><h4><fmt:formatNumber value="${totalPrice-totalPromo}" type="currency" currencySymbol=""/> &euro;</h4></li>
                      </c:if>
                      <c:if test="${(totalPrice-totalPromo) < 100 and panier.size() !=0}">
                          <li class="last_price"><h4><spring:message code="shippingCost"/></h4></li>
                          <li class="last_price"><h4>+ 30 &euro;</h4></li>
                          <li class="last_price"><h4><spring:message code="total"/></h4></li>
-                         <li class="last_price"><h4>${totalPrice-totalPromo+30} &euro;</h4></li>
+                         <li class="last_price"><h4><fmt:formatNumber value="${totalPrice-totalPromo+30}" type="currency" currencySymbol=""/> &euro;</h4></li>
                      </c:if>
                      <div class="clearfix"> </div>
                  </ul>

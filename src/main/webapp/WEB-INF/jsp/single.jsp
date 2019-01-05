@@ -2,6 +2,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!--content-->
 <!---->
 <div class="product">
@@ -36,10 +37,10 @@
                     <div class="clearfix"> </div>
 
                     <c:if test="${whisky.promotion == null}">
-                        <h5 class="item_price">${whisky.price} &euro;</h5>
+                        <h5 class="item_price"><fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol=""/> &euro;</h5>
                     </c:if>
                     <c:if test="${whisky.promotion != null}">
-                        <h5 class="item_price"><del>${whisky.price} &euro;</del> ${whisky.price-(whisky.promotion/100*whisky.price)} &euro;</h5>
+                        <h5 class="item_price"><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol=""/> &euro;</h5>
                     </c:if>
 
                     <p>${whisky.alcoholContent} %</p>
