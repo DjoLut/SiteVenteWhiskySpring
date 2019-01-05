@@ -431,7 +431,6 @@ height: 35px;
 	display:block;
 	font-size: 2em;
 	padding-top: 5em;
-	display: block;
 	font-weight: 500;
 }
 
@@ -518,6 +517,10 @@ height: 35px;
 /*--footer--*/
 .footer{
 	background:#141414;
+	width:100%;
+}
+.amet-sed{
+	min-width:45%;
 }
 .amet-sed h4{
 	font-size: 1.5em;

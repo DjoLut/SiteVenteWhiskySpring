@@ -57,7 +57,7 @@
                 <p class="nav-bottom" style="opacity:1;"><spring:message code="index.info.crea.p"/></p>
             </div>
             <div class="col-md-4 amet-sed">
-                <img src="<spring:url value='images/index.Pres.001.jpg'/>" style="max-width: 540px;"/>
+                <img src="<spring:url value='images/index.Pres.001.jpg'/>" style="max-width: 540px; width: 100%;"/>
             </div>
         </div>
         <div class="clearfix"> </div>
