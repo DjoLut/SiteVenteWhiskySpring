@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="banner">
     <div class="container">
 
@@ -24,42 +25,66 @@
                     </div>
 
                 </li>
-                <li>
-
-                    <div class="banner-text">
-                        <h3>There are many variations </h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-                        <a href="single.html">Learn More</a>
-
-                    </div>
-
-                </li>
-                <li>
-                    <div class="banner-text">
-                        <h3>Sed ut perspiciatis unde omnis</h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-                        <a href="single.html">Learn More</a>
-
-                    </div>
-
-                </li>
             </ul>
         </div>
     </div>
 </div>
-        <div class="clearfix"> </div>
-<div class="footer">
+<div class="clearfix"> </div>
+
+<div class="product">
     <div class="container">
-        <div class="footer-top-at">
-        
-            <div class="col-md-4 amet-sed">
-                <h4 style="opacity:1;"><spring:message code="index.info.crea.h"/></h4>
-                <p class="nav-bottom" style="opacity:1;"><spring:message code="index.info.crea.p"/></p>
-            </div>
-            <div class="col-md-4 amet-sed">
-                <img src="<spring:url value='images/index.Pres.001.jpg'/>" style="max-width: 540px; width: 100%;"/>
-            </div>
+        <h2 style="opacity:1; color:black; font-family: 'Lato', sans-serif; text-align: center"><spring:message code="promotions"/></h2>
+        <br /><br />
+        <div class=" bottom-product">
+            <c:set var="compteur" value="${0}"/>
+            <c:forEach items="${whisky}" var="whisky">
+                <c:choose>
+                    <c:when test="${whisky.promotion != null and compteur < 6}">
+                        <c:set var="compteur" value="${compteur = compteur + 1}"/>
+                        <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                            <div class="product-at ">
+                                <a href="<spring:url value='/single/${whisky.id}'/>">
+                                    <img class="img-responsive" src="<spring:url value='/images/bottle/${whisky.img}' />" >
+                                    <div class="pro-grid">
+                                        <c:if test="${whisky.stockQuantity > 0}">
+                                            <span class="buy-in"><spring:message code="buyNow"/></span>
+                                        </c:if>
+                                        <c:if test="${whisky.stockQuantity == 0}">
+                                            <span class="buy-in"><spring:message code="outOfStock"/></span>
+                                        </c:if>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <p class="tun">${whisky.whiskyName}</p>
+
+                            <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add">
+                                <p class="number item_price">
+                                    <i> </i><del>${whisky.price} &euro;</del> ${whisky.price-(whisky.promotion/100*whisky.price)} &euro;
+                                </p>
+                            </a>
+                        </div>
+                    </c:when>
+                </c:choose>
+            </c:forEach>
         </div>
         <div class="clearfix"> </div>
     </div>
+</div>
+
+<hr style="width:75%; color:black; background-color:black; height:1px;" />
+
+<div class="product">
+    <div class="container" >
+        <div class="col-md-6 register-top-grid">
+            <div style="float: right">
+                <h2 style="text-align: right; opacity:1; color:black;"><spring:message code="index.info.crea.h"/></h2>
+                <p class="nav-bottom" style="width: 300px; text-align: right; opacity:1; color: black;"><spring:message code="index.info.crea.p"/></p>
+            </div>
+        </div>
+        <div class="col-md-6 register-top-grid">
+            <img src="<spring:url value='images/index.Pres.001.jpg'/>" style="max-width: 65%; float: left"/>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
 </div>

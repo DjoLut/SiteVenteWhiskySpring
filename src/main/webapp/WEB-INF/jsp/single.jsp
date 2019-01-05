@@ -34,8 +34,13 @@
                     <h4>${whisky.whiskyName}</h4>
 
                     <div class="clearfix"> </div>
-							
-                    <h5 class="item_price">${whisky.price} &euro;</h5>
+
+                    <c:if test="${whisky.promotion == null}">
+                        <h5 class="item_price">${whisky.price} &euro;</h5>
+                    </c:if>
+                    <c:if test="${whisky.promotion != null}">
+                        <h5 class="item_price"><del>${whisky.price} &euro;</del> ${whisky.price-(whisky.promotion/100*whisky.price)} &euro;</h5>
+                    </c:if>
 
                     <p>${whisky.alcoholContent} %</p>
 
