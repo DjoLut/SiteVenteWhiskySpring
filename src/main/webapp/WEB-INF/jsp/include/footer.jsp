@@ -2,31 +2,27 @@
 <div class="footer">
     <div class="container">
         <div class="footer-top-at">
-            
             <div class="col-md-4 amet-sed">
-                <h4>MORE INFO</h4>
+                <h4><spring:message code="allLinks"/></h4>
                 <ul class="nav-bottom">
-                    <li><a href="#">How to order</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="contact.html">Location</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Membership</a></li>
+                    <li><a href="<spring:url value='/login'/>" ><spring:message code="loginEntry"/></a></li>
+                    <li><a href="<spring:url value='/register'/>" ><spring:message code="register"/></a></li>
+                    <li><a href="<spring:url value='/index'/>"><spring:message code="home"/></a></li>
+                    <li><a href="<spring:url value='/whiskies'/>"><spring:message code="allWhisky"/></a></li>
+                    <li><a href="<spring:url value='/checkout'/> "><spring:message code="cart"/></a></li>
                 </ul>
             </div>
             <div class="col-md-4 amet-sed ">
-                <h4>CONTACT US</h4>
-                
-                <p>
-                    Contrary to popular belief</p>
-                <p>The standard chunk</p>
-                <p>office:  +12 34 995 0792</p>
-                <ul class="social">
-                    <li><a href="#"><i> </i></a></li>
-                    <li><a href="#"><i class="twitter"> </i></a></li>
-                    <li><a href="#"><i class="rss"> </i></a></li>
-                    <li><a href="#"><i class="gmail"> </i></a></li>
-                
+                <h4><spring:message code="contactUs"/></h4>
+                <p><spring:message code="help"/></p>
+                <ul class="nav-bottom">
+                    <li><a href="<spring:url value='/contact'/>">-> <spring:message code="contact"/></a></li>
                 </ul>
+            </div>
+            <div class="col-md-4 amet-sed">
+                <h4><spring:message code="informations"/></h4>
+                <p><spring:message code="securePayment"/></p>
+                <p><spring:message code="freeShippingfrom100"/></p>
             </div>
             <div class="clearfix"> </div>
         </div>
