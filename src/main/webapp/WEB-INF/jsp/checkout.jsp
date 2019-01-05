@@ -43,7 +43,8 @@
                                 </li>
                             </ul>
                             <c:if test="${not empty panier.key.promotion}">
-                                <h3><fmt:formatNumber value="${panier.key.price*panier.value}" type="currency" currencySymbol=""/> &euro;</h3>- <fmt:formatNumber value="${panier.key.promotion/100*panier.key.price*panier.value}" type="currency" currencySymbol=""/>
+                                <h3><fmt:formatNumber value="${panier.key.price*panier.value}" type="currency" currencySymbol=""/> &euro;</h3>
+                                - <fmt:formatNumber value="${panier.key.promotion/100*panier.key.price*panier.value}" type="currency" currencySymbol=""/>
                             </c:if>
                             <c:if test="${empty panier.key.promotion}">
                                 <h3><fmt:formatNumber value="${panier.key.price*panier.value}" type="currency" currencySymbol=""/> &euro;</h3>
@@ -80,7 +81,7 @@
 
                             <input id="validate" type="image" name="submit"
                                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-                                   alt="PayPal - The safer, easier way to pay online" onclick="return confirm('Voulez-vous confirmer votre commande ?')">
+                                   alt="PayPal - The safer, easier way to pay online" onclick="return confirm('<spring:message code='confirmation'/>')">
                             <img alt="" width="1" height="1"
                                  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
                         </form>

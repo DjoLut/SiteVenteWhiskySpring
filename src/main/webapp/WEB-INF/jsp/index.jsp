@@ -22,7 +22,7 @@
                     <div class="banner-text">
                         <h3><spring:message code="index.Banner1"/></h3>
                         <p style="background-image:url(<spring:url value="images/Fond-noir.png"/>); height:100%; flood-opacity: 0.2;"><spring:message code="index.Banner1.p"/></p>
-                        <a href="<spring:url value="whiskies"/>"><spring:message code="index.Banner1.a"/></a>
+                        <a href="<spring:url value="/whiskies"/>"><spring:message code="index.Banner1.a"/></a>
                     </div>
 
                 </li>
@@ -61,7 +61,7 @@
 
                             <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add">
                                 <p class="number item_price">
-                                    <i> </i><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="" maxFractionDigits="2"/> &euro;
+                                    <i> </i><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol=""/> &euro;
                                 </p>
                             </a>
                         </div>
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="col-md-6 register-top-grid">
-            <img src="<spring:url value='images/index.Pres.001.jpg'/>" style="max-width: 65%; float: left"/>
+            <img src="<spring:url value='/images/index.Pres.001.jpg'/>" style="max-width: 65%; float: left"/>
         </div>
     </div>
     <div class="clearfix"> </div>

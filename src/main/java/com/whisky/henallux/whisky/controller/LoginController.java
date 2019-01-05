@@ -30,11 +30,9 @@ public class LoginController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getUserAuth(Authentication authentication)
+    public void getUserAuth(Authentication authentication)
     {
-        UserEntity userDetails = (UserEntity) authentication.getPrincipal();
-
-        return userDetails.getUsername();
+        authentication.getPrincipal();
     }
 
 }
