@@ -1,6 +1,7 @@
 package com.whisky.henallux.whisky.service;
 
 import com.whisky.henallux.whisky.model.Whisky;
+import org.apache.catalina.valves.rewrite.Substitution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
@@ -52,6 +53,24 @@ public class Panier {
         if(!whiskyPresent)
             whiskys.put(whisky, quantity);
 
+    }
+
+    public int size(){ return this.whiskys.size();}
+
+    public double totalPriceWhisky(){
+        double count = 0.0;
+        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<Whisky, Integer> entry = it.next();
+            count+= entry.getValue()*(entry.getKey().getPrice()-entry.getKey().getPrice()*(entry.getKey().getPromotion()/100));
+        }
+        return count;
+    }
+
+    public int countWhisky(){
+        int count = 0;
+        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();)
+            count += it.next().getValue();
+        return count;
     }
 
     public void deleteWhisky(Whisky whisky)

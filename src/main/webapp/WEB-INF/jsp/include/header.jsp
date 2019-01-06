@@ -34,7 +34,7 @@
                 <div class="cart box_1">
                     <a href="<spring:url value='/checkout'/> ">
                         <h3>
-                            <div class="total"><spring:message code="cart"/></div>
+                            <div class="total"><spring:message code="cart"/> (${panier.countWhisky()})</div>
                             <img src="<spring:url value='/images/cart.png' />">
                         </h3>
                     </a>

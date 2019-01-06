@@ -28,9 +28,7 @@ public class CheckoutController {
     @RequestMapping
     public String home(Model model)
     {
-        model.addAttribute("panier", panier.getWhiskys());
-        model.addAttribute("calculTotalPromo", panier.calculTotalPromo());
-        model.addAttribute("calculTotalPrice", panier.calculTotalPrice());
+        model.addAttribute("panier", panier);
         return "integrated:checkout";
     }
 
