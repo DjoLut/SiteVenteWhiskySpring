@@ -1,7 +1,6 @@
 package com.whisky.henallux.whisky.service;
 
 import com.whisky.henallux.whisky.model.Whisky;
-import org.apache.catalina.valves.rewrite.Substitution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
@@ -41,10 +40,7 @@ public class Panier {
                     it.remove();
                     whiskys.put(whisky, quantity+quantityOld);
                 }
-                else
-                {
-                    //MESSAGE : PLUS D'ARTICLES OU QUANTITYARTICLES RESTANTES !!!
-                }
+
                 whiskyPresent = true;
                 break;
             }
