@@ -29,12 +29,12 @@
                         <p class="tun">${whisky.whiskyName}</p>
 
                         <c:if test="${whisky.promotion == null}">
-                            <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><i> </i>${whisky.price} &euro;</p></a>
+                            <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><i> </i><fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/></p></a>
                         </c:if>
                         <c:if test="${whisky.promotion != null}">
                             <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add">
                                 <p class="number item_price">
-                                    <i> </i><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="" maxFractionDigits="2"/> &euro;
+                                    <i> </i><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;" maxFractionDigits="2"/>
                                 </p>
                             </a>
                         </c:if>
