@@ -10,7 +10,7 @@
 			<form:form id="form" method="POST" modelAttribute="user">
 				<form:errors>Login et password obligatoire</form:errors>
 				<div>
-					<form:label path="username"><spring:message code="firstname"/></form:label>
+					<form:label path="username"><spring:message code="login"/></form:label>
 					<form:input path="username" type="text"/>
 				</div>
 				<div>
