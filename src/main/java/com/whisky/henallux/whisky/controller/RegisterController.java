@@ -35,6 +35,7 @@ public class RegisterController {
         userValidator.validate(user, errors);
         if(!errors.hasErrors()){
             userDAO.saveNewUser(user);
+
             return "redirect:/login";
         }
 

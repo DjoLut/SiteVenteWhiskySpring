@@ -8,8 +8,8 @@
         <div class="check">
             <h1><spring:message code="shoppingBag"/> (${panier.size()})</h1>
             <div class="col-md-9 cart-items">
-                <c:set var="totalPrice" value="${0}" />
-                <c:set var="totalPromo" value="${0}" />
+                <c:set var="totalPrice" value="${calculTotalPrice}" />
+                <c:set var="totalPromo" value="${calculTotalPromo}" />
                 <c:forEach items="${panier}" var="panier">
 				<script>$(document).ready(function(c) {
 					$('.close1').on('click', function(c){
@@ -54,8 +54,6 @@
 					   <div class="clearfix"></div>
                     </div>
                 </div>
-                    <c:set var="totalPrice" value="${totalPrice = totalPrice + (panier.key.price*panier.value)}" />
-                    <c:set var="totalPromo" value="${totalPromo = totalPromo + (panier.key.promotion/100*panier.key.price*panier.value)}" />
                 </c:forEach>
             </div>
 

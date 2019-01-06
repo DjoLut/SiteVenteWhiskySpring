@@ -29,6 +29,8 @@ public class CheckoutController {
     public String home(Model model)
     {
         model.addAttribute("panier", panier.getWhiskys());
+        model.addAttribute("calculTotalPromo", panier.calculTotalPromo());
+        model.addAttribute("calculTotalPrice", panier.calculTotalPrice());
         return "integrated:checkout";
     }
 

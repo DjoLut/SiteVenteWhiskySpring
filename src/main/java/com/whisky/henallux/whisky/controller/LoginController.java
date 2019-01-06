@@ -1,7 +1,5 @@
 package com.whisky.henallux.whisky.controller;
 
-import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
-import com.whisky.henallux.whisky.dataAccess.entity.UserEntity;
 import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -14,12 +12,10 @@ import org.springframework.security.core.Authentication;
 @Controller
 @RequestMapping
 public class LoginController {
-    private UserDAO userDAO;
     private final MessageSource messageSource;
 
     @Autowired
-    public LoginController(UserDAO userDAO, MessageSource messageSource) {
-        this.userDAO = userDAO;
+    public LoginController(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
 

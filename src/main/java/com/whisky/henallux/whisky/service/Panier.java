@@ -84,7 +84,7 @@ public class Panier {
         whiskys.clear();
     }
 
-    public double calculPrice()
+    public double calculTotalPrice()
     {
         double totalPrice = 0;
         for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
@@ -94,14 +94,15 @@ public class Panier {
         return totalPrice;
     }
 
-    public double calculPromo()
+    public double calculTotalPromo()
     {
         double totalPromo = 0;
         for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
             Map.Entry<Whisky, Integer> entry = it.next();
             if(entry.getKey().getPromotion() != null)
-                totalPromo += (entry.getKey().getPromotion()*entry.getKey().getPrice()*entry.getValue());
+                totalPromo += (entry.getKey().getPromotion()/100*entry.getKey().getPrice()*entry.getValue());
         }
         return totalPromo;
     }
+
 }

@@ -55,8 +55,8 @@ public class OrderDAO {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         order.setUtilisateur(providerConverter.userModelToUserEntity(userDAO.getUserByUsername(authentication.getName())));
 
-        order.setPromotion(panier.calculPromo());
-        order.setTotalPrice(panier.calculPrice()-panier.calculPromo());
+        order.setPromotion(panier.calculTotalPromo());
+        order.setTotalPrice(panier.calculTotalPrice()-panier.calculTotalPromo());
 
         saveOrder(order, panier);
     }

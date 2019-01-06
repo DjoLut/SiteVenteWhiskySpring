@@ -43,18 +43,22 @@
                         <h5 class="item_price"><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/></h5>
                     </c:if>
 
+                    <p>${whisky.volume} cl</p>
+
                     <p><spring:message code="alcohol"/>${whisky.alcoholContent} %</p>
 
                     <p>${whisky.categorie.nom}</p>
 
                     <p>${whisky.country}</p>
 
+                    <p></p>
+
                     <c:if test="${whisky.stockQuantity > 0}" >
                         <form action="/whisky/single/${whisky.id}/add" method="POST">
                             <input type="number" min="1" max="${whisky.stockQuantity}" value="1" name="quantity">
                             <input type="hidden" value="${whisky.id}" name="whisky">
                             <div class="clearfix"> </div>
-                            <input type="submit" value="<spring:message code="add"/>" id="login"/>
+                            <input type="submit" value="<spring:message code="add"/>" id="login" onclick="return alert('<spring:message code='whiskyAdd'/>')"/>
                         </form>
                     </c:if>
                     <c:if test="${whisky.stockQuantity == 0}">
@@ -74,7 +78,7 @@
                 <ul class="cd-tabs-content">
                     <li data-content="fashion" >
                         <div class="facts">
-                            <p>${translation.descriptions}</p>
+                            <p style="color: black">${translation.descriptions}</p>
                         </div>
                     </li>
                 </ul>
