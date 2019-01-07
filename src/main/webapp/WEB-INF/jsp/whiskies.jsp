@@ -28,6 +28,23 @@
 
                         <p class="tun">${whisky.whiskyName}</p>
 
+
+                        <!-- FORM A FAIRE -->
+                        <c:if test="${whisky.stockQuantity > 0}" >
+                            <form action="/whisky/single/${whisky.id}/add" method="POST">
+                                <input type="hidden" value="1" name="quantity">
+                                <input type="hidden" value="${whisky.id}" name="whisky">
+                                <div class="clearfix"> </div>
+                                <input type="submit" value="<spring:message code="add"/>" id="login" onclick="return alert('<spring:message code='whiskyAdd'/>')"/>
+                            </form>
+                        </c:if>
+                        <c:if test="${whisky.stockQuantity == 0}">
+                            <p><spring:message code="outOfStock"/></p>
+                        </c:if>
+
+
+
+                        <!-- ANCIEN LIEN -->
                         <c:if test="${whisky.promotion == null}">
                             <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><i> </i><fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/></p></a>
                         </c:if>
@@ -38,6 +55,9 @@
                                 </p>
                             </a>
                         </c:if>
+
+
+
                     </div>
                 </c:forEach>
             </div>
