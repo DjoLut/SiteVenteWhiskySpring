@@ -28,38 +28,40 @@ public class Panier {
 
     public void addWhisky(Whisky whisky, int quantity)
     {
-        Boolean whiskyPresent = false;
-        int quantityOld;
-        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
-            Map.Entry<Whisky, Integer> entry = it.next();
-            if (entry.getKey().getId() == whisky.getId())
-            {
-                if((entry.getKey().getStockQuantity()-entry.getValue()) > 0)
-                {
-                    quantityOld = entry.getValue();
-                    it.remove();
-                    whiskys.put(whisky, quantity+quantityOld);
+        if(whisky.getStockQuantity()>0) {
+            Boolean whiskyPresent = false;
+            int quantityOld;
+            for (Iterator<Map.Entry<Whisky, Integer>> it = whiskys.entrySet().iterator(); it.hasNext(); ) {
+                Map.Entry<Whisky, Integer> entry = it.next();
+                if (entry.getKey().getId() == whisky.getId()) {
+                    if ((entry.getKey().getStockQuantity() - entry.getValue()) > 0) {
+                        quantityOld = entry.getValue();
+                        it.remove();
+                        whiskys.put(whisky, quantity + quantityOld > whisky.getStockQuantity() ? whisky.getStockQuantity() : quantity + quantityOld);
+                    }
+
+                    whiskyPresent = true;
+                    break;
                 }
-
-                whiskyPresent = true;
-                break;
             }
+
+            if (!whiskyPresent)
+                whiskys.put(whisky, quantity);
         }
+    }
 
-        if(!whiskyPresent)
-            whiskys.put(whisky, quantity);
+    public void addWhisky(Whisky whisky){
 
+        addWhisky(whisky,1);
     }
 
     public int size(){ return this.whiskys.size();}
 
     public double totalPriceWhisky(){
-        double count = 0.0;
-        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();) {
-            Map.Entry<Whisky, Integer> entry = it.next();
-            count+= entry.getValue()*(entry.getKey().getPrice()-entry.getKey().getPrice()*(entry.getKey().getPromotion()/100));
-        }
-        return count;
+        double totalPrice = calculTotalPrice();
+        double totalPromo = calculTotalPromo();
+        double total = totalPrice-totalPromo;
+        return total + total<100?30:0;
     }
 
     public int countWhisky(){
