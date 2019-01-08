@@ -56,12 +56,13 @@
                     <c:if test="${panier.whiskyAjoutable(whisky) > 0}" >
                         <form action="/whisky/single/${whisky.id}/add" method="POST" onsubmit="return alert('<spring:message code='whiskyAdd'/>')">
                             <input type="number" min="1" max="${panier.whiskyAjoutable(whisky)}" value="1" name="quantity"
-                                   oninvalid="return alert('<spring:message code='badQuantity'/>')"
-                                   alt="test" title="test">
+                                   oninvalid="this.setCustomValidity('<spring:message code="badQuantity"/>${panier.whiskyAjoutable(whisky)}')"
+                                   oninput="this.setCustomValidity('')"
+                                   alt="<spring:message code='badQuantity'/>${panier.whiskyAjoutable(whisky)}"
+                                   title="<spring:message code='badQuantity'/>${panier.whiskyAjoutable(whisky)}">
                             <input type="hidden" value="${whisky.id}" name="whisky">
                             <div class="clearfix"> </div>
                             <input type="submit" value="<spring:message code="add"/>" id="login"/>
-
                         </form>
                     </c:if>
                     <c:if test="${panier.whiskyAjoutable(whisky) == 0}">

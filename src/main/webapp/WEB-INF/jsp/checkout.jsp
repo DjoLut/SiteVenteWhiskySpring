@@ -33,9 +33,13 @@
                             <ul class="qty">
                                 <li>
                                     <p>
-                                        Qty : ${panier.value}
+                                        <spring:message code="quantity"/> : ${panier.value}
                                         <form action="/whisky/checkout/modify" method="POST">
-                                            <input type="number" min="1" max="${panier.key.stockQuantity}" value="${panier.value}" name="quantity">
+                                            <input type="number" min="1" max="${panier.key.stockQuantity}" value="${panier.value}" name="quantity"
+                                                   oninvalid="this.setCustomValidity('<spring:message code='badQuantity'/>${panier.key.stockQuantity}')"
+                                                   oninput="this.setCustomValidity('')"
+                                                   alt="<spring:message code='badQuantity'/>${panier.key.stockQuantity}}"
+                                                   title="<spring:message code='badQuantity'/>${panier.key.stockQuantity}">
                                             <input type="hidden" value="${panier.key.id}" name="whisky">
                                             <input type="submit" value="<spring:message code="changeQuantity"/>" />
                                         </form>
