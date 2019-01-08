@@ -37,7 +37,7 @@
         <h2 style="opacity:1; color:black; font-family: 'Lato', sans-serif; text-align: center"><spring:message code="promotions"/></h2>
         <br /><br />
         <div class=" bottom-product">
-            <c:set var="compteur" value="${0}"/>
+            <c:set var="compteur" value="0"/>
             <c:forEach items="${whisky}" var="whisky">
                 <c:choose>
                     <c:when test="${whisky.promotion != null and compteur < 6}">
@@ -65,6 +65,9 @@
                                 </p>
                             </a>
                         </div>
+                        <c:if test="${compteur%3==0&& compteur!=1 && compteur !=6}">
+                            <div class="clearfix"> </div>
+                        </c:if>
                     </c:when>
                 </c:choose>
             </c:forEach>
