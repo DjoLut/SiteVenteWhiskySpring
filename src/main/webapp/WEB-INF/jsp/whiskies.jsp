@@ -8,6 +8,7 @@
 <div class="product">
     <div class="container">
             <div class=" bottom-product">
+                <c:set var="compteur" value="0"/>
                 <c:forEach items="${whisky}" var="whisky">
                     <div class="col-md-4 bottom-cd simpleCart_shelfItem">
 
@@ -49,8 +50,11 @@
                         <c:if test="${panier.whiskyAjoutable(whisky) <= 0}">
                             <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><spring:message code="outOfStock"/></p></a>
                         </c:if>
-                        
                     </div>
+                    <c:set var="compteur" value="${compteur = compteur + 1}"/>
+                    <c:if test="${compteur%3==0&& compteur!=0}">
+                        <div class="clearfix"> </div>
+                    </c:if>
                 </c:forEach>
             </div>
 
