@@ -78,10 +78,10 @@
                             <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/checkout/validate">
 
                             <input id="validate" type="image" name="submit"
-                                   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                                   src="<spring:message code="inputPaypal"/>"
                                    alt="PayPal - The safer, easier way to pay online" onclick="return confirm('<spring:message code='confirmation'/>')">
                             <img alt="" width="1" height="1"
-                                 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                                 src="<spring:message code="buyPaypal"/>" >
                         </form>
                     </c:if>
                     <c:if test="${panier.size() == 0}">
