@@ -58,7 +58,7 @@
                             <input type="number" min="1" max="${panier.whiskyAjoutable(whisky)}" value="1" name="quantity" id="quantity.${whisky.id}">
                             <input type="hidden" value="${whisky.id}" name="whisky">
                             <div class="clearfix"> </div>
-                            <input type="submit" value="<spring:message code="add"/>" id="login" onclick="if(document.getElementById('quantity'+whisky.id)<=${panier.whiskyAjoutable(whisky)} && document.getElementById('quantity'+whisky.id)>0) return alert('<spring:message code='whiskyAdd'/>')"/>
+                            <input type="submit" value="<spring:message code="add"/>" id="login" onclick="new function(){if(document.getElementById('quantity'+whisky.id).valueOf()<=${panier.whiskyAjoutable(whisky)} && document.getElementById('quantity'+whisky.id).valueOf()>0) return alert('<spring:message code='whiskyAdd'/>')}"/>
                         </form>
                     </c:if>
                     <c:if test="${panier.whiskyAjoutable(whisky) == 0}">
