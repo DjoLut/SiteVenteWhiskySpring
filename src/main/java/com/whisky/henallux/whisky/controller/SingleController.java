@@ -52,7 +52,8 @@ public class SingleController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addWhisky(HttpServletRequest request)
     {
-        panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        if (request.getParameter("quantity") != "")
+            panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
         return "redirect:/single/{id}";
     }
 

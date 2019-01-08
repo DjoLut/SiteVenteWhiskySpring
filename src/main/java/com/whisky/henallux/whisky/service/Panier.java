@@ -50,11 +50,6 @@ public class Panier {
         }
     }
 
-    public void addWhisky(Whisky whisky){
-
-        addWhisky(whisky,1);
-    }
-
     public int size(){ return this.whiskys.size();}
 
     public double totalPriceWhisky(){
