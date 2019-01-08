@@ -51,7 +51,7 @@ public class CheckoutController {
     {
         orderDAO.addPanier(panier);
         panier.deleteAll();
-        return "redirect:/checkout";
+        return "redirect:/payementOk";
     }
 
     @RequestMapping(value = "/delete")
