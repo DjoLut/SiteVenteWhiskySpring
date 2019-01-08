@@ -16,7 +16,7 @@
                 <h4><spring:message code="contactUs"/></h4>
                 <p><spring:message code="help"/></p>
                 <ul class="nav-bottom">
-                    <li><a href="<spring:url value='/contact'/>">-> <spring:message code="contact"/></a></li>
+                    <li><a href="<spring:url value='/description'/>">-> <spring:message code="description"/></a></li>
                 </ul>
             </div>
             <div class="col-md-4 amet-sed">

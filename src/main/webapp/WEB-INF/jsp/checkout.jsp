@@ -72,16 +72,17 @@
                                 <input type="hidden" name="amount" value="${totalPrice-totalPromo+30}">
                             </c:if>
                             <input type="hidden" name="item_name" value="whisky">
+                            <input type="hidden" name="lc" value="<spring:message code='urlLanguage'/>">
                             <input type="hidden" name="currency_code" value="EUR">
 
                             <input type="hidden" name="return" value="http://localhost:8082/whisky/checkout/validate">
                             <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/checkout/validate">
 
                             <input id="validate" type="image" name="submit"
-                                   src="<spring:message code="inputPaypal"/>"
+                                   src="https://www.paypalobjects.com/<spring:message code='urlLanguage'/>/i/btn/btn_buynow_LG.gif"
                                    alt="PayPal - The safer, easier way to pay online" onclick="return confirm('<spring:message code='confirmation'/>')">
                             <img alt="" width="1" height="1"
-                                 src="<spring:message code="buyPaypal"/>" >
+                                 src="https://www.paypalobjects.com/<spring:message code='urlLanguage'/>/i/scr/pixel.gif" >
                         </form>
                     </c:if>
                     <c:if test="${panier.size() == 0}">
