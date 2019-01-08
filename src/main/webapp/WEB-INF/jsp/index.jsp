@@ -59,11 +59,24 @@
 
                             <p class="tun">${whisky.whiskyName}</p>
 
-                            <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add">
-                                <p class="number item_price">
-                                    <i> </i><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol=""/> &euro;
-                                </p>
-                            </a>
+
+                            <c:if test="${panier.whiskyAjoutable(whisky) > 0}" >
+                                <form action="/whisky/whiskies/addIndex" method="POST">
+                                    <input type="hidden" value="1" name="quantity">
+                                    <input type="hidden" value="${whisky.id}" name="whisky">
+                                    <div class="clearfix"> </div>
+                                    <c:if test="${whisky.promotion == null}">
+                                        <input style="width:100%" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd'/>')">
+                                    </c:if>
+                                    <c:if test="${whisky.promotion != null}">
+                                        <input style="width:100%; height:200%;" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/> - <fmt:formatNumber value="${whisky.promotion/100*whisky.price}" type="currency" currencySymbol="&euro;"/> = <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd'/>')">
+                                    </c:if>
+                                </form>
+                            </c:if>
+                            <c:if test="${panier.whiskyAjoutable(whisky) <= 0}">
+                                <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><spring:message code="outOfStock"/></p></a>
+                            </c:if>
+
                         </div>
                         <c:if test="${compteur%3==0&& compteur!=1 && compteur !=6}">
                             <div class="clearfix"> </div>

@@ -64,7 +64,7 @@
             <div class="col-md-3 cart-total">
                 <sec:authorize access="isAuthenticated()">
                     <c:if test="${panier.size() != 0}">
-                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="return window.open('http://localhost:8082/whisky/checkout/validate')">
                             <input type="hidden" name="business" value="jordan.lutgen.business@hotmail.com">
 
                             <input type="hidden" name="cmd" value="_xclick">
@@ -79,12 +79,12 @@
                             <input type="hidden" name="lc" value="<spring:message code='urlLanguage'/>">
                             <input type="hidden" name="currency_code" value="EUR">
 
-                            <input type="hidden" name="return" value="http://localhost:8082/whisky/checkout/validate">
-                            <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/checkout/validate">
+                            <input type="hidden" name="return" value="http://localhost:8082/whisky/payementOk">
+                            <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/payementOk">
 
                             <input id="validate" type="image" name="submit"
                                    src="https://www.paypalobjects.com/<spring:message code='urlLanguage'/>/i/btn/btn_buynow_LG.gif"
-                                   alt="PayPal - The safer, easier way to pay online" onclick="return confirm('<spring:message code='confirmation'/>')">
+                                   alt="<spring:message code='paypalAlt'/>" onclick="return confirm('<spring:message code='confirmation'/>')">
                             <img alt="" width="1" height="1"
                                  src="https://www.paypalobjects.com/<spring:message code='urlLanguage'/>/i/scr/pixel.gif" >
                         </form>

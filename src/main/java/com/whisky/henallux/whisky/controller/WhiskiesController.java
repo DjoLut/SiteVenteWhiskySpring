@@ -43,4 +43,11 @@ public class WhiskiesController {
         panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
         return "redirect:/whiskies";
     }
+
+    @RequestMapping(value = "/addIndex", method = RequestMethod.POST)
+    public String addWhisky2(HttpServletRequest request)
+    {
+        panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        return "redirect:/index";
+    }
 }
