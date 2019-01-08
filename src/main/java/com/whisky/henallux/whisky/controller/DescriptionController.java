@@ -5,16 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value="/contact")
-public class ContactController {
+@RequestMapping(value="/description")
+public class DescriptionController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home () {
-        return "integrated:contact";
+        return "integrated:description";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String post(){
-        return "";
-    }
 }

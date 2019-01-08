@@ -91,8 +91,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><a class="color4" href="<spring:url value='blog'/>">Blog</a></li>
-                    <li><a class="color6" href="<spring:url value='/contact'/>"><spring:message code="contact"/></a></li>
+                    <li><a class="color4" href="<spring:url value='/description'/>"><spring:message code="description"/></a></li>
                 </ul>
             </div>
 
