@@ -71,6 +71,16 @@ public class Panier {
         return count;
     }
 
+    public int whiskyAjoutable(Whisky whisky){
+        for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){
+            Map.Entry<Whisky, Integer> entry = it.next();
+            if(entry.getKey().getId() == whisky.getId()){
+                return whisky.getStockQuantity()-entry.getValue();
+            }
+        }
+        return whisky.getStockQuantity();
+    }
+
     public void deleteWhisky(Whisky whisky)
     {
         for(Iterator<Map.Entry<Whisky,Integer>> it = whiskys.entrySet().iterator(); it.hasNext();){

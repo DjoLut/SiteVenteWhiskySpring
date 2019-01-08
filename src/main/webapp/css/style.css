@@ -52,11 +52,11 @@ h1,h2,h3,h4,h5,h6,label,p{
 			float:left;
 			margin: 5px 20px 5px 20px ;
 		}
-.item_add {
+.item_add, .login{
   color: #fff;
   border:none;
 }	
-a.item_add {
+a.item_add, .login {
  text-decoration: none;
 }		
 .grid_1 img{
@@ -1023,14 +1023,14 @@ font-weight: 100;
 }
 /*---*/
 
-a.item_add p.number{	
+a.item_add p.number, .login{
 	font-size: 1.1em;
   color: #FFF;
   text-align: center;
   background: #EF5F21;
   padding: 0.5em 1em;
 }
-a.item_add p.number:hover{
+a.item_add p.number:hover, .login:hover{
 		background: #000;
 		transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -1038,7 +1038,7 @@ a.item_add p.number:hover{
   -moz-transition: 0.5s all;
   -ms-transition: 0.5s all;
 }
-a.item_add p.number i{	
+a.item_add p.number i, .login i{
 	 background: url(../images/img-sprite.png)no-repeat -291px -104px ;
   width: 18px;
   height: 18px;
@@ -2087,7 +2087,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .pro-grid {
   padding: 3.5em 0 0;
 }
-a.item_add p.number {
+a.item_add p.number , .login{
   font-size: 0.9em;
 }
 .b-from-left {
@@ -2275,7 +2275,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 p.tun {
   font-size: 0.8em;
 }
-a.item_add p.number {
+a.item_add p.number, .login {
   font-size: 0.8em;
   padding: 0.5em 0.5em;
 }
@@ -2333,7 +2333,7 @@ a.item_add p.number {
 .register-bottom-grid input[type="text"], .register-top-grid input[type="tel"]{
   padding: 0.5em;
 }
-.account-top input[type="submit"], #login {
+.account-top input[type="submit"], #login{
   width: 33%;
 }
 .register-top-grid h3, .register-bottom-grid h3 {
@@ -2364,7 +2364,7 @@ a.item_add p.number {
 .cart-items,.cart-total {
   padding: 0;
 }
-.account-top input[type="submit"],.register-bottom-grid input[type="submit"], #login  {
+.account-top input[type="submit"],.register-bottom-grid input[type="submit"], #login{
   font-size: 1em;
 }
 .account-top,.left-account,.register-top-grid,.register-bottom-grid {
