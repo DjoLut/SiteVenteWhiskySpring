@@ -53,15 +53,15 @@
 
                     <p></p>
 
-                    <c:if test="${whisky.stockQuantity > 0}" >
+                    <c:if test="${panier.whiskyAjoutable(whisky) > 0}" >
                         <form action="/whisky/single/${whisky.id}/add" method="POST">
-                            <input type="number" min="1" max="${whisky.stockQuantity}" value="1" name="quantity">
+                            <input type="number" min="1" max="${panier.whiskyAjoutable(whisky)}" value="1" name="quantity" id="quantity.${whisky.id}">
                             <input type="hidden" value="${whisky.id}" name="whisky">
                             <div class="clearfix"> </div>
-                            <input type="submit" value="<spring:message code="add"/>" id="login" onclick="return alert('<spring:message code='whiskyAdd'/>')"/>
+                            <input type="submit" value="<spring:message code="add"/>" id="login" onclick="if(document.getElementById('quantity'+whisky.id)<=${panier.whiskyAjoutable(whisky)} && document.getElementById('quantity'+whisky.id)>0) return alert('<spring:message code='whiskyAdd'/>')"/>
                         </form>
                     </c:if>
-                    <c:if test="${whisky.stockQuantity == 0}">
+                    <c:if test="${panier.whiskyAjoutable(whisky) == 0}">
                         <p><spring:message code="outOfStock"/></p>
                     </c:if>
 
