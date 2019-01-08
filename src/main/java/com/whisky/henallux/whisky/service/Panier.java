@@ -94,8 +94,7 @@ public class Panier {
             Map.Entry<Whisky, Integer> entry = it.next();
             if (entry.getKey().getId() == whisky.getId())
             {
-                it.remove();
-                whiskys.put(whisky, quantity);
+                whiskys.replace(entry.getKey(),quantity);
                 break;
             }
         }
