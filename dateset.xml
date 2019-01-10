@@ -1,0 +1,4 @@
+<dataset>
+    <Whisky id="1" price="49.5" promotion="10"/>
+    <Whisky id="2" price="68.80" promotion="null"/>
+</dataset>

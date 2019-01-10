@@ -4,7 +4,6 @@ import com.whisky.henallux.whisky.dataAccess.dao.LanguageDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.TranslationDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.WhiskyDAO;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
-import com.whisky.henallux.whisky.model.Language;
 import com.whisky.henallux.whisky.service.Panier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

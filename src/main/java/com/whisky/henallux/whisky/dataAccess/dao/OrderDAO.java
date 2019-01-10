@@ -4,7 +4,6 @@ import com.whisky.henallux.whisky.dataAccess.entity.OrderEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.OrderRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.Order;
-import com.whisky.henallux.whisky.model.Whisky;
 import com.whisky.henallux.whisky.service.Panier;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.math.BigInteger;
 import java.util.Date;
-import java.util.Map;
 
 @Service
 @Transactional
