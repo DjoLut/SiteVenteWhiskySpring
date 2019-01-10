@@ -38,16 +38,16 @@ public class WhiskiesController {
         this.categorie = null;
         model.addAttribute("order", "ASC");
         this.whiskies = whiskyDAO.getAllWhiskyOrderByNameAsc();
-        if(changePrice) {
-            if (orderPrice.equals("ASC"))
-                this.whiskies = whiskyDAO.getAllWhiskyOrderByPriceAsc();
-            else
-                this.whiskies = whiskyDAO.getAllWhiskyOrderByPriceDesc();
-        } else{
+        if(changeName) {
             if (orderName.equals("ASC"))
                 this.whiskies = whiskyDAO.getAllWhiskyOrderByNameAsc();
             else
                 this.whiskies = whiskyDAO.getAllWhiskyOrderByNameDesc();
+        } else{
+            if (orderPrice.equals("ASC"))
+                this.whiskies = whiskyDAO.getAllWhiskyOrderByPriceAsc();
+            else
+                this.whiskies = whiskyDAO.getAllWhiskyOrderByPriceDesc();
         }
         this.changeName = false;
         this.changePrice = false;
