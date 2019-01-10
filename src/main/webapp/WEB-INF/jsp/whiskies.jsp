@@ -7,6 +7,20 @@
 <!---->
 <div class="product">
     <div class="container">
+        <div style="padding-bottom: 30px; float:right;">
+            <div>
+                <form:form id="buttonOrdreAlpha" action="/whisky/whiskies/orderName" method="POST" modelAttribute="order">
+                    <form:button id="alpha" class="triWhiskies" value="name" path="alpha"><spring:message code="triNom"/></form:button>
+                </form:form>
+            </div>
+        </div>
+        <div style="padding-bottom: 30px">
+            <form:form id="buttonOrdreAlpha" action="/whisky/whiskies/orderPrice" method="POST" modelAttribute="order">
+                <form:button id="price" class="triWhiskies" value="price" path="price"><spring:message code="triPrix"/></form:button>
+            </form:form>
+        </div>
+        <div class="clearfix"> </div>
+        
             <div class=" bottom-product">
                 <c:set var="compteur" value="0"/>
                 <c:forEach items="${whisky}" var="whisky">

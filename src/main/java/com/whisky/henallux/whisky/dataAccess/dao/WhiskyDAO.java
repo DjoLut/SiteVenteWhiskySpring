@@ -41,6 +41,34 @@ public class WhiskyDAO {
         return whiskiesModelAsList(whiskyEntities);
     }
 
+    public ArrayList<Whisky> getAllWhiskyOrderByNameAsc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByWhiskyNameAsc());
+    }
+    public ArrayList<Whisky> getAllWhiskyOrderByNameDesc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByWhiskyNameDesc());
+    }
+    public ArrayList<Whisky> getAllWhiskyOrderByPriceAsc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByPriceAsc());
+    }
+    public ArrayList<Whisky> getAllWhiskyOrderByPriceDesc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByPriceDesc());
+    }
+
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByNameAsc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByWhiskyNameAsc(categorie));
+    }
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByNameDesc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByWhiskyNameDesc(categorie));
+    }
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByPriceAsc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByPriceAsc(categorie));
+    }
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByPriceDesc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByPriceDesc(categorie));
+    }
+
+
+
     //METHODE POUR AVOIR TOUS LES SINGLE MALT
     public ArrayList<Whisky> getWhiskyByCategorie(String categorie)
     {
