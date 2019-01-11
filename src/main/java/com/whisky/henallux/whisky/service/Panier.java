@@ -56,7 +56,7 @@ public class Panier {
         double totalPrice = calculTotalPrice();
         double totalPromo = calculTotalPromo();
         double total = totalPrice-totalPromo;
-        return total + total<100?30:0;
+        return total + (total<100?30:0);
     }
 
     public int countWhisky(){
