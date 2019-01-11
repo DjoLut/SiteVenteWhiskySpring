@@ -53,6 +53,8 @@ public class UserDAO {
         List<GrantedAuthority> collection = new ArrayList<>();
         collection.add(new SimpleGrantedAuthority("ROLE_USER"));
         user.setAuthorities(collection);
+        if(user.getTelephone().equals(""))
+            user.setTelephone(null);
         save(user);
     }
 
