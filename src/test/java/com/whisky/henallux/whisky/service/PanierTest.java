@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 import java.util.Map;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,12 +18,12 @@ public class PanierTest {
     private Panier service;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         service = new Panier();
     }
 
     @Test
-    public void calculTotalPrice() throws Exception {
+    public void calculTotalPrice() {
         Assert.assertEquals(118.3, service.calculTotalPrice(), 1.0);
     }
 
