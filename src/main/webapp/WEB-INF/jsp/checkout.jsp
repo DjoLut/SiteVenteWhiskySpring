@@ -73,7 +73,7 @@
                                 <input type="hidden" name="amount" value="${totalPrice-totalPromo}">
                             </c:if>
                             <c:if test="${(totalPrice-totalPromo) < 100}">
-                                <input type="hidden" name="amount" value="${totalPrice-totalPromo+30}">
+                                <input type="hidden" name="amount" value="${panier.totalPriceWhisky()}">
                             </c:if>
                             <input type="hidden" name="item_name" value="whisky">
                             <input type="hidden" name="lc" value="<spring:message code='urlLanguage'/>">
