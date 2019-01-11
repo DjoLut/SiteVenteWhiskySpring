@@ -26,14 +26,6 @@ public class WhiskyDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public ArrayList<String> getWhiskyName(){
-        List<WhiskyEntity> whiskyEntities = whiskyRepository.findAll();
-        ArrayList<String> list = new ArrayList<>();
-        for(WhiskyEntity whiskyEntity : whiskyEntities)
-            list.add(whiskyEntity.getWhiskyName());
-        return list;
-    }
-
     //METHODE POUR AVOIR TOUS LES WHISKY
     public ArrayList<Whisky> getAllWhisky()
     {
@@ -65,15 +57,6 @@ public class WhiskyDAO {
     }
     public ArrayList<Whisky> getWhiskyByCategorieOrderByPriceDesc(String categorie){
         return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByPriceDesc(categorie));
-    }
-
-
-
-    //METHODE POUR AVOIR TOUS LES SINGLE MALT
-    public ArrayList<Whisky> getWhiskyByCategorie(String categorie)
-    {
-        List<WhiskyEntity> whiskyEntities = whiskyRepository.findByCategorieNom(categorie);
-        return whiskiesModelAsList(whiskyEntities);
     }
 
     private ArrayList<Whisky> whiskiesModelAsList(List<WhiskyEntity> whiskyEntities){

@@ -59,10 +59,4 @@ public class OrderDAO {
         saveOrder(order, panier);
     }
 
-    public Order getOrderByUtilisateur(String username)
-    {
-        OrderEntity orderEntity = orderRepository.findAllByUtilisateurUsername(username);
-        return providerConverter.orderEntityToOrder(orderEntity);
-    }
-
 }

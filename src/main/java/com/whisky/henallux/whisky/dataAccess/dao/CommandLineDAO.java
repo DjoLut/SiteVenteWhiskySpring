@@ -31,18 +31,6 @@ public class CommandLineDAO {
         this.whiskyDAO = whiskyDAO;
     }
 
-    public ArrayList<CommandLine> getAllCommandLine()
-    {
-        List<CommandLineEntity> commandLineEntities = commandLineRepository.findAll();
-        ArrayList<CommandLine> commandLines = new ArrayList<>();
-        for(CommandLineEntity entity : commandLineEntities)
-        {
-            CommandLine commandLine = providerConverter.commandLineEntityToCommandLine(entity);
-            commandLines.add(commandLine);
-        }
-        return commandLines;
-    }
-
     public void saveCommandLine(CommandLine commandLine)
     {
         Session session = sessionFactory.getCurrentSession();
