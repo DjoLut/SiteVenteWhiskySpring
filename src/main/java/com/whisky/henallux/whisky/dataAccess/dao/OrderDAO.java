@@ -54,7 +54,7 @@ public class OrderDAO {
         order.setUtilisateur(providerConverter.userModelToUserEntity(userDAO.getUserByUsername(authentication.getName())));
 
         order.setPromotion(panier.calculTotalPromo());
-        order.setTotalPrice(panier.calculTotalPrice()-panier.calculTotalPromo());
+        order.setTotalPrice(panier.totalPriceWhisky());
 
         saveOrder(order, panier);
     }
