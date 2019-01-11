@@ -11,7 +11,6 @@ import java.util.List;
 public interface WhiskyRepository extends JpaRepository<WhiskyEntity, Integer> {
     List<WhiskyEntity> findAll();
     WhiskyEntity findById(int id);
-    List<WhiskyEntity> findByCategorieNom(String categorie);
     List<WhiskyEntity> findByCategorieNomOrderByWhiskyNameAsc(String categorie);
     List<WhiskyEntity> findByCategorieNomOrderByWhiskyNameDesc(String categorie);
     List<WhiskyEntity> findByCategorieNomOrderByPriceAsc(String categorie);

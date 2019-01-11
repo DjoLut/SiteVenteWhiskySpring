@@ -8,5 +8,4 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface OrderRepository extends JpaRepository<OrderEntity,String> {
-    OrderEntity findAllByUtilisateurUsername(String username);
 }

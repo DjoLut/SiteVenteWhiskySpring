@@ -1,6 +1,5 @@
 package com.whisky.henallux.whisky.dataAccess.dao;
 
-import com.whisky.henallux.whisky.dataAccess.entity.OrderEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.OrderRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.Order;

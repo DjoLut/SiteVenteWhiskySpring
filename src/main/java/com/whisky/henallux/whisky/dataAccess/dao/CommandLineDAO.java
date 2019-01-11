@@ -1,6 +1,5 @@
 package com.whisky.henallux.whisky.dataAccess.dao;
 
-import com.whisky.henallux.whisky.dataAccess.entity.CommandLineEntity;
 import com.whisky.henallux.whisky.dataAccess.repository.CommandLineRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.CommandLine;
