@@ -33,9 +33,7 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public void getUserAuth(Authentication authentication)
     {
-        try{
-            authentication.getPrincipal();
-        } catch (Exception e){}
+        authentication.getPrincipal();
     }
 
 }
