@@ -42,14 +42,16 @@ public class WhiskiesController {
                 this.whiskies = whiskyDAO.getAllWhiskyOrderByNameAsc();
             else
                 this.whiskies = whiskyDAO.getAllWhiskyOrderByNameDesc();
+            this.changeName = true;
+            this.changePrice = false;
         } else{
             if (orderPrice.equals("ASC"))
                 this.whiskies = whiskyDAO.getAllWhiskyOrderByPriceAsc();
             else
                 this.whiskies = whiskyDAO.getAllWhiskyOrderByPriceDesc();
+            this.changeName = false;
+            this.changePrice = true;
         }
-        this.changeName = false;
-        this.changePrice = false;
         model.addAttribute("whisky", this.whiskies);
         return "integrated:whiskies";
     }
@@ -64,22 +66,26 @@ public class WhiskiesController {
                 this.whiskies = whiskyDAO.getWhiskyByCategorieOrderByPriceAsc(categorie);
             else
                 this.whiskies = whiskyDAO.getWhiskyByCategorieOrderByPriceDesc(categorie);
+            this.changeName = false;
+            this.changePrice = true;
         } else{
             if (orderName.equals("ASC"))
                 this.whiskies = whiskyDAO.getWhiskyByCategorieOrderByNameAsc(categorie);
             else
                 this.whiskies = whiskyDAO.getWhiskyByCategorieOrderByNameDesc(categorie);
+            this.changeName = true;
+            this.changePrice = false;
         }
-        this.changeName = false;
-        this.changePrice = false;
         model.addAttribute("whisky", whiskies);
         return "integrated:whiskies";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addWhisky(HttpServletRequest request)
+    public String addWhisky(Model model,HttpServletRequest request)
     {
         panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        if(this.categorie!=null)
+            return this.getAllSingleMalt(model,categorie);
         return "redirect:/whiskies";
     }
 
@@ -93,6 +99,7 @@ public class WhiskiesController {
     @RequestMapping(value = "orderName", method = RequestMethod.POST)
     public String changeOrderName(Model model, @ModelAttribute(value="order") String order){
         this.changeName = true;
+        this.changePrice = false;
         if(orderName.equals("ASC")) {
             orderName = "DESC";
         }
@@ -108,6 +115,7 @@ public class WhiskiesController {
     @RequestMapping(value = "orderPrice", method = RequestMethod.POST)
     public String changeOrderPrice(Model model, @ModelAttribute(value="order") String order){
         this.changePrice = true;
+        this.changeName = false;
         if(orderPrice.equals("ASC")) {
             orderPrice = "DESC";
         }
