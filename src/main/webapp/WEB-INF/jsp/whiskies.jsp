@@ -46,10 +46,10 @@
                                 <input type="hidden" value="${whisky.id}" name="whisky" />
                                 <div class="clearfix"> </div>
                                 <c:if test="${whisky.promotion == null}">
-                                    <input style="width:100%" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd'/>')">
+                                    <input style="width:100%" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd1'/>')">
                                 </c:if>
                                 <c:if test="${whisky.promotion != null}">
-                                    <input style="width:100%; height:200%;" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/> - <fmt:formatNumber value="${whisky.promotion/100*whisky.price}" type="currency" currencySymbol="&euro;"/> = <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd'/>')">
+                                    <input style="width:100%; height:200%;" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/> - <fmt:formatNumber value="${whisky.promotion/100*whisky.price}" type="currency" currencySymbol="&euro;"/> = <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd1'/>')">
                                 </c:if>
                             </form>
                         </c:if>
