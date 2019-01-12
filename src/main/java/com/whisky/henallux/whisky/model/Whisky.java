@@ -21,6 +21,20 @@ public class Whisky {
 
     public Whisky(){}
 
+    public Whisky(Integer id, String whiskyName, int stockQuantity, double price, double promotion) {
+        this.id = id;
+        this.whiskyName = whiskyName;
+        this.stockQuantity = stockQuantity;
+        this.price = price;
+        this.promotion = promotion;
+    }
+    public Whisky(Integer id, String whiskyName, int stockQuantity, double price) {
+        this.id = id;
+        this.whiskyName = whiskyName;
+        this.stockQuantity = stockQuantity;
+        this.price = price;
+    }
+
     public Integer getStockQuantity() { return stockQuantity; }
     public Integer getVolume() { return volume; }
     public Integer getAlcoholContent() { return alcoholContent; }
