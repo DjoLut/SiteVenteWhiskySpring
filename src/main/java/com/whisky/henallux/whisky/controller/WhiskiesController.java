@@ -76,8 +76,6 @@ public class WhiskiesController {
         return "integrated:whiskies";
     }
 
-
-
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addWhisky(HttpServletRequest request)
     {

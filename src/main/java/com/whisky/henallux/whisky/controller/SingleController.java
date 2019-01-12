@@ -6,7 +6,6 @@ import com.whisky.henallux.whisky.dataAccess.dao.WhiskyDAO;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.service.Panier;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,21 +20,18 @@ public class SingleController {
     private WhiskyDAO whiskyDAO;
     private Panier panier;
     private TranslationDAO translationDAO;
-    private final MessageSource messageSource;
     private LanguageDAO languageDAO;
     private ProviderConverter providerConverter;
 
     @Autowired
-    public SingleController(WhiskyDAO whiskyDAO, Panier panier, TranslationDAO translationDAO, MessageSource messageSource, LanguageDAO languageDAO, ProviderConverter providerConverter)
+    public SingleController(WhiskyDAO whiskyDAO, Panier panier, TranslationDAO translationDAO, LanguageDAO languageDAO, ProviderConverter providerConverter)
     {
         this.whiskyDAO = whiskyDAO;
         this.panier = panier;
         this.translationDAO = translationDAO;
-        this.messageSource = messageSource;
         this.languageDAO = languageDAO;
         this.providerConverter = providerConverter;
     }
-
 
     @RequestMapping(method = RequestMethod.GET)
     public String getWhiskyById(Model model, @PathVariable(value = "id") int id, Locale locale)

@@ -1,6 +1,5 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include/importTags.jsp" %>
+
 <!--content-->
 <div class="container">
 	<div class="account">
@@ -14,7 +13,6 @@
 				</div>
 			</c:if>
 			<form:form id="form" method="POST" modelAttribute="user">
-				<form:errors>Login et password obligatoire</form:errors>
 				<div>
 					<form:label path="username"><spring:message code="login"/></form:label>
 					<form:input path="username" type="text"/>

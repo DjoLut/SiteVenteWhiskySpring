@@ -1,4 +1,5 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ include file="include/importTags.jsp" %>
+
 <!--content-->
 <div class="blog">
 	<h1><spring:message code="description"/></h1>

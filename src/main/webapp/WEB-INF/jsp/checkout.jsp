@@ -1,8 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include/importTags.jsp" %>
 
 <div class="container">
         <div class="check">
@@ -69,7 +65,7 @@
 
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="hosted_button_id" value="HMAZCTEMUDKFS">
-                            <c:if test="${(totalPrice-totalPromo) > 99}">
+                            <c:if test="${(totalPrice-totalPromo) >= 100}">
                                 <input type="hidden" name="amount" value="${totalPrice-totalPromo}">
                             </c:if>
                             <c:if test="${(totalPrice-totalPromo) < 100}">
@@ -107,7 +103,7 @@
                      <div class="clearfix"></div>
                  </div>
                  <ul class="total_price">
-                     <c:if test="${(totalPrice-totalPromo) > 99  and panier.size() != 0}">
+                     <c:if test="${(totalPrice-totalPromo) >= 100  and panier.size() != 0}">
                          <li class="last_price"><h4><spring:message code="shippingCost"/></h4></li>
                          <li class="last_price"><h4><spring:message code="freeShippingCost"/></h4></li>
                          <li class="last_price"><h4><spring:message code="total"/></h4></li>

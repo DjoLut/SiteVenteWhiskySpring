@@ -17,16 +17,14 @@ import java.util.Date;
 @Service
 @Transactional
 public class OrderDAO {
-    private OrderRepository orderRepository;
     private SessionFactory sessionFactory;
     private ProviderConverter providerConverter;
     private UserDAO userDAO;
     private CommandLineDAO commandLineDAO;
 
     @Autowired
-    public OrderDAO(OrderRepository orderRepository, UserDAO userDAO, CommandLineDAO commandLineDAO, SessionFactory sessionFactory, ProviderConverter providerConverter)
+    public OrderDAO(UserDAO userDAO, CommandLineDAO commandLineDAO, SessionFactory sessionFactory, ProviderConverter providerConverter)
     {
-        this.orderRepository = orderRepository;
         this.userDAO = userDAO;
         this.sessionFactory = sessionFactory;
         this.providerConverter = providerConverter;

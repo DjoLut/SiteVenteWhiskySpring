@@ -1,3 +1,4 @@
+<%@ include file="../include/importTags.jsp" %>
 <!--//content-->
 <div class="footer">
     <div class="container">

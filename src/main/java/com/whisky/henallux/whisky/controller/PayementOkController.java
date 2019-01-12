@@ -1,7 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PayementOkController {
 
     @RequestMapping (method = RequestMethod.GET)
-    public String home(Model model)
+    public String home()
     {
         return "integrated:payementOk";
     }

@@ -24,7 +24,6 @@ public class TranslationDAO {
         this.providerConverter = providerConverter;
     }
 
-
     public Translation getTranslationByWhiskyidAndLanguageid(WhiskyEntity whiskyid, LanguageEntity languageid)
     {
         TranslationEntity translationEntity = translationRepository.findByWhiskyidAndAndLanguageid(whiskyid, languageid);
