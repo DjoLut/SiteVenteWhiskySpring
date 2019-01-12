@@ -10,6 +10,6 @@ public class ExceptionController {
     @ExceptionHandler(AlreadyLoginException.class)
     public String AlreadyLogin(AlreadyLoginException ex)
     {
-        return "redirect/index";
+        return "redirect:/index";
     }
 }

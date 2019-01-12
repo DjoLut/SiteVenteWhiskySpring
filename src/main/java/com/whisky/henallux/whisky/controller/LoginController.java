@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
 
     @Autowired
-    public LoginController() { ; }
+    public LoginController() { }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String home(Model model, HttpServletRequest request) {
@@ -33,7 +33,9 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public void getUserAuth(Authentication authentication)
     {
-        authentication.getPrincipal();
+        try{
+            authentication.getPrincipal();
+        } catch (Exception e){}
     }
 
 }

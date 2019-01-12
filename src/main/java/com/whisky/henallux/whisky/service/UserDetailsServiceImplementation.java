@@ -23,10 +23,10 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
     {
         UserDetails user = userRepository.findByUsername(username);
         if(user != null)
-        {
             return user;
-        }
-        return null;
+        else
+            throw new UsernameNotFoundException("User not found");
+
     }
 
     public boolean UserExist(String username){
@@ -35,13 +35,6 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
     public boolean EmailExist(String email){
         return userRepository.findByEmail(email) != null;
-    }
-
-    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException{
-        UserDetails user = userRepository.findByEmail(email);
-        if(user!=null)
-            return user;
-        return null;
     }
 
 }

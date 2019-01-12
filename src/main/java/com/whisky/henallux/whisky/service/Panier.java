@@ -54,10 +54,11 @@ public class Panier {
 
     public double totalPriceWhisky(){
         double totalPrice = calculTotalPrice();
+        if(totalPrice==0.0)
+            return totalPrice;
         double totalPromo = calculTotalPromo();
         double total = totalPrice-totalPromo;
         total += (total<100?30:0);
-        total = (total==30?0:total);
         return total;
     }
 
