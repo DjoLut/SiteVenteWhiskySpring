@@ -44,7 +44,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
                 .loginPage(LOGIN_REQUEST)
-                .failureUrl("/login?error")
+                .failureUrl("/login?error=true")
                 .defaultSuccessUrl("/index")
                 .permitAll()
 
