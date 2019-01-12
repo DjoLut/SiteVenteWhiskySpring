@@ -19,7 +19,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_REQUEST = "/login";
     private static final String[] AUTHORIZED_REQUESTS_ANYBODY = new String[]{"/index", "/register", "/checkout", "/checkout/**", "/whiskies/**", "/single/**", "/description"};
-    private static final String[] UNAUTHORIZED_REQUESTS_AUTHENTICATED = new String[]{"/register"};
+    //private static final String[] UNAUTHORIZED_REQUESTS_AUTHENTICATED = new String[]{"/register"};
 
     private UserDetailsService userDetailsServiceImpl;
 
@@ -37,7 +37,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
-                .antMatchers(UNAUTHORIZED_REQUESTS_AUTHENTICATED).not().authenticated()
+                //.antMatchers(UNAUTHORIZED_REQUESTS_AUTHENTICATED).not().authenticated()
                 .antMatchers("/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
                 .and()

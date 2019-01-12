@@ -47,9 +47,32 @@ public class CheckoutController {
         return "redirect:/checkout";
     }
 
-    @RequestMapping(value = "/validate")
-    public String validatePanier()
+    /*@RequestMapping(value = "/modify")
+    public String modifyQuantity()
     {
+        return "redirect:/checkout";
+    }*/
+
+    @RequestMapping(value = "/validate")
+    public String validatePanier(HttpServletRequest request)
+    {
+
+        /*if(panier.size() != 0)
+        {
+            if(request.getUserPrincipal() != null)
+            {
+                orderDAO.addPanier(panier);
+                panier.deleteAll();
+                return "redirect:/payementOk";
+            }
+            else
+            {
+                return "redirect:/login";
+            }
+        }
+
+        return "redirect:/whiskies";*/
+
         orderDAO.addPanier(panier);
         panier.deleteAll();
         return "redirect:/payementOk";
