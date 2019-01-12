@@ -162,10 +162,11 @@ insert into whiskyproject.translation(id, whiskyid,languageid,descriptions) valu
 insert into whiskyproject.translation(id, whiskyid,languageid,descriptions) value(98, 49,"en","One of the three expressions of the Springbank family distillery that continues to produce in Campbeltown from locally grown barley and with a long fermentation technique, exceptionally fruity single malts, this single malt that has matured in sherry casks and bourbon, is emblematic for many connoisseurs because of its incredible richness in aromas. ");
 
 
-
+/* MDP = 123 */
 insert into whiskyproject.PERSISTABLE_USER
 value ('jdo', '$2a$10$IuqxaLw1v.zkSG8zRtN7CeutqG5lqom9XW9tLqYXm.n9QhCIzY1am', 'ROLE_ADMIN', 'Jordan', 'Lutgen', 'etu32766@henallux.be', 'Florenville', '123456789', 1, 1, 1, 1);
 
+/* MDP = 123 */
 insert into whiskyproject.PERSISTABLE_USER
 value ('etu32766', '$2a$10$IuqxaLw1v.zkSG8zRtN7CeutqG5lqom9XW9tLqYXm.n9QhCIzY1am', 'ROLE_ADMIN', 'Jordan-bis', 'Lutgen-bis', 'jordan.lutgen@hotmail.com', 'Florenville', '5666565645', 1, 1, 1, 1);
 
