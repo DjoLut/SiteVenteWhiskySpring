@@ -21,14 +21,14 @@ public class Whisky {
 
     public Whisky(){}
 
-    public Whisky(Integer id, String whiskyName, int stockQuantity, double price, double promotion) {
+    public Whisky(Integer id, String whiskyName, Integer stockQuantity, Double price, Double promotion) {
         this.id = id;
         this.whiskyName = whiskyName;
         this.stockQuantity = stockQuantity;
         this.price = price;
         this.promotion = promotion;
     }
-    public Whisky(Integer id, String whiskyName, int stockQuantity, double price) {
+    public Whisky(Integer id, String whiskyName, Integer stockQuantity, Double price) {
         this.id = id;
         this.whiskyName = whiskyName;
         this.stockQuantity = stockQuantity;

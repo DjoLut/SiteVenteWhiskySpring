@@ -16,9 +16,9 @@ public class PanierTest {
     @Before
     public void setUp() {
         panier = new Panier();
-        whisky1 = new Whisky(1, "whisky1", 10, 39.5, 10);
+        whisky1 = new Whisky(1, "whisky1", 10, 39.5, 10.0);
         whisky2 = new Whisky(2, "whisky2", 5, 58.75);
-        whisky3 = new Whisky(3, "whisky3", 35, 28.10, 5);
+        whisky3 = new Whisky(3, "whisky3", 35, 28.10, 5.0);
         panier.addWhisky(whisky1, 2);
         panier.addWhisky(whisky2, 4);
         panier.addWhisky(whisky3, 3);

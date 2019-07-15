@@ -17,10 +17,10 @@ public class User {
     private String email;
     private String adresse;
     private String telephone;
-    private boolean non_expired;
-    private boolean non_locked;
-    private boolean credentials_non_expired;
-    private boolean enabled;
+    private Boolean non_expired;
+    private Boolean non_locked;
+    private Boolean credentials_non_expired;
+    private Boolean enabled;
     private String confPassword;
 
     public User(){}
@@ -33,10 +33,10 @@ public class User {
     public String getTelephone() { return telephone; }
     public String getPassword() { return password; }
     public String getConfPassword() { return confPassword; }
-    public boolean isEnabled() { return enabled; }
-    public boolean isCredentials_non_expired() { return credentials_non_expired; }
-    public boolean isNon_locked() { return non_locked; }
-    public boolean isNon_expired() { return non_expired; }
+    public Boolean isEnabled() { return enabled; }
+    public Boolean isCredentials_non_expired() { return credentials_non_expired; }
+    public Boolean isNon_locked() { return non_locked; }
+    public Boolean isNon_expired() { return non_expired; }
     public Collection<GrantedAuthority> getAuthorities()
     {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
@@ -57,10 +57,10 @@ public class User {
 
     public void setPassword(String password) { this.password = password; }
     public void setUsername(String username) { this.username = username; }
-    public void setCredentials_non_expired(boolean credentials_non_expired) {this.credentials_non_expired = credentials_non_expired; }
-    public void setEnabled(boolean enabled) { this.enabled = enabled; }
-    public void setNon_locked(boolean non_locked) { this.non_locked = non_locked; }
-    public void setNon_expired(boolean non_expired) { this.non_expired = non_expired; }
+    public void setCredentials_non_expired(Boolean credentials_non_expired) {this.credentials_non_expired = credentials_non_expired; }
+    public void setEnabled(Boolean enabled) { this.enabled = enabled; }
+    public void setNon_locked(Boolean non_locked) { this.non_locked = non_locked; }
+    public void setNon_expired(Boolean non_expired) { this.non_expired = non_expired; }
     public void setTelephone(String telephone) { this.telephone = telephone; }
     public void setAdresse(String adresse) { this.adresse = adresse; }
     public void setEmail(String email) { this.email = email; }

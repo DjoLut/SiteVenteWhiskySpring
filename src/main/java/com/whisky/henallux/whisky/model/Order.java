@@ -6,24 +6,24 @@ import java.util.Date;
 public class Order {
     private Integer id;
     private Date dateOrder;
-    private boolean validity;
+    private Boolean validity;
     private UserEntity utilisateur;
-    private double promotion;
-    private double totalprice;
+    private Double promotion;
+    private Double totalprice;
 
     public Order(){}
 
-    public double getPromotion() { return promotion; }
+    public Double getPromotion() { return promotion; }
     public UserEntity getUtilisateur() { return utilisateur;}
-    public boolean isValidity() { return validity; }
-    public double getTotalPrice() { return totalprice; }
+    public Boolean isValidity() { return validity; }
+    public Double getTotalPrice() { return totalprice; }
     public Date getDateOrder() { return dateOrder; }
     public Integer getId() { return id; }
 
     public void setId(Integer id) { this.id = id; }
-    public void setPromotion(double promotion) { this.promotion = promotion; }
+    public void setPromotion(Double promotion) { this.promotion = promotion; }
     public void setUtilisateur(UserEntity utilisateur) { this.utilisateur = utilisateur; }
-    public void setValidity(boolean validity) { this.validity = validity; }
+    public void setValidity(Boolean validity) { this.validity = validity; }
     public void setDateOrder(Date dateOrder) { this.dateOrder = dateOrder;}
-    public void setTotalPrice(double totalprice) { this.totalprice = totalprice; }
+    public void setTotalPrice(Double totalprice) { this.totalprice = totalprice; }
 }
