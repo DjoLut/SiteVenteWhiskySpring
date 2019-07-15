@@ -47,5 +47,4 @@ public class PanierTest {
     public void totalPriceWhisky() {
         Assert.assertEquals(386.185, panier.totalPriceWhisky(), 0.01);
     }
-
 }
