@@ -53,7 +53,7 @@
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
                     <li><a class="color3" href="<spring:url value='/index'/>"><spring:message code="home"/></a></li>
-                    <li><a class="color1" href="#"><spring:message code="category"/></a>
+                    <li><a class="color1" href="<spring:url value='/whiskies'/>"><spring:message code="category"/></a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
