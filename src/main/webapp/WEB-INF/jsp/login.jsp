@@ -1,14 +1,18 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include/importTags.jsp" %>
+
 <!--content-->
 <div class="container">
 	<div class="account">
 		<h1><spring:message code="loginInformation"/></h1>
 		<div class="account-pass">
 		<div class="col-md-8 account-top">
+			<c:if test="${param.error == 'true'}">
+				<div style="color: red";>
+					<spring:message code="loginfailed"/><br />
+					<spring:message code="badUserOrPass"/>
+				</div>
+			</c:if>
 			<form:form id="form" method="POST" modelAttribute="user">
-				<form:errors>Login et password obligatoire</form:errors>
 				<div>
 					<form:label path="username"><spring:message code="login"/></form:label>
 					<form:input path="username" type="text"/>

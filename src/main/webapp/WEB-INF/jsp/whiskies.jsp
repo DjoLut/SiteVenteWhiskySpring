@@ -1,12 +1,23 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include/importTags.jsp" %>
+
 <!--content-->
 <!---->
 <div class="product">
     <div class="container">
+        <div style="padding-bottom: 30px; float:right;">
+            <div>
+                <form:form id="buttonOrdreAlpha" action="/whisky/whiskies/orderName" method="POST" modelAttribute="order">
+                    <form:button id="alpha" class="triWhiskies" value="name" path="alpha"><spring:message code="triNom"/></form:button>
+                </form:form>
+            </div>
+        </div>
+        <div style="padding-bottom: 30px">
+            <form:form id="buttonOrdreAlpha" action="/whisky/whiskies/orderPrice" method="POST" modelAttribute="order">
+                <form:button id="price" class="triWhiskies" value="price" path="price"><spring:message code="triPrix"/></form:button>
+            </form:form>
+        </div>
+        <div class="clearfix"> </div>
+        
             <div class=" bottom-product">
                 <c:set var="compteur" value="0"/>
                 <c:forEach items="${whisky}" var="whisky">
@@ -35,10 +46,10 @@
                                 <input type="hidden" value="${whisky.id}" name="whisky" />
                                 <div class="clearfix"> </div>
                                 <c:if test="${whisky.promotion == null}">
-                                    <input style="width:100%" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd'/>')">
+                                    <input style="width:100%" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd1'/>')">
                                 </c:if>
                                 <c:if test="${whisky.promotion != null}">
-                                    <input style="width:100%; height:200%;" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/> - <fmt:formatNumber value="${whisky.promotion/100*whisky.price}" type="currency" currencySymbol="&euro;"/> = <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd'/>')">
+                                    <input style="width:100%; height:200%;" value="<fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/> - <fmt:formatNumber value="${whisky.promotion/100*whisky.price}" type="currency" currencySymbol="&euro;"/> = <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/>" type="submit" class="login" onclick="return alert('<spring:message code='whiskyAdd1'/>')">
                                 </c:if>
                             </form>
                         </c:if>

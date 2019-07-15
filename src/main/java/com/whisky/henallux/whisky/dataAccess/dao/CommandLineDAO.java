@@ -1,7 +1,5 @@
 package com.whisky.henallux.whisky.dataAccess.dao;
 
-import com.whisky.henallux.whisky.dataAccess.entity.CommandLineEntity;
-import com.whisky.henallux.whisky.dataAccess.repository.CommandLineRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.CommandLine;
 import com.whisky.henallux.whisky.model.Order;
@@ -17,30 +15,16 @@ import java.util.*;
 @Service
 @Transactional
 public class CommandLineDAO {
-    private CommandLineRepository commandLineRepository;
     private SessionFactory sessionFactory;
     private ProviderConverter providerConverter;
     private WhiskyDAO whiskyDAO;
 
     @Autowired
-    public CommandLineDAO(CommandLineRepository commandLineRepository, SessionFactory sessionFactory, ProviderConverter providerConverter, WhiskyDAO whiskyDAO)
+    public CommandLineDAO(SessionFactory sessionFactory, ProviderConverter providerConverter, WhiskyDAO whiskyDAO)
     {
-        this.commandLineRepository = commandLineRepository;
         this.sessionFactory = sessionFactory;
         this.providerConverter = providerConverter;
         this.whiskyDAO = whiskyDAO;
-    }
-
-    public ArrayList<CommandLine> getAllCommandLine()
-    {
-        List<CommandLineEntity> commandLineEntities = commandLineRepository.findAll();
-        ArrayList<CommandLine> commandLines = new ArrayList<>();
-        for(CommandLineEntity entity : commandLineEntities)
-        {
-            CommandLine commandLine = providerConverter.commandLineEntityToCommandLine(entity);
-            commandLines.add(commandLine);
-        }
-        return commandLines;
     }
 
     public void saveCommandLine(CommandLine commandLine)

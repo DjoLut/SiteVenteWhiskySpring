@@ -1,5 +1,4 @@
 <%@ include file="../include/importTags.jsp" %>
-
 <!DOCTYPE HTML>
 <html>
 <head>

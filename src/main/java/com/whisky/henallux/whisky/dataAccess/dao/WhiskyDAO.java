@@ -26,14 +26,6 @@ public class WhiskyDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public ArrayList<String> getWhiskyName(){
-        List<WhiskyEntity> whiskyEntities = whiskyRepository.findAll();
-        ArrayList<String> list = new ArrayList<>();
-        for(WhiskyEntity whiskyEntity : whiskyEntities)
-            list.add(whiskyEntity.getWhiskyName());
-        return list;
-    }
-
     //METHODE POUR AVOIR TOUS LES WHISKY
     public ArrayList<Whisky> getAllWhisky()
     {
@@ -41,11 +33,30 @@ public class WhiskyDAO {
         return whiskiesModelAsList(whiskyEntities);
     }
 
-    //METHODE POUR AVOIR TOUS LES SINGLE MALT
-    public ArrayList<Whisky> getWhiskyByCategorie(String categorie)
-    {
-        List<WhiskyEntity> whiskyEntities = whiskyRepository.findByCategorieNom(categorie);
-        return whiskiesModelAsList(whiskyEntities);
+    public ArrayList<Whisky> getAllWhiskyOrderByNameAsc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByWhiskyNameAsc());
+    }
+    public ArrayList<Whisky> getAllWhiskyOrderByNameDesc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByWhiskyNameDesc());
+    }
+    public ArrayList<Whisky> getAllWhiskyOrderByPriceAsc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByPriceAsc());
+    }
+    public ArrayList<Whisky> getAllWhiskyOrderByPriceDesc(){
+        return whiskiesModelAsList(whiskyRepository.findAllByOrderByPriceDesc());
+    }
+
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByNameAsc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByWhiskyNameAsc(categorie));
+    }
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByNameDesc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByWhiskyNameDesc(categorie));
+    }
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByPriceAsc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByPriceAsc(categorie));
+    }
+    public ArrayList<Whisky> getWhiskyByCategorieOrderByPriceDesc(String categorie){
+        return whiskiesModelAsList(whiskyRepository.findByCategorieNomOrderByPriceDesc(categorie));
     }
 
     private ArrayList<Whisky> whiskiesModelAsList(List<WhiskyEntity> whiskyEntities){

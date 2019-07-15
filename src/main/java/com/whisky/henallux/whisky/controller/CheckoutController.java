@@ -48,11 +48,23 @@ public class CheckoutController {
     }
 
     @RequestMapping(value = "/validate")
-    public String validatePanier()
+    public String validatePanier(HttpServletRequest request)
     {
-        orderDAO.addPanier(panier);
-        panier.deleteAll();
-        return "redirect:/payementOk";
+        if(panier.size() != 0)
+        {
+            if(request.getUserPrincipal() != null)
+            {
+                orderDAO.addPanier(panier);
+                panier.deleteAll();
+                return "redirect:/payementOk";
+            }
+            else
+            {
+                return "redirect:/login";
+            }
+        }
+
+        return "redirect:/whiskies";
     }
 
     @RequestMapping(value = "/delete")

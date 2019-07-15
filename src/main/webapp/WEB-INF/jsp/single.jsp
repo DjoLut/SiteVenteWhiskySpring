@@ -1,8 +1,5 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="include/importTags.jsp" %>
+
 <!--content-->
 <!---->
 <div class="product">
@@ -42,15 +39,19 @@
                     <c:if test="${whisky.promotion != null}">
                         <h5 class="item_price"><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/></h5>
                     </c:if>
-
-                    <p>${whisky.volume} cl</p>
-
-                    <p><spring:message code="alcohol"/>${whisky.alcoholContent} %</p>
-
-                    <p>${whisky.categorie.nom}</p>
-
-                    <p>${whisky.country}</p>
-
+                    <c:if test="${whisky.volume!=null}">
+                        <p>${whisky.volume} cl</p>
+                    </c:if>
+                    <c:if test="${whisky.alcoholContent!=null}">
+                        <p><spring:message code="alcohol"/>${whisky.alcoholContent} %</p>
+                    </c:if>
+                    <c:if test="${whisky.categorie != null}">
+                        <p>${whisky.categorie.nom}</p>
+                    </c:if>
+                    <c:if test="${whisky.country!=null}">
+                        <p>${whisky.country}</p>
+                    </c:if>
+                    
                     <p></p>
 
                     <c:if test="${panier.whiskyAjoutable(whisky) > 0}" >

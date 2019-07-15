@@ -1,11 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
-<c:set var="totalPrice" value="${panier.calculTotalPrice()}" />
-<c:set var="totalPromo" value="${panier.calculTotalPromo()}" />
-
-<c:set var="total" value="${totalPrice-totalPromo+(totalPrice-totalPromo<100&&totalPrice-totalPromo!=0?30:0)}" />
-
+<%@ include file="../include/importTags.jsp" %>
 
 <!--header-->
 <div class="header">
@@ -40,7 +33,7 @@
                 <div class="cart box_1">
                     <a href="<spring:url value='/checkout'/> ">
                         <h3>
-                            <div class="total"><spring:message code="cart"/> (${panier.countWhisky()}) <fmt:formatNumber value="${total}" type="currency" currencySymbol="&euro;"/></div>
+                            <div class="total"><spring:message code="cart"/> (${panier.countWhisky()}) <fmt:formatNumber value="${panier.totalPriceWhisky()}" type="currency" currencySymbol="&euro;"/></div>
                             <img src="<spring:url value='/images/cart.png' />">
                         </h3>
                     </a>

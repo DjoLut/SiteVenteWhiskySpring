@@ -52,11 +52,11 @@ h1,h2,h3,h4,h5,h6,label,p{
 			float:left;
 			margin: 5px 20px 5px 20px ;
 		}
-.item_add, .login{
+.item_add, .login, .triWhiskies{
   color: #fff;
   border:none;
 }	
-a.item_add, .login {
+a.item_add, .login, .triWhiskies {
  text-decoration: none;
 }		
 .grid_1 img{
@@ -1023,14 +1023,14 @@ font-weight: 100;
 }
 /*---*/
 
-a.item_add p.number, .login{
+a.item_add p.number, .login, .triWhiskies{
 	font-size: 1.1em;
   color: #FFF;
   text-align: center;
   background: #EF5F21;
   padding: 0.5em 1em;
 }
-a.item_add p.number:hover, .login:hover{
+a.item_add p.number:hover, .login:hover, .triWhiskies:hover {
 		background: #000;
 		transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -2087,7 +2087,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .pro-grid {
   padding: 3.5em 0 0;
 }
-a.item_add p.number , .login{
+a.item_add p.number , .login, .triWhiskies{
   font-size: 0.9em;
 }
 .b-from-left {
@@ -2275,7 +2275,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 p.tun {
   font-size: 0.8em;
 }
-a.item_add p.number, .login {
+a.item_add p.number, .login, .triWhiskies {
   font-size: 0.8em;
   padding: 0.5em 0.5em;
 }

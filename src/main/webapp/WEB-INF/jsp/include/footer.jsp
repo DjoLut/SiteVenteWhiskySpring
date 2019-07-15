@@ -1,3 +1,4 @@
+<%@ include file="../include/importTags.jsp" %>
 <!--//content-->
 <div class="footer">
     <div class="container">
@@ -13,10 +14,9 @@
                 </ul>
             </div>
             <div class="col-md-4 amet-sed ">
-                <h4><spring:message code="contactUs"/></h4>
-                <p><spring:message code="help"/></p>
+                <h4><spring:message code="description"/></h4>
                 <ul class="nav-bottom">
-                    <li><a href="<spring:url value='/description'/>">-> <spring:message code="description"/></a></li>
+                    <li><a href="<spring:url value='/description'/>"><spring:message code="description"/></a></li>
                 </ul>
             </div>
             <div class="col-md-4 amet-sed">

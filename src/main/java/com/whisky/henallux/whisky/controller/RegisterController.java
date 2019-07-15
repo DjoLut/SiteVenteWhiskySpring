@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.exception.AlreadyLoginException;
 import com.whisky.henallux.whisky.validator.UserValidator;
 import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
 import com.whisky.henallux.whisky.model.User;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -25,7 +27,11 @@ public class RegisterController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home (Model model) {
+    public String home (HttpServletRequest request, Model model) {
+        if(request.getUserPrincipal() != null)
+        {
+            throw new AlreadyLoginException();
+        }
         model.addAttribute("user", new User());
         return "integrated:register";
     }
