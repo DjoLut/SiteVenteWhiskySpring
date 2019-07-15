@@ -1,6 +1,5 @@
-package com.whisky.henallux.whisky.service;
+package com.whisky.henallux.whisky.model;
 
-import com.whisky.henallux.whisky.model.Whisky;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;

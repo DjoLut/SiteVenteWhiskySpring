@@ -4,7 +4,7 @@ import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.CommandLine;
 import com.whisky.henallux.whisky.model.Order;
 import com.whisky.henallux.whisky.model.Whisky;
-import com.whisky.henallux.whisky.service.Panier;
+import com.whisky.henallux.whisky.model.Panier;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

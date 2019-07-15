@@ -1,9 +1,8 @@
 package com.whisky.henallux.whisky.dataAccess.dao;
 
-import com.whisky.henallux.whisky.dataAccess.repository.OrderRepository;
 import com.whisky.henallux.whisky.dataAccess.util.ProviderConverter;
 import com.whisky.henallux.whisky.model.Order;
-import com.whisky.henallux.whisky.service.Panier;
+import com.whisky.henallux.whisky.model.Panier;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

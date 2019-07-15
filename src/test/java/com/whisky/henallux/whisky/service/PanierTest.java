@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.service;
 
+import com.whisky.henallux.whisky.model.Panier;
 import com.whisky.henallux.whisky.model.Whisky;
 import org.junit.Assert;
 import org.junit.Before;
