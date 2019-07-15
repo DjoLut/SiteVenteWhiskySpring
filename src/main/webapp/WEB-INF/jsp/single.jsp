@@ -37,7 +37,7 @@
                         <h5 class="item_price"><fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/></h5>
                     </c:if>
                     <c:if test="${whisky.promotion != null}">
-                        <h5 class="item_price"><del>${whisky.price} &euro;</del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/></h5>
+                        <h5 class="item_price"><del><fmt:formatNumber value="${whisky.price}" type="currency" currencySymbol="&euro;"/></del> <fmt:formatNumber value="${whisky.price-(whisky.promotion/100*whisky.price)}" type="currency" currencySymbol="&euro;"/> </h5>
                     </c:if>
                     <c:if test="${whisky.volume!=null}">
                         <p>${whisky.volume} cl</p>
