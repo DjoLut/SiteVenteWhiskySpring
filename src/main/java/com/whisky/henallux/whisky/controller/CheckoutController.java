@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.dataAccess.dao.CategorieDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.OrderDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.WhiskyDAO;
 import com.whisky.henallux.whisky.model.Panier;
@@ -16,19 +17,22 @@ public class CheckoutController {
     private WhiskyDAO whiskyDAO;
     private Panier panier;
     private OrderDAO orderDAO;
+    private CategorieDAO categorieDAO;
 
     @Autowired
-    public CheckoutController(WhiskyDAO whiskyDAO, Panier panier, OrderDAO orderDAO)
+    public CheckoutController(WhiskyDAO whiskyDAO, Panier panier, OrderDAO orderDAO, CategorieDAO categorieDAO)
     {
         this.whiskyDAO = whiskyDAO;
         this.panier = panier;
         this.orderDAO = orderDAO;
+        this.categorieDAO = categorieDAO;
     }
 
     @RequestMapping
     public String home(Model model)
     {
         model.addAttribute("panier", panier);
+        model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:checkout";
     }
 

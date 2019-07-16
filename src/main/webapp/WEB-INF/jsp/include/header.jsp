@@ -60,14 +60,9 @@
                                     <div class="h_nav">
                                         <h4><a href="<spring:url value='/whiskies'/>"><spring:message code="allWhisky"/></a></h4>
                                         <ul>
-                                            <li><a href="<spring:url value='/whiskies/Single Malt'/>">Single Malt</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Blended Malt'/>">Blended Malt</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Irish Blend'/>">Irish Blend</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Blended Whisky'/>">Blended Whisky</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Bourbon'/>">Bourbon</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Rye'/>">Rye</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Whisky de Ble Noir'/>">Whisky de Ble Noir</a></li>
-                                            <li><a href="<spring:url value='/whiskies/Blend'/>">Blend</a></li>
+                                            <c:forEach items="${categorie}" var="categorie">
+                                                <li><a href="<spring:url value='/whiskies/${categorie.nom}'/>">${categorie.nom}</a></li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>

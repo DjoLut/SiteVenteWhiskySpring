@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.dataAccess.dao.CategorieDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.WhiskyDAO;
 import com.whisky.henallux.whisky.model.Whisky;
 import com.whisky.henallux.whisky.model.Panier;
@@ -24,12 +25,14 @@ public class WhiskiesController {
     private boolean changePrice;
     private boolean changeName = true;
     private String categorie;
+    private CategorieDAO categorieDAO;
 
     @Autowired
-    public WhiskiesController(WhiskyDAO whiskyDAO, Panier panier){
+    public WhiskiesController(WhiskyDAO whiskyDAO, Panier panier, CategorieDAO categorieDAO){
         this.whiskyDAO = whiskyDAO;
         this.whiskies = this.whiskyDAO.getAllWhisky();
         this.panier = panier;
+        this.categorieDAO = categorieDAO;
     }
 
     @RequestMapping
@@ -53,6 +56,7 @@ public class WhiskiesController {
             this.changePrice = true;
         }
         model.addAttribute("whisky", this.whiskies);
+        model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:whiskies";
     }
 
@@ -77,6 +81,7 @@ public class WhiskiesController {
             this.changePrice = false;
         }
         model.addAttribute("whisky", whiskies);
+        model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:whiskies";
     }
 

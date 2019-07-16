@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.dataAccess.dao.CategorieDAO;
 import com.whisky.henallux.whisky.exception.AlreadyLoginException;
 import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping
 public class LoginController {
 
+    private CategorieDAO categorieDAO;
+
     @Autowired
-    public LoginController() { }
+    public LoginController(CategorieDAO categorieDAO)
+    {
+        this.categorieDAO = categorieDAO;
+    }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String home(Model model, HttpServletRequest request) {
@@ -26,6 +32,7 @@ public class LoginController {
         }
 
         model.addAttribute("user", new User());
+        model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:login";
     }
 

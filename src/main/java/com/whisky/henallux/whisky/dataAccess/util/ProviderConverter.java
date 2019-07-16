@@ -171,4 +171,18 @@ public class ProviderConverter {
         return language;
     }
 
+    public CategorieEntity categorieToCategorieEntity(Categorie categorie)
+    {
+        CategorieEntity categorieEntity = new CategorieEntity();
+        categorieEntity.setNom(categorie.getNom());
+        return categorieEntity;
+    }
+    public Categorie categorieEntityToCategorie(CategorieEntity categorieEntity)
+    {
+        Categorie categorie = new Categorie();
+        categorie.setNom(categorieEntity.getNom());
+        return categorie;
+    }
+
+
 }

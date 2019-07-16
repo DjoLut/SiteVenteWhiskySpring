@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.dataAccess.dao.CategorieDAO;
 import com.whisky.henallux.whisky.exception.AlreadyLoginException;
 import com.whisky.henallux.whisky.validator.UserValidator;
 import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
@@ -17,13 +18,17 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping(value="/register")
 public class RegisterController {
+
     private UserDAO userDAO;
     private UserValidator userValidator;
+    private CategorieDAO categorieDAO;
 
     @Autowired
-    public RegisterController(UserDAO userDAO,UserValidator userValidator){
+    public RegisterController(UserDAO userDAO,UserValidator userValidator, CategorieDAO categorieDAO)
+    {
         this.userDAO = userDAO;
         this.userValidator = userValidator;
+        this.categorieDAO = categorieDAO;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -33,6 +38,7 @@ public class RegisterController {
             throw new AlreadyLoginException();
         }
         model.addAttribute("user", new User());
+        model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:register";
     }
 

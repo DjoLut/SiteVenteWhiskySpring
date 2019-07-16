@@ -1,5 +1,6 @@
 package com.whisky.henallux.whisky.controller;
 
+import com.whisky.henallux.whisky.dataAccess.dao.CategorieDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.LanguageDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.TranslationDAO;
 import com.whisky.henallux.whisky.dataAccess.dao.WhiskyDAO;
@@ -22,15 +23,17 @@ public class SingleController {
     private TranslationDAO translationDAO;
     private LanguageDAO languageDAO;
     private ProviderConverter providerConverter;
+    private CategorieDAO categorieDAO;
 
     @Autowired
-    public SingleController(WhiskyDAO whiskyDAO, Panier panier, TranslationDAO translationDAO, LanguageDAO languageDAO, ProviderConverter providerConverter)
+    public SingleController(WhiskyDAO whiskyDAO, Panier panier, TranslationDAO translationDAO, LanguageDAO languageDAO, ProviderConverter providerConverter, CategorieDAO categorieDAO)
     {
         this.whiskyDAO = whiskyDAO;
         this.panier = panier;
         this.translationDAO = translationDAO;
         this.languageDAO = languageDAO;
         this.providerConverter = providerConverter;
+        this.categorieDAO = categorieDAO;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -41,6 +44,7 @@ public class SingleController {
         model.addAttribute("translation", translationDAO.getTranslationByWhiskyidAndLanguageid(
                 providerConverter.whiskyToWhiskyEntity(whiskyDAO.getWhiskyById(id)),
                 providerConverter.languageToLanguageEntity(languageDAO.getLanguageById(languageid))));
+        model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:single";
     }
 
