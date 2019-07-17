@@ -9,27 +9,25 @@ import com.whisky.henallux.whisky.model.Panier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
+import static com.whisky.henallux.whisky.controller.CheckoutController.PANIER;
 
 @Controller
 @RequestMapping(value="/single/{id}")
+@SessionAttributes({"mainPanier"})
 public class SingleController {
     private WhiskyDAO whiskyDAO;
-    private Panier panier;
     private TranslationDAO translationDAO;
     private LanguageDAO languageDAO;
     private ProviderConverter providerConverter;
     private CategorieDAO categorieDAO;
 
     @Autowired
-    public SingleController(WhiskyDAO whiskyDAO, Panier panier, TranslationDAO translationDAO, LanguageDAO languageDAO, ProviderConverter providerConverter, CategorieDAO categorieDAO)
+    public SingleController(WhiskyDAO whiskyDAO, TranslationDAO translationDAO, LanguageDAO languageDAO, ProviderConverter providerConverter, CategorieDAO categorieDAO)
     {
         this.whiskyDAO = whiskyDAO;
-        this.panier = panier;
         this.translationDAO = translationDAO;
         this.languageDAO = languageDAO;
         this.providerConverter = providerConverter;
@@ -49,10 +47,10 @@ public class SingleController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addWhisky(HttpServletRequest request)
+    public String addWhisky(HttpServletRequest request, @ModelAttribute(value = PANIER) Panier mainPanier)
     {
         if (request.getParameter("quantity") != "")
-            panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+            mainPanier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
         return "redirect:/single/{id}";
     }
 

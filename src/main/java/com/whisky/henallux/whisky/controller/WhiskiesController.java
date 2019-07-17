@@ -7,18 +7,16 @@ import com.whisky.henallux.whisky.model.Panier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import static com.whisky.henallux.whisky.controller.CheckoutController.PANIER;
 
 @Controller
 @RequestMapping(value = "/whiskies")
+@SessionAttributes({"mainPanier"})
 public class WhiskiesController {
     private WhiskyDAO whiskyDAO;
-    private Panier panier;
     private List<Whisky> whiskies;
     private String orderName = "ASC";
     private String orderPrice = "ASC";
@@ -28,11 +26,16 @@ public class WhiskiesController {
     private CategorieDAO categorieDAO;
 
     @Autowired
-    public WhiskiesController(WhiskyDAO whiskyDAO, Panier panier, CategorieDAO categorieDAO){
+    public WhiskiesController(WhiskyDAO whiskyDAO, CategorieDAO categorieDAO){
         this.whiskyDAO = whiskyDAO;
         this.whiskies = this.whiskyDAO.getAllWhisky();
-        this.panier = panier;
         this.categorieDAO = categorieDAO;
+    }
+
+    @ModelAttribute(PANIER)
+    public Panier getPanier()
+    {
+        return new Panier();
     }
 
     @RequestMapping
@@ -86,18 +89,18 @@ public class WhiskiesController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addWhisky(Model model,HttpServletRequest request)
+    public String addWhisky(HttpServletRequest request, Model model, @ModelAttribute(value = PANIER) Panier mainPanier)
     {
-        panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        mainPanier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
         if(this.categorie!=null)
             return this.getAllSingleMalt(model,categorie);
         return "redirect:/whiskies";
     }
 
     @RequestMapping(value = "/addIndex", method = RequestMethod.POST)
-    public String addWhisky2(HttpServletRequest request)
+    public String addWhisky2(HttpServletRequest request, @ModelAttribute(value = PANIER) Panier mainPanier)
     {
-        panier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
+        mainPanier.addWhisky(whiskyDAO.getWhiskyById(Integer.parseInt(request.getParameter("whisky"))), Integer.parseInt(request.getParameter("quantity")));
         return "redirect:/index";
     }
 

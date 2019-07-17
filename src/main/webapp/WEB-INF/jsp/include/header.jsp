@@ -33,7 +33,7 @@
                 <div class="cart box_1">
                     <a href="<spring:url value='/checkout'/> ">
                         <h3>
-                            <div class="total"><spring:message code="cart"/> (${panier.countWhisky()}) <fmt:formatNumber value="${panier.totalPriceWhisky()}" type="currency" currencySymbol="&euro;"/></div>
+                            <div class="total"><spring:message code="cart"/> (${mainPanier.countWhisky()}) <fmt:formatNumber value="${mainPanier.totalPriceWhisky()}" type="currency" currencySymbol="&euro;"/></div>
                             <img src="<spring:url value='/images/cart.png' />">
                         </h3>
                     </a>

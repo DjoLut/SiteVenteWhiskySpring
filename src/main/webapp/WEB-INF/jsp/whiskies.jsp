@@ -40,7 +40,7 @@
                         <p class="tun">${whisky.whiskyName}</p>
     
                         <!-- FORM A FAIRE -->
-                        <c:if test="${panier.whiskyAjoutable(whisky) > 0}" >
+                        <c:if test="${mainPanier.whiskyAjoutable(whisky) > 0}" >
                             <form action="/whisky/whiskies/add" method="POST">
                                 <input type="hidden" value="1" name="quantity" />
                                 <input type="hidden" value="${whisky.id}" name="whisky" />
@@ -54,7 +54,7 @@
                             </form>
                         </c:if>
 
-                        <c:if test="${panier.whiskyAjoutable(whisky) <= 0}">
+                        <c:if test="${mainPanier.whiskyAjoutable(whisky) <= 0}">
                             <a href="<spring:url value='/single/${whisky.id}'/>" class="item_add"><p class="number item_price"><spring:message code="outOfStock"/></p></a>
                         </c:if>
                     </div>

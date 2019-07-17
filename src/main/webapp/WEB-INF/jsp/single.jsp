@@ -54,19 +54,19 @@
                     
                     <p></p>
 
-                    <c:if test="${panier.whiskyAjoutable(whisky) > 0}" >
+                    <c:if test="${mainPanier.whiskyAjoutable(whisky) > 0}" >
                         <form action="/whisky/single/${whisky.id}/add" method="POST" onsubmit="return alert('<spring:message code='whiskyAdd'/>')">
-                            <input type="number" min="1" max="${panier.whiskyAjoutable(whisky)}" value="1" name="quantity"
-                                   oninvalid="this.setCustomValidity('<spring:message code="badQuantity"/>${panier.whiskyAjoutable(whisky)}')"
+                            <input type="number" min="1" max="${mainPanier.whiskyAjoutable(whisky)}" value="1" name="quantity"
+                                   oninvalid="this.setCustomValidity('<spring:message code="badQuantity"/>${mainPanier.whiskyAjoutable(whisky)}')"
                                    oninput="this.setCustomValidity('')"
-                                   alt="<spring:message code='badQuantity'/>${panier.whiskyAjoutable(whisky)}"
-                                   title="<spring:message code='badQuantity'/>${panier.whiskyAjoutable(whisky)}">
+                                   alt="<spring:message code='badQuantity'/>${mainPanier.whiskyAjoutable(whisky)}"
+                                   title="<spring:message code='badQuantity'/>${mainPanier.whiskyAjoutable(whisky)}">
                             <input type="hidden" value="${whisky.id}" name="whisky">
                             <div class="clearfix"> </div>
                             <input type="submit" value="<spring:message code="add"/>" id="login"/>
                         </form>
                     </c:if>
-                    <c:if test="${panier.whiskyAjoutable(whisky) == 0}">
+                    <c:if test="${mainPanier.whiskyAjoutable(whisky) == 0}">
                         <p><spring:message code="outOfStock"/></p>
                     </c:if>
 
