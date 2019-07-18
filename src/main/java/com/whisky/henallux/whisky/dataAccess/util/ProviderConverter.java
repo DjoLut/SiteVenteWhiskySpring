@@ -37,7 +37,7 @@ public class ProviderConverter {
         user.setCredentials_non_expired(userEntity.isCredentialsNonExpired());
         user.setEmail(userEntity.getEmail());
         user.setEnabled(userEntity.isEnabled());
-        user.setFirstname(userEntity.getLastname());
+        user.setFirstname(userEntity.getFirstname());
         user.setLastname(userEntity.getLastname());
         user.setNon_expired(userEntity.isAccountNonExpired());
         user.setNon_locked(userEntity.isAccountNonLocked());
