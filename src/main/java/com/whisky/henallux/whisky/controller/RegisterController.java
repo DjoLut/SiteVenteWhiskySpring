@@ -2,6 +2,7 @@ package com.whisky.henallux.whisky.controller;
 
 import com.whisky.henallux.whisky.dataAccess.dao.CategorieDAO;
 import com.whisky.henallux.whisky.exception.AlreadyLoginException;
+import com.whisky.henallux.whisky.model.Panier;
 import com.whisky.henallux.whisky.validator.UserValidator;
 import com.whisky.henallux.whisky.dataAccess.dao.UserDAO;
 import com.whisky.henallux.whisky.model.User;
@@ -12,11 +13,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import static com.whisky.henallux.whisky.controller.CheckoutController.PANIER;
 
 @Controller
 @RequestMapping(value="/register")
+@SessionAttributes({"mainPanier"})
 public class RegisterController {
 
     private UserDAO userDAO;
@@ -29,6 +33,12 @@ public class RegisterController {
         this.userDAO = userDAO;
         this.userValidator = userValidator;
         this.categorieDAO = categorieDAO;
+    }
+
+    @ModelAttribute(PANIER)
+    public Panier getPanier()
+    {
+        return new Panier();
     }
 
     @RequestMapping(method = RequestMethod.GET)

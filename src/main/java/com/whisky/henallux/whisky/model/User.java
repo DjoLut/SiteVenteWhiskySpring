@@ -1,6 +1,7 @@
 package com.whisky.henallux.whisky.model;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import javax.validation.constraints.NotNull;
@@ -13,21 +14,21 @@ import java.util.List;
 import static org.springframework.util.StringUtils.isEmpty;
 
 public class User {
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 30)
     private String username;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 30)
     private String password;
 
     private String authorities;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 50)
     private String firstname;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 3, max = 60)
     private String lastname;
 
@@ -36,7 +37,7 @@ public class User {
     @Pattern(regexp="^[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]{2,6}$")
     private String email;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 10, max = 200)
     private String adresse;
 
@@ -48,6 +49,9 @@ public class User {
     private Boolean non_locked;
     private Boolean credentials_non_expired;
     private Boolean enabled;
+
+    @NotEmpty
+    @Size(min = 3, max = 30)
     private String confPassword;
 
     public User(){}
