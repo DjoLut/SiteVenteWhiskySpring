@@ -28,7 +28,7 @@ public class RegisterController {
     private CategorieDAO categorieDAO;
 
     @Autowired
-    public RegisterController(UserDAO userDAO,UserValidator userValidator, CategorieDAO categorieDAO)
+    public RegisterController(UserDAO userDAO, UserValidator userValidator, CategorieDAO categorieDAO)
     {
         this.userDAO = userDAO;
         this.userValidator = userValidator;
