@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProviderConverter {
-    private Mapper mapper = new DozerBeanMapper();
+    //private Mapper mapper = new DozerBeanMapper();
 
     //METHODE POUR CONVERTIR UN OBJET DE TYPE USERENTITY EN OBJET DE TYPE USER
     /*public UserEntity userModelToUserEntity(User user) { return mapper.map(user, UserEntity.class); }

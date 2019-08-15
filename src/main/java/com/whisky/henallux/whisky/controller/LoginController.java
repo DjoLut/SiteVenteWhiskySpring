@@ -7,11 +7,9 @@ import com.whisky.henallux.whisky.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
 import javax.servlet.http.HttpServletRequest;
 import static com.whisky.henallux.whisky.controller.CheckoutController.PANIER;
 
@@ -48,9 +46,10 @@ public class LoginController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public void getUserAuth(Authentication authentication)
+    public String getUserAuth(Authentication authentication)
     {
         authentication.getPrincipal();
+        return "redirect:/index";
     }
 
 }
