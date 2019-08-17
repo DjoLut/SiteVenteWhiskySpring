@@ -53,8 +53,13 @@ create table whiskyproject.whisky(
     categorie varchar(50),
     img varchar(50),
     price double(10,2),
-    promotion double(15,2),
-    constraint categorie foreign key(categorie) references whiskyproject.categorie(nom)
+    promotion double(5,2),
+    constraint categorie foreign key(categorie) references whiskyproject.categorie(nom),
+    constraint check_age check(age=null||(age>=0&&age<999)),
+    constraint check_alcoholcontent check(alcoholcontent=null||(alcoholcontent>=0&&alcoholcontent<=100)),
+    constraint check_volume check(volume=null||(volume>0&&volume<999999)),
+    constraint check_price check(price=null||price>0),
+    constraint check_promotion check(promotion=null||(promotion>=0 ||promotion<=100))
 );
 
 create table whiskyproject.commandline(
@@ -65,7 +70,8 @@ create table whiskyproject.commandline(
     whisky int(65) not null,
     primary key(id),
     constraint whiskyorder foreign key(whiskyorder) references whiskyproject.whiskyorder(id),
-    constraint whisky foreign key(whisky) references whiskyproject.whisky(id)
+    constraint whisky foreign key(whisky) references whiskyproject.whisky(id),
+    check(quantity > 0)
 );
 
 create table whiskyproject.langue(
