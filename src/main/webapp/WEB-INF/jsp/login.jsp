@@ -7,7 +7,7 @@
 		<div class="account-pass">
 		<div class="col-md-8 account-top">
 			<c:if test="${param.error == 'true'}">
-				<div style="color: red";>
+				<div style="color: red">
 					<spring:message code="loginfailed"/><br />
 					<spring:message code="badUserOrPass"/>
 				</div>

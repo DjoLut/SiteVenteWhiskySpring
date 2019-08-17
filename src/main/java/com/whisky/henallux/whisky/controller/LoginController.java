@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
-
 import javax.servlet.http.HttpServletRequest;
 import static com.whisky.henallux.whisky.controller.CheckoutController.PANIER;
 

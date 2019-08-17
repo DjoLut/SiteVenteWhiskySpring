@@ -78,7 +78,7 @@
                             <input type="hidden" name="currency_code" value="EUR">
 
                             <input type="hidden" name="return" value="http://localhost:8082/whisky/payementOk">
-                            <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/payementOk">
+                            <input type="hidden" name="cancel_return" value="http://localhost:8082/whisky/checkout">
 
                             <input id="validate" type="image" name="submit"
                                    src="https://www.paypalobjects.com/<spring:message code='urlLanguage'/>/i/btn/btn_buynow_LG.gif"
