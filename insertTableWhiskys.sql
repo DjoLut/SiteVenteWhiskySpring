@@ -6,6 +6,8 @@ insert into whiskyproject.categorie(nom) value('Bourbon');
 insert into whiskyproject.categorie(nom) value('Rye');
 insert into whiskyproject.categorie(nom) value('Whisky de Blé Noir');
 insert into whiskyproject.categorie(nom) value('Blend');
+insert into whiskyproject.categorie(nom) value('Risc');
+
 
 
 insert into whiskyproject.whisky(id,whiskyname,img,categorie,alcoholcontent,volume, country, price, promotion, stockquantity) value(1,'Nikka Pure Malt Black','nikka-pure-malt-black.jpg','Blended Malt',43,50,'Japon',49.50,10.0, 3 );
@@ -173,3 +175,6 @@ value ('etu32766', '$2a$10$IuqxaLw1v.zkSG8zRtN7CeutqG5lqom9XW9tLqYXm.n9QhCIzY1am
 
 delete from whiskyproject.PERSISTABLE_USER
 where username = 'jdo';
+
+
+delete from whiskyproject.categorie where nom = "Risc";

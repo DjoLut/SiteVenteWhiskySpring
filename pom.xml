@@ -11,6 +11,28 @@
 	<name>whiskyEntity</name>
 	<description>Whisky project</description>
 
+	<developers>
+		<developer>
+			<id>PhilP</id>
+			<name>Philipin Pierre</name>
+			<email>etu25417@student.henallux.be</email>
+			<organization>HENALLux</organization>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>LutgJ</id>
+			<name>Lutgen Jordan</name>
+			<email>etu32766@student.henallux.be</email>
+			<organization>HENALLux</organization>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

@@ -32,18 +32,6 @@ public class UserDAO {
         this.providerConverter = providerConverter;
     }
 
-    //METHODE POUR AVOIR TOUT LES USERNAMES
-    public ArrayList<String> getUsername()
-    {
-        List<UserEntity> userEntity = userRepository.findAll();
-        ArrayList<String> users = new ArrayList<>();
-        for(UserEntity entity : userEntity)
-        {
-            users.add(entity.getUsername());
-        }
-        return users;
-    }
-
     //METHODE QUI ENREGISTRE UN nouveau USER DANS LA BD
     public void saveNewUser(User user){
         user.setCredentials_non_expired(true);

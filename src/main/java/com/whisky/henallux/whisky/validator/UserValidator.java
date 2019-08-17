@@ -15,7 +15,7 @@ public class UserValidator implements Validator {
     private UserDetailsServiceImplementation userService;
 
     private static final Pattern pMail = Pattern.compile("[a-z|A-Z|0-9|\\-|\\.|\\_]+\\@([a-z|A-Z|0-9|\\-|\\.]+)\\.([a-z|A-Z]{2,4})");
-    private static final Pattern pTelephone = Pattern.compile("(0|((00|\\+)[0-9]{2}))?(\\/|\\.|\\-|\\ )?" +
+    private static final Pattern pTelephone = Pattern.compile("(0|((00|\\+)[0-9]{2,3}))?(\\/|\\.|\\-|\\ )?" +
             "[0-9]{2,3}(\\/|\\.|\\-|\\ )?" +
             "((([0-9]{2}(\\/|\\.|\\-|\\ )?){3,4})|(([0-9]{3}(\\/|\\.|\\-|\\ )?){2,3}))");
 

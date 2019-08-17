@@ -39,7 +39,7 @@ public class User {
     private String adresse;
 
     @NotEmpty
-    @Pattern(regexp = "([0-9]{2} ){4}[0-9]{2}")
+    @Pattern(regexp = "(0|((00|\\\\+)[0-9]{2,3}))?(\\\\/|\\\\.|\\\\-|\\\\ )?[0-9]{2,3}(\\\\/|\\\\.|\\\\-|\\\\ )?((([0-9]{2}(\\\\/|\\\\.|\\\\-|\\\\ )?){3,4})|(([0-9]{3}(\\\\/|\\\\.|\\\\-|\\\\ )?){2,3}))")
     private String telephone;
 
     private Boolean non_expired;
