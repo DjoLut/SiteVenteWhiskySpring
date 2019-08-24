@@ -21,16 +21,14 @@ public class SingleController {
     private WhiskyDAO whiskyDAO;
     private TranslationDAO translationDAO;
     private LanguageDAO languageDAO;
-    private ProviderConverter providerConverter;
     private CategorieDAO categorieDAO;
 
     @Autowired
-    public SingleController(WhiskyDAO whiskyDAO, TranslationDAO translationDAO, LanguageDAO languageDAO, ProviderConverter providerConverter, CategorieDAO categorieDAO)
+    public SingleController(WhiskyDAO whiskyDAO, TranslationDAO translationDAO, LanguageDAO languageDAO, CategorieDAO categorieDAO)
     {
         this.whiskyDAO = whiskyDAO;
         this.translationDAO = translationDAO;
         this.languageDAO = languageDAO;
-        this.providerConverter = providerConverter;
         this.categorieDAO = categorieDAO;
     }
 
@@ -40,8 +38,8 @@ public class SingleController {
         model.addAttribute("whisky", whiskyDAO.getWhiskyById(id));
         String languageid = locale.toString();
         model.addAttribute("translation", translationDAO.getTranslationByWhiskyidAndLanguageid(
-                providerConverter.whiskyToWhiskyEntity(whiskyDAO.getWhiskyById(id)),
-                providerConverter.languageToLanguageEntity(languageDAO.getLanguageById(languageid))));
+                whiskyDAO.getWhiskyById(id),
+                languageDAO.getLanguageById(languageid)));
         model.addAttribute("categorie", categorieDAO.getAllCategorie());
         return "integrated:single";
     }

@@ -177,4 +177,4 @@ delete from whiskyproject.PERSISTABLE_USER
 where username = 'jdo';
 
 
-delete from whiskyproject.categorie where nom = "Risc";
+/*delete from whiskyproject.categorie where nom = "Risc";*/
